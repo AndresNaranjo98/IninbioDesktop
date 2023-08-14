@@ -1,0 +1,123 @@
+{
+    "INICIARSESION": "Anmeldung",
+    "REGISTRARSE": "Sich Einschreiben",
+    "RECUPERARCONTRASENA": "Haben Sie Ihr Passwort vergessen?",
+    "USUARIO": "Benutzer",
+    "CONTRASEÑA": "Passwort",
+    "ALERTAOLVIDOCONTRA": {
+      "HEADERALERT": "Bitte geben Sie die E-Mail-Adresse ein, die Sie mit Ihrem Konto verknüpft haben",
+      "PLACEHOLDER": "E-Mail Adresse",
+      "BUTONENVIAR" : "Senden Sie"
+    },
+    "VALIDACION" : "Ungültiger Benutzername/Passwort", 
+    "MENSAJEINICIO" : "Einloggen...",
+    "BIENVENIDA" : "Willkommen",
+    "ESPACIO" : " ",
+    "FALLOINICIO" : "Anmeldung fehlgeschlagen",
+    "FORMULARIOREGISTRO" : {
+        "FORMULARIO" : "Formular",
+        "INGRESEDATOS" : "Geben Sie Ihre Daten ein",
+        "NOMBRE" : "Namen",
+        "APELLIDOS" : "Nachname",
+        "CORREO" : "E-Mail Adresse",
+        "CONTRASEÑA" : "Passwort",
+        "USUARIO" : "Name des Benutzers",
+        "TEQUILERA" : "Fabrik",
+        "REGISTRARSE" :"Sich Einschreiben"
+    },
+    "CONEXIONINTERNET" : {
+      "HEADER" : "Sie haben keine Internetverbindung",
+      "MENSAJE" : "Überprüfen Sie Ihre Wi-fi/Mobildatenverbindung"
+    },
+    "VALIDACIONCAMPOSREGISTRO" : {
+      "TEXTOS" : "Dieses Feld erfordert mindestens 2 Zeichen.",
+      "CONTRASEÑA" : "Ihr Passwort muss mindestens 2 Zeichen enthalten.",
+      "CORREO" : "* Die E-Mail Adresse ist ungültig."
+    },
+    "OPCIONESMENU" : {
+      "OPCIONES" : "Optionen",
+      "FERJUAGAVE" : "Fermentierung von Agavensaft",
+      "CERRARSESION" : "Abmelden",
+      "CATALOGO" : "Ininbio Katalog"
+    },
+    "PDFCATALOGO" : {
+      "MEZCAL" : "Mezcal",
+      "TEQUILA" : "Tequila",
+      "VINO" : "Wine",
+      "DESCARGA" : "Datei erfolgreich heruntergeladen"
+    },
+    "ALERTAINACTIVO" : {
+      "HEADER" : "Sitzung wurde wegen Inaktivität beendet",
+      "MENSAJE" : "Aus Sicherheitsgründen werden Sie auf die Anmeldeseite weitergeleitet." 
+    },
+    "ALERTASVALORES" : {
+      "HEADERTEMP1" : "Die Wannen",
+      "HEADERTEMP2" : "eine beträchtliche Schwankung der Temperatur aufweisen",
+      "MENSAJETEMP" : "Vorbeugende Maßnahmen werden empfohlen",
+      "HEADERPH1" : "Die Wannen",
+      "HEADERPH2" : "haben eine beträchtliche Schwankung ihres pH-Wertes",
+      "MENSAJEPH" : "Vorbeugende Maßnahmen werden empfohlen",
+      "HEADERBRIX1" : "Die Wannen",
+      "HEADERBRIX2" : "keine Veränderung der °Brix",
+      "MENSAJEBRIX" : "Vorbeugende Maßnahmen werden empfohlen"
+    },
+    "CERRARSESION" : {
+      "HEADER" : "Abmelden",
+      "MENSAJE" : "Möchten Sie die Anwendung beenden?",
+      "SI" : "Ja",
+      "NO" : "Nein"
+    },
+    "PANTGRAF" : {
+      "GRAFICOS" : "Grafiken",
+      "ETIQUETAPORCENT" : "Effizienz der Gärung",
+      "DESCARGARXLSX" : "Tabellenkalkulation herunterladen",
+      "GRAFICATEMP" : "Temperatur-Grafik",
+      "GRAFICAPH" : "pH-Grafik",
+      "GRAFICABRIX" : "Grafik °Brix",
+      "GRAFICALCVOL" : "Grafik %Alc.Vol",
+      "GRAFICAEFI" : "Schaubild zum Wirkungsgrad der Fermentation"
+    },
+    "DATOSGRAFICAS" : {
+      "TITULO" : "Echtzeit-Messungen",
+      "VALORES" : "Werte",
+      "HORA" : "Zeitpunkt der Messung",
+      "ETITEMP" : "Temperatur",
+      "ETIEFI" : "Wirkungsgrad",
+      "ETIALC" : "Alkoholgehalt"
+    },
+    "ALERTAREGISTRO" : {
+      "HEADER" : "Konfirmation",
+      "MESSAGE" : "Benutzer erfolgreich registriert",
+      "HEADER1" : "Fehler",
+      "MESSAGE1" : "Der Benutzer existiert bereits, versuchen Sie es erneut"
+    },
+    "ALERTAENVIOCORREO" : {
+      "HEADER" : "Fehler",
+      "SUBHEADER" : "Die angegebene E-Mail-Adresse ist nicht mit einem Nutzer verknüpft.",
+      "MESSAGE" : "Erneut versuchen",
+      "HEADER1" : "Konfirmation",
+      "SUBHEADER1" : "Mail erfolgreich gesendet"
+    },
+    "VALIDACIONCORREO" : {
+      "HEADER" : "Fehler",
+      "SUBHEADER" : "Bitte geben Sie eine gültige E-Mail Adresse ein"
+    },
+    "INFOREXCEL" : {
+      "TITULO" : "Eintragungen Tina Nr."
+    },
+    "IDTINA": {
+      "ID" : "Tina Nr."
+    },
+    "ALERTATEQUILERA" : {
+      "HEADER" : "Fehler",
+      "MESSAGE" : "Tequilera nicht gefunden, versuchen Sie es erneut"
+    },
+    "FECHASEXCEL" : {
+      "ERROR" : "Fehler",
+      "FECHAS" : "Geben Sie die erforderlichen Daten für Ihren Bericht ein",
+      "GENERAR" : "Bericht generieren",
+      "PERIODO" : "Zeitspanne",
+      "INGRESARFECHAS" : "Geben Sie die Daten ein, um Ihren Bericht zu erhalten"
+    }
+  }
+  

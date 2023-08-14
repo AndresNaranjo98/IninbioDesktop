@@ -1,0 +1,58 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot = "start">
+      <ion-back-button defaultHref="/login"></ion-back-button>
+    </ion-buttons>    
+    <ion-title>{{"FORMULARIOREGISTRO.FORMULARIO" | translate}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <br>
+  <ion-icon name="person-circle-outline" id="icono"></ion-icon>
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title> {{"FORMULARIOREGISTRO.INGRESEDATOS" | translate}} </ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+  <form [formGroup]="ionicForm" (ngSubmit) = "onSubmit()" novalidate>
+    <ion-item lines="full">
+      <ion-input class="letras" placeholder = "{{'FORMULARIOREGISTRO.NOMBRE' | translate}}" type="text" name = "nombre" formControlName="nombre" required></ion-input>
+    </ion-item>
+    <ion-label color="danger" *ngIf="ionicForm.controls.nombre.errors?.minlength && (ionicForm.touched || ionicForm.dirty)">{{"VALIDACIONCAMPOSREGISTRO.TEXTOS" | translate}}</ion-label>
+    
+    <ion-item lines="full">
+      <ion-input class="letras" placeholder = "{{'FORMULARIOREGISTRO.APELLIDOS' | translate}}" type="text" name = "apellidos" formControlName="apellidos" required></ion-input>
+    </ion-item> 
+    <ion-label color="danger" *ngIf="ionicForm.controls.apellidos.errors?.minlength && (ionicForm.touched || ionicForm.dirty)">{{"VALIDACIONCAMPOSREGISTRO.TEXTOS" | translate}}</ion-label>
+
+    <ion-item lines="full">
+      <ion-input class="letras" placeholder = "{{'FORMULARIOREGISTRO.CORREO' | translate}}" type="email" name = "correo" formControlName="correo" required></ion-input>
+    </ion-item>
+    <ion-label color="danger" *ngIf="ionicForm.controls.correo.errors?.pattern && (ionicForm.touched || ionicForm.dirty)">{{"VALIDACIONCAMPOSREGISTRO.CORREO" | translate}}</ion-label>
+
+    <ion-item lines="full"> 
+      <ion-input class="letras" placeholder = "{{'FORMULARIOREGISTRO.CONTRASEÑA' | translate}}" [type]="submit" name = "contrasena" formControlName="contrasena" required></ion-input>
+      <ion-icon [name]="passwordIcon" (click)='hideShowPassword()'></ion-icon>
+    </ion-item>
+    <ion-label color="danger" *ngIf="ionicForm.controls.contrasena.errors?.minlength && (ionicForm.touched || ionicForm.dirty)">{{"VALIDACIONCAMPOSREGISTRO.CONTRASEÑA" | translate}}</ion-label>
+
+    <ion-item lines="full">
+      <ion-input class="letras" placeholder = "{{'FORMULARIOREGISTRO.USUARIO' | translate}}" type="text" name = "nombre_usuario" formControlName="nombre_usuario" required></ion-input>
+    </ion-item> 
+    <ion-label color="danger" *ngIf="ionicForm.controls.nombre_usuario.errors?.minlength && (ionicForm.touched || ionicForm.dirty)">{{"VALIDACIONCAMPOSREGISTRO.TEXTOS" | translate}}</ion-label>
+    
+    <ion-item lines="full">
+      <ion-input class="letras" placeholder = "{{'FORMULARIOREGISTRO.TEQUILERA' | translate}}" type="text" name = "id_tequilera" formControlName="id_tequilera" required></ion-input>
+    </ion-item> 
+    <ion-label color="danger" *ngIf="ionicForm.controls.id_tequilera.errors?.minlength && (ionicForm.touched || ionicForm.dirty)">{{"VALIDACIONCAMPOSREGISTRO.TEXTOS" | translate}}</ion-label> 
+
+    <br>
+    <ion-row>
+      <ion-col>
+        <ion-button type="submit" class = "registro" expand="block" [disabled]="!ionicForm.valid">{{"FORMULARIOREGISTRO.REGISTRARSE" | translate}}</ion-button>
+      </ion-col>
+    </ion-row> 
+  </form>
+</ion-card-content>
+</ion-card> 
+</ion-content>

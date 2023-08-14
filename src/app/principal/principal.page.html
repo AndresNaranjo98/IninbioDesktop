@@ -1,0 +1,22 @@
+<ion-buttons slot="start">
+  <ion-button (click)="openMenu()">
+    <ion-icon slot="icon-only" name="menu"></ion-icon>
+  </ion-button>
+</ion-buttons>
+
+<ion-menu side="start" menuId="first" contentId="main">
+  <ion-header>
+    <ion-toolbar>
+      <ion-title>Opciones</ion-title>
+    </ion-toolbar> 
+  </ion-header>
+  <ion-content class="menu">
+    <ion-list>
+      <ion-item [routerLink] = "['/inicio']"><ion-icon name="flask-outline"></ion-icon> Fermentación Melaza </ion-item>
+      <ion-item><ion-icon name="beer-outline"></ion-icon> Fermentación Jugo de Agave </ion-item>
+      <ion-item button (click)="showConfirm()"><ion-icon name="log-in-outline"></ion-icon> Cerrar Sesión </ion-item>
+    </ion-list>
+  </ion-content>  
+</ion-menu>
+<ion-router-outlet id="main"></ion-router-outlet>
+<ion-content class="background"></ion-content>

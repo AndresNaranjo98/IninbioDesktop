@@ -1,0 +1,65 @@
+<div id="pantalla-dividida">
+
+  <div id="izquierda">
+    <img src='assets\imagenes\fondoadn.png' id="imagen">
+    <div class="fondo2">
+      <img src='assets\imagenes\fondotinascel.png' id="imagenLogo">
+    </div>
+  </div>
+  <div id="derecha">
+    <ion-content fullscreen style="--background: rgb(0, 0, 0);">
+      <ion-card class="transparente">
+        <ion-card-content>
+          <form #form="ngForm" [formGroup]="loginForm" (submit)="onSubmit(form)">
+            <div *ngIf="showError">{{"VALIDACION" | translate}}</div>
+          <ion-item class = "transparencia">
+            <ion-input class="transparencia" type="text" placeholder = "{{'USUARIO' | translate}}" formControlName="nombre_usuario" name = "nombre_usuario" required></ion-input>
+          </ion-item>
+          <ion-item class = "transparencia">
+              <ion-input class="transparencia" placeholder = "{{'CONTRASEÑA' | translate}}" formControlName="contrasena" [type]="submit" name = "contrasena" required></ion-input>
+              <ion-icon [name]="passwordIcon" (click)='hideShowPassword()'></ion-icon>
+          </ion-item>
+          <br>
+            <ion-button expand="block" class = "sesion" [type]="submit" [disabled]="!loginForm.valid"> {{"INICIARSESION" | translate}} </ion-button>
+            <ion-button expand="block" class = "registro" [routerLink]="['../registro']"> {{"REGISTRARSE" | translate}} </ion-button>
+            <!-- <ion-item class="transparencia">
+            <ion-label id="boton" (click)="restContra()"><p class="textoFont">{{"RECUPERARCONTRASENA" | translate}}</p></ion-label>
+            </ion-item> -->
+                  <!-- <ion-item class="traductor" lines="none">
+                    <ion-icon name="language"></ion-icon>
+                    <ion-select [(ngModel)]="selectedLanguage" (ionChange)="languageChanged()" [ngModelOptions]="{standalone: true}">
+                      <ion-select-option value="en">English</ion-select-option>
+                      <ion-select-option value="de">Deutsch</ion-select-option>
+                      <ion-select-option value="es">Español</ion-select-option>
+                    </ion-select>
+                  </ion-item> -->
+                  <ion-grid>
+                    <ion-row>
+                      <ion-col>
+                        <div style="display: flex; justify-content: center;">
+                          <ion-item class="traductor" lines="none">
+                            <ion-icon name="language"></ion-icon>
+                            <ion-select [(ngModel)]="selectedLanguage" (ionChange)="languageChanged()" [ngModelOptions]="{standalone: true}">
+                              <ion-select-option value="en">English</ion-select-option>
+                              <ion-select-option value="de">Deutsch</ion-select-option>
+                              <ion-select-option value="es">Español</ion-select-option>
+                            </ion-select>
+                          </ion-item>
+                        </div>
+                      </ion-col>
+                      <ion-col>
+                        <div style="display: flex; justify-content: center;">
+                          <ion-item class="transparencia">
+                            <ion-label id="boton" (click)="restContra()"><p class="textoFont">{{"RECUPERARCONTRASENA" | translate}}</p></ion-label>
+                          </ion-item>
+                        </div>
+                      </ion-col>
+                    </ion-row>
+                  </ion-grid>
+          </form>
+          </ion-card-content> 
+      </ion-card>
+      </ion-content> 
+  </div>
+
+</div>

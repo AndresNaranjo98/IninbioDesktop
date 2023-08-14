@@ -1,0 +1,16 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot = "start">
+      <ion-back-button defaultHref="/charts"></ion-back-button>
+    </ion-buttons>
+    <ion-title>{{"PANTGRAF.GRAFICALCVOL" | translate}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content class="fondo"> 
+    <ion-card class="graficas">
+      <ion-card-header>
+      </ion-card-header>
+      <ion-spinner *ngIf="showSpinner" id="cargador" name="circles"></ion-spinner>
+      <div id="alcvol" style="display: block;"></div>
+    </ion-card>
+</ion-content>

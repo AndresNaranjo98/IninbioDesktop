@@ -1,0 +1,44 @@
+<ion-content class="fondo">
+  <ion-toolbar class="fondo">
+  <ion-buttons>
+  <ion-button class="fondo" (click)="openMenu1()" fill="outline">
+    <ion-icon name="menu-sharp" slot="icon-only" style="color: black;"></ion-icon>
+  </ion-button>
+</ion-buttons>
+</ion-toolbar>
+
+<ion-menu side="start" menuId="second" contentId="main1" class="menu">
+  <ion-header>
+    <ion-toolbar class="color">
+      <ion-title>{{"OPCIONESMENU.OPCIONES" | translate}}</ion-title>
+    </ion-toolbar> 
+  </ion-header>
+  <ion-content class="menu">
+    <ion-list>
+      <ion-item><ion-icon name="beer-outline" slot="start"></ion-icon> {{"OPCIONESMENU.FERJUAGAVE" | translate}} </ion-item>
+      <ion-item button (click)="showConfirm()"><ion-icon name="log-in-outline" slot="start"></ion-icon> {{"OPCIONESMENU.CERRARSESION" | translate}} </ion-item>
+    </ion-list>
+  </ion-content>  
+  <ion-item class="color">
+    <ion-icon name="book-outline" slot="start"></ion-icon>
+    <ion-label>{{"OPCIONESMENU.CATALOGO" | translate}}</ion-label>
+      <ion-select interface="action-sheet" [(ngModel)]="opcion" (ionChange)="opcionCatalogo(opcion)">
+        <ion-select-option value="mezcal">{{"PDFCATALOGO.MEZCAL" | translate}}</ion-select-option>
+        <ion-select-option value="tequila">{{"PDFCATALOGO.TEQUILA" | translate}}</ion-select-option>
+        <ion-select-option value="vino">{{"PDFCATALOGO.VINO" | translate}}</ion-select-option>
+      </ion-select>
+  </ion-item>
+</ion-menu>
+<ion-router-outlet id="main1"></ion-router-outlet>
+<ion-grid>
+  <ion-row style="display: flex; justify-content: center;">
+    <ion-col size="4" size-md="2" size-lg="2" class="padding" style="color: black; text-align: center;" *ngFor="let card of [].constructor(numberOfCards); let i = index;">
+      {{i+1}}
+      <ion-card [routerLink]="['/charts']" (click)="idTina(i+1)">
+        <img src="assets\imagenes\tina.png" alt="ion" class="tina">
+      </ion-card>
+    </ion-col>
+  </ion-row>
+</ion-grid>
+<!-- <img src="assets\imagenes\logo_sistema.png" alt="ion" class="logoIninbio"> -->
+</ion-content>

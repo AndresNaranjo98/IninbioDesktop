@@ -1,0 +1,34 @@
+ion-card-title { 
+    text-align: center !important; 
+}
+
+ion-toolbar{
+    --text-align: center;
+    --background: #94b8d7;
+  }
+
+  ion-button.registro{
+    --text-align: center;
+    --background: #02253d;
+  }
+
+  ion-content {
+    //--background: url('/assets/imagenes/fondo.png') 0 0/100% 100% no-repeat;
+    //--background-attachment: fixed !important;
+  }  
+
+  .transparente {
+    background: rgba(255, 255, 255, 0);
+    top : 35px;
+    box-shadow: none;
+  }
+
+  ion-card {
+    width:40%;
+    left:28%;
+  }
+
+  #icono {
+    width: 98%;
+    height: 25%;
+  }

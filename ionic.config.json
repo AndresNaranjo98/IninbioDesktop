@@ -1,0 +1,8 @@
+{
+  "name": "IninbioApp",
+  "integrations": {
+    "cordova": {},
+    "capacitor": {}
+  },
+  "type": "angular"
+}

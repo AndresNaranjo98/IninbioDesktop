@@ -1,0 +1,292 @@
+    ion-card-title.color1{
+        --color :	#0833a2; 
+        --text-align : 'center';
+    }
+    ion-card-title.color2{
+        --color : #14faff; 
+        --text-align : 'center';
+    }
+    ion-card-title.color3{
+        --color : #edff14; 
+        --text-align : 'center';
+    }
+    ion-card-title.color4{
+        --color : #ff14ff; 
+        --text-align : 'center';
+    }
+    ion-card-title.color5{
+        --color : #1eff05; 
+        --text-align : 'center';
+    }
+
+ion-toolbar{
+    --text-align: center;
+    --background: #94b8d7;
+  }
+
+  ion-back-button {
+    --color: #fff;
+  }
+
+  ion-button{
+    --background: #94b8d7;
+  }
+
+  ion-card-subtitle {
+    --color : #ffffff;
+  }
+
+  ion-button[shape=circle] {
+    --border-radius: 50%;
+    width: 20px;
+    height: 30px;
+   // --background : #ffffff;
+}
+
+ion-button.rojo{
+  --background : #ffffff;
+}
+
+#circuloRojo {
+  
+  background-color: #ce1127;
+  height:20px;
+  width:20px;
+  position:absolute;
+  left:30%;
+  top:90%;
+  -moz-border-radius:50px;
+  -webkit-border-radius:50px;
+  border-radius:50px;
+}
+
+#circuloAmarillo {
+  
+  background-color: #FFFB00;
+  height:20px;
+  width:20px;
+  position:absolute;
+  left:49%;
+  top:90%;
+  -moz-border-radius:50px;
+  -webkit-border-radius:50px;
+  border-radius:50px;
+}
+
+#circuloVerde {
+  
+  background-color: #00FF00;
+  height:20px;
+  width:20px;
+  position:absolute;
+  left:67%;
+  top:90%;
+  -moz-border-radius:50px;
+  -webkit-border-radius:50px;
+  border-radius:50px;
+}
+
+#circuloRojo1 {
+  
+  background-color: #ce1127;
+  height:20px;
+  width:20px;
+  position:absolute;
+  left:35%;
+  top:80%;
+  -moz-border-radius:50px;
+  -webkit-border-radius:50px;
+  border-radius:50px;
+}
+
+#circuloAmarillo1 {
+  
+  background-color: #FFFB00;
+  height:20px;
+  width:20px;
+  position:absolute;
+  left:47%;
+  top:80%;
+  -moz-border-radius:50px;
+  -webkit-border-radius:50px;
+  border-radius:50px;
+}
+
+#circuloVerde1 {
+  
+  background-color: #00FF00;
+  height:20px;
+  width:20px;
+  position:absolute;
+  left:59%;
+  top:80%;
+  -moz-border-radius:50px;
+  -webkit-border-radius:50px;
+  border-radius:50px;
+}
+
+#circuloRojo2 {
+  
+  background-color: #ce1127;
+  height:20px;
+  width:20px;
+  position:absolute;
+  left:35%;
+  top:93%;
+  -moz-border-radius:50px;
+  -webkit-border-radius:50px;
+  border-radius:50px;
+}
+
+#circuloAmarillo2 {
+  
+  background-color: #FFFB00;
+  height:20px;
+  width:20px;
+  position:absolute;
+  left:47%;
+  top:93%;
+  -moz-border-radius:50px;
+  -webkit-border-radius:50px;
+  border-radius:50px;
+}
+
+#circuloVerde2 {
+  
+  background-color: #00FF00;
+  height:20px;
+  width:20px;
+  position:absolute;
+  left:59%;
+  top:93%;
+  -moz-border-radius:50px;
+  -webkit-border-radius:50px;
+  border-radius:50px;
+}
+
+.parpadea {
+  
+  animation-name: parpadeo;
+  animation-duration: 1s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+
+  -webkit-animation-name:parpadeo;
+  -webkit-animation-duration: 1s;
+  -webkit-animation-timing-function: linear;
+  -webkit-animation-iteration-count: infinite;
+}
+
+@-moz-keyframes parpadeo{  
+  0% { opacity: 1.0; }
+  50% { opacity: 0.0; }
+  100% { opacity: 1.0; }
+}
+
+@-webkit-keyframes parpadeo {  
+  0% { opacity: 1.0; }
+  50% { opacity: 0.0; }
+   100% { opacity: 1.0; }
+}
+
+@keyframes parpadeo {  
+  0% { opacity: 1.0; }
+   50% { opacity: 0.0; }
+  100% { opacity: 1.0; }
+}
+#container {
+  height: 101%;
+}
+#boton {
+  width: 50%;
+  margin-left: auto;
+  margin-right: auto;
+}
+ion-item{
+  left: auto;
+}
+
+ion-content {
+  height: 70%;
+  width: 100%;
+  background-color: #ffffff;
+}
+
+#grafica {
+  height: 70%;
+--background : #ffffff;
+//background-color: rgb(0, 0, 0);
+}
+
+.fondo {
+  --background: #ffffff;
+  --color : #ffffff;
+}
+
+.graficas {
+  --background : #ffffff;
+}
+
+.fondoBlanco {
+  --background : #ffffff;
+  cursor: pointer;
+}
+
+.letras {
+  --color : #000000;
+}
+
+.toggle{
+  --background : #000000;
+}
+
+.contenido {
+  --background: #ffffff;
+  --border-color : transparent;
+}
+
+#spinner {
+  color: #0833a2;
+  top: 30vh;
+  left: 50%;
+  transform: scale(1.5);
+}
+
+table thead tr th {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  background-color: #fff; /* opcional */
+}
+
+@media screen and (max-width: 480px) {
+  #grafica {
+    max-width: 100%;
+    max-height: 100%;
+    }
+
+  #boton {
+    margin-top: 0%;
+    width: 70%;
+    }
+    
+    .tarjetaTabla {
+      overflow-x: auto;
+      overflow-y: auto;
+    }
+
+    .tablaExcel {
+      border-collapse: separate;
+      border-spacing: 15px;
+    }
+
+    #spinner {
+      top: 25vh;
+      left: 50%;
+    }
+
+}
+
+.registro {
+  font-size: medium;
+}

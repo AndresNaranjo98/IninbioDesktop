@@ -1,0 +1,123 @@
+{
+    "INICIARSESION": "Iniciar Sesión",
+    "REGISTRARSE": "Registrarse",
+    "RECUPERARCONTRASENA": "¿Olvidó su contraseña?",
+    "USUARIO": "Usuario",
+    "CONTRASEÑA": "Contraseña",
+    "ALERTAOLVIDOCONTRA": {
+      "HEADERALERT": "Introduzca la dirección de correo electrónico que asoció a su cuenta",
+      "PLACEHOLDER": "Correo electrónico",
+      "BUTONENVIAR": "Enviar"
+    },
+    "VALIDACION": "Nombre de usuario/contraseña no válidos",
+    "MENSAJEINICIO": "Iniciando sesión...",
+    "BIENVENIDA": "Bienvenido",
+    "ESPACIO": " ",
+    "FALLOINICIO": "Inicio de sesión fallido",
+    "FORMULARIOREGISTRO": {
+      "FORMULARIO": "Formulario",
+      "INGRESEDATOS": "Ingrese sus datos",
+      "NOMBRE": "Nombre",
+      "APELLIDOS": "Apellidos",
+      "CORREO": "Correo",
+      "CONTRASEÑA": "Contraseña",
+      "USUARIO": "Nombre de usuario",
+      "TEQUILERA": "Fábrica",
+      "REGISTRARSE": "Registrarse"
+    },
+    "CONEXIONINTERNET": {
+      "HEADER": "No tienes conexión a Internet",
+      "MENSAJE": "Verifica tu conexión Wi-fi/Datos móviles"
+    },
+    "VALIDACIONCAMPOSREGISTRO": {
+      "TEXTOS": "Este campo requiere al menos 2 caracteres.",
+      "CONTRASEÑA": "Su contraseña debe contener al menos 2 caracteres.",
+      "CORREO": "* El email no es válido."
+    },
+    "OPCIONESMENU": {
+      "OPCIONES": "Opciones",
+      "FERJUAGAVE": "Fermentación Jugo de Agave",
+      "CERRARSESION": "Cerrar Sesión",
+      "CATALOGO": "Catálogo Ininbio"
+    },
+    "PDFCATALOGO": {
+      "MEZCAL": "Mezcal",
+      "TEQUILA": "Tequila",
+      "VINO": "Vino",
+      "DESCARGA" : "Archivo descargado correctamente"
+    },
+    "ALERTAINACTIVO" : {
+      "HEADER" : "Sesión expirada por inactividad",
+      "MENSAJE" : "Por seguridad, será redirigido a la página de inicio de sesión" 
+    },
+    "ALERTASVALORES" : {
+      "HEADERTEMP1" : "Las tinas",
+      "HEADERTEMP2" : "presentan una variación considerable en su temperatura",
+      "MENSAJETEMP" : "Se recomienda tomar medidas preventivas",
+      "HEADERPH1" : "Las tinas",
+      "HEADERPH2" : "presentan una variación considerable en su pH",
+      "MENSAJEPH" : "Se recomienda tomar medidas preventivas",
+      "HEADERBRIX1" : "Las tinas",
+      "HEADERBRIX2" : "no presentan variación en °Brix",
+      "MENSAJEBRIX" : "Se recomienda tomar medidas preventivas"
+    },
+    "CERRARSESION" : {
+      "HEADER" : "Cerrar sesión",
+      "MENSAJE" : "¿Deseas Salir De La Aplicación?",
+      "SI" : "Si",
+      "NO" : "No"
+    },
+    "PANTGRAF" : {
+      "GRAFICOS" : "Gráficos",
+      "ETIQUETAPORCENT" : "Eficiencia de Fermentación",
+      "DESCARGARXLSX" : "Descargar hoja de cálculo",
+      "GRAFICATEMP" : "Gráfica Temperatura",
+      "GRAFICAPH" : "Gráfica pH",
+      "GRAFICABRIX" : "Gráfica °Brix",
+      "GRAFICALCVOL" : "Gráfica %Alc.Vol",
+      "GRAFICAEFI" : "Gráfica Eficiencia de Fermentación"
+    },
+    "DATOSGRAFICAS" : {
+      "TITULO" : "Mediciones en Tiempo Real",
+      "VALORES" : "Valores",
+      "HORA" : "Hora de Medición",
+      "ETITEMP" : "Temperatura",
+      "ETIEFI" : "Eficiencia",
+      "ETIALC" : "Alcohol Volumen"
+    },
+    "ALERTAREGISTRO" : {
+      "HEADER" : "Confirmación",
+      "MESSAGE" : "Usuario registrado correctamente",
+      "HEADER1" : "Error",
+      "MESSAGE1" : "El usuario ya existe, inténtalo nuevamente"
+    },
+    "ALERTAENVIOCORREO" : {
+      "HEADER" : "Error",
+      "SUBHEADER" : "El correo electrónico proporcionado no se encuentra relacionado a ningún usuario",
+      "MESSAGE" : "Inténtalo nuevamente",
+      "HEADER1" : "Confirmación",
+      "SUBHEADER1" : "Correo enviado satisfactoriamente"
+    },
+    "VALIDACIONCORREO" : {
+      "HEADER" : "Error",
+      "SUBHEADER" : "Favor de colocar un correo electrónico válido"
+    },
+    "INFOREXCEL" : {
+      "TITULO" : "Registros Tina N°"
+    },
+    "IDTINA": {
+      "ID" : "Tina N°"
+    },
+    "ALERTATEQUILERA" : {
+      "HEADER" : "Error",
+      "MESSAGE" : "Tequilera no encontrada, intente nuevamente"
+    },
+    "FECHASEXCEL" : {
+      "ERROR" : "Error",
+      "FECHAS" : "Ingrese las fechas requeridas para su reporte",
+      "GENERAR" : "Generar Reporte",
+      "PERIODO" : "Periodo de tiempo",
+      "INGRESARFECHAS" : "Ingrese las fechas para obtener su reporte"
+    }
+  }
+  

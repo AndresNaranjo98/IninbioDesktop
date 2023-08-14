@@ -1,0 +1,123 @@
+{
+    "INICIARSESION": "Login",
+    "REGISTRARSE": "Sign up",
+    "RECUPERARCONTRASENA": "Forgot your password?",
+    "USUARIO": "Username",
+    "CONTRASEÑA": "Password",
+    "ALERTAOLVIDOCONTRA": {
+      "HEADERALERT": "Enter the email address you associated to your account",
+      "PLACEHOLDER": "E-mail",
+      "BUTONENVIAR" : "Send"
+    },
+    "VALIDACION" : "Invalid username/password", 
+    "MENSAJEINICIO" : "Logging in",
+    "BIENVENIDA" : "Welcome",
+    "ESPACIO" : " ",
+    "FALLOINICIO" : "Login failed",
+    "FORMULARIOREGISTRO" : {
+        "FORMULARIO" : "Form",
+        "INGRESEDATOS" : "Enter your information",
+        "NOMBRE" : "Name",
+        "APELLIDOS" : "Last name",
+        "CORREO" : "E-mail",
+        "CONTRASEÑA" : "Password",
+        "USUARIO" : "Username",
+        "TEQUILERA" : "Factory",
+        "REGISTRARSE" :"Sign up"
+    },
+    "CONEXIONINTERNET" : {
+      "HEADER" : "No Internet connection",
+      "MENSAJE" : "Check your Wi-fi/mobile data connection"
+    },
+    "VALIDACIONCAMPOSREGISTRO" : {
+      "TEXTOS" : "This field requires at least 2 characters.",
+      "CONTRASEÑA" : "Your password must contain at least 2 characters.",
+      "CORREO" : "* The email is not valid."
+    },
+    "OPCIONESMENU" : {
+      "OPCIONES" : "Options",
+      "FERJUAGAVE" : "Agave Juice Fermentation",
+      "CERRARSESION" : "Logout",
+      "CATALOGO" : "Ininbio Catalog"
+    },
+    "PDFCATALOGO" : {
+      "MEZCAL" : "Mezcal",
+      "TEQUILA" : "Tequila",
+      "VINO" : "Wine",
+      "DESCARGA" : "File downloaded successfully"
+    },
+    "ALERTAINACTIVO" : {
+      "HEADER" : "Session expired due to inactivity",
+      "MENSAJE" : "For security reasons, you will be redirected to the login page." 
+    },
+    "ALERTASVALORES" : {
+      "HEADERTEMP1" : "The tubs",
+      "HEADERTEMP2" : "have a considerable variation in their temperature",
+      "MENSAJETEMP" : "Preventive measures are recommended",
+      "HEADERPH1" : "The tubs",
+      "HEADERPH2" : "have a considerable variation in their pH",
+      "MENSAJEPH" : "Preventive measures are recommended",
+      "HEADERBRIX1" : "The tubs",
+      "HEADERBRIX2" : "no variation in °Brix",
+      "MENSAJEBRIX" : "Preventive measures are recommended"
+    },
+    "CERRARSESION" : {
+      "HEADER" : "Logout",
+      "MENSAJE" : "Do you want to exit the application?",
+      "SI" : "Yes",
+      "NO" : "No"
+    },
+    "PANTGRAF" : {
+      "GRAFICOS" : "Charts",
+      "ETIQUETAPORCENT" : "Fermentation Efficiency",
+      "DESCARGARXLSX" : "Download spreadsheet",
+      "GRAFICATEMP" : "Temperature Chart",
+      "GRAFICAPH" : "pH Chart",
+      "GRAFICABRIX" : "°Brix Chart",
+      "GRAFICALCVOL" : "%Alc.Vol Chart",
+      "GRAFICAEFI" : "Fermentation Efficiency Graph"
+    },
+    "DATOSGRAFICAS" : {
+      "TITULO" : "Real-Time Measurements",
+      "VALORES" : "Values",
+      "HORA" : "Measurement Time",
+      "ETITEMP" : "Temperature",
+      "ETIEFI" : "Efficiency",
+      "ETIALC" : "Alcohol Volume"
+    },
+    "ALERTAREGISTRO" : {
+      "HEADER" : "Confirmation",
+      "MESSAGE" : "User successfully registered ",
+      "HEADER1" : "Error",
+      "MESSAGE1" : "User already exists, try again"
+    },
+    "ALERTAENVIOCORREO" : {
+      "HEADER" : "Error",
+      "SUBHEADER" : "The e-mail address provided is not related to any user.",
+      "MESSAGE" : "Try again",
+      "HEADER1" : "Confirmation",
+      "SUBHEADER1" : "Mail sent successfully"
+    },
+    "VALIDACIONCORREO" : {
+      "HEADER" : "Error",
+      "SUBHEADER" : "Please enter a valid email address"
+    },
+    "INFOREXCEL" : {
+      "TITULO" : "Records Tina N°"
+    },
+    "IDTINA": {
+      "ID" : "Tina No."
+    },
+    "ALERTATEQUILERA" : {
+      "HEADER" : "Error",
+      "MESSAGE" : "Tequilera not found, try again"
+    },
+    "FECHASEXCEL" : {
+      "ERROR" : "Error",
+      "FECHAS" : "Enter the required dates for your report",
+      "GENERAR" : "Generate Report",
+      "PERIODO" : "Time period",
+      "INGRESARFECHAS" : "Enter dates to get your report"
+    }
+  }
+  

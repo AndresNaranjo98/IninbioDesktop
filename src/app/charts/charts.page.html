@@ -1,0 +1,158 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot = "start">
+      <ion-back-button defaultHref="/inicio"></ion-back-button>
+    </ion-buttons>
+    <ion-title>{{"PANTGRAF.GRAFICOS" | translate}}</ion-title>
+  </ion-toolbar>
+  <ion-item class="contenido">
+    <ion-label class="letras" slot="end">°F</ion-label>
+    <ion-toggle class="toggle" slot="end" [ngModel]="grados" (ionChange)="cambiarGrados()" checked="false"></ion-toggle>
+    <ion-label class="letras">{{"IDTINA.ID" | translate}} {{num_tina}}</ion-label>
+  </ion-item>
+</ion-header>
+
+<ion-content class="fondo"> 
+  <ion-card id="grafica">
+    <!-- <button (click)='clearInputText($event)' style="margin-left: 98%; background-color: transparent;">
+      <ion-icon name="contrast" style="color: black;" size="large">
+      </ion-icon>
+    </button> -->
+    <ion-spinner *ngIf="showSpinner" id="spinner" name="circles"></ion-spinner>
+    <div id="container"></div>
+  </ion-card>
+<ion-grid>
+  <ion-row *ngFor = "let dato of datoSensores">
+    <ion-col class="ion-text-center" size="4">
+      <ion-card class="fondoBlanco" (click)="graficaTemperatura()" id="btnRojo">
+        <ion-card-header>
+          <ion-card-subtitle class="letras" *ngIf="!grados">°C</ion-card-subtitle>
+          <ion-card-subtitle class="letras" *ngIf="grados">°F</ion-card-subtitle>
+          <ion-card-title class = "color1" *ngIf="!grados">{{((dato.y * 1)+0).toFixed(1)}}</ion-card-title> 
+          <ion-card-title *ngIf="grados" class = "color1">{{((dato.y * 1.8)+32).toFixed(1)}}</ion-card-title> 
+        </ion-card-header>            
+      </ion-card>
+      <ng-container *ngIf="dato['y'] >= this.tempMayor || dato['y'] <= this.tempMenor; else datosNormales">
+      <div id="circuloRojo" class="parpadea"></div>
+      <div id="circuloAmarillo"></div>
+      <div id="circuloVerde"></div>  
+      </ng-container> 
+      <ng-template #datosNormales>
+        <ng-container *ngIf="dato['y'] == this.naranja1 || dato['y'] == this.naranja2; else datosNormales3">    
+          <div id="circuloRojo"></div>
+          <div id="circuloAmarillo" class="parpadea"></div>
+          <div id="circuloVerde"></div>
+        </ng-container>
+    </ng-template>
+    <ng-template #datosNormales3>
+      <div id="circuloRojo"></div>
+      <div id="circuloAmarillo"></div>
+      <div id="circuloVerde" class="parpadea"></div>
+    </ng-template>
+    </ion-col>
+
+    <ion-col class="ion-text-center" size="4">
+      <ion-card class="fondoBlanco" (click)="graficapH()">
+        <ion-card-header>
+          <ion-card-subtitle class="letras">pH</ion-card-subtitle>
+          <ion-card-title class = "color2">{{((dato.z * 1)+0).toFixed(1)}}</ion-card-title>
+        </ion-card-header>         
+      </ion-card>
+      <ng-container *ngIf="dato['z'] >= this.phMayor || dato['z'] <= this.phMenor; else datosNormales1">
+        <div id="circuloRojo" class="parpadea"></div>
+        <div id="circuloAmarillo"></div>
+        <div id="circuloVerde"></div>    
+      </ng-container>
+      <ng-template #datosNormales1>
+        <ng-container *ngIf="dato['z'] == this.naranja3 || dato['z'] == this.naranja4; else datosNormales4">    
+          <div id="circuloRojo"></div>
+          <div id="circuloAmarillo" class="parpadea"></div>
+          <div id="circuloVerde"></div>
+        </ng-container>
+        </ng-template>
+        <ng-template #datosNormales4>
+          <div id="circuloRojo"></div>
+          <div id="circuloAmarillo"></div>
+          <div id="circuloVerde" class="parpadea"></div>
+        </ng-template>
+    </ion-col>
+
+    <ion-col class="ion-text-center" size="4">
+      <ion-card class="fondoBlanco" (click)="graficaBrix()">
+        <ion-card-header>
+          <ion-card-subtitle class="letras">°Brix</ion-card-subtitle>
+          <ion-card-title class = "color3">{{((dato.w * 1)+0).toFixed(1)}}</ion-card-title>
+        </ion-card-header>
+      </ion-card>
+      <ng-container id="semaforo" *ngIf="this.brix1 === this.brix2; else datosNormales2">
+        <div id="circuloRojo" class="parpadea"></div>
+        <div id="circuloAmarillo"></div>
+        <div id="circuloVerde"></div>  
+      </ng-container>  
+      <ng-template id="semaforo" #datosNormales2>
+        <div id="circuloRojo"></div>
+        <div id="circuloAmarillo"></div>
+        <div id="circuloVerde" class="parpadea"></div>
+        </ng-template>
+    </ion-col>
+  </ion-row>
+
+    <ion-row *ngFor = "let dato of datoSensores">
+    <ion-col class="ion-text-center" size="6">
+      <ion-card class="fondoBlanco" (click)="graficaAlcVol()">
+        <ion-card-header>
+          <ion-card-subtitle class="letras">%Alc.Vol</ion-card-subtitle>
+          <ion-card-title class = "color4">{{((dato.v * 1)+0).toFixed(1)}}</ion-card-title>
+        </ion-card-header>
+      </ion-card>
+    </ion-col>
+
+    <ion-col class="ion-text-center" size="6">
+      <ion-card class="fondoBlanco" (click)="graficaEficiencia()">
+        <ion-card-header>
+          <ion-card-subtitle class="letras">{{"PANTGRAF.ETIQUETAPORCENT" | translate}} (%)</ion-card-subtitle>
+          <ion-card-title class="color5">{{((dato.u * 1)+0).toFixed(1)}}</ion-card-title>
+        </ion-card-header>
+      </ion-card>
+    </ion-col>
+  </ion-row>
+</ion-grid>
+<ion-card class="no-scroll" style="background-color: white; color: black; width: 100%; max-height: 50%; overflow-y: auto;">
+  <!-- <ion-card-content class="card-content"> -->
+  <ion-grid>
+    <table class="tablaExcel" style="text-align: center; width: 100%; border-collapse: separate;border-spacing: 20px;">
+      <caption style="font-weight: bold; font-size: 15px;">Registros en Tiempo Real</caption>
+      <thead>
+        <tr>
+          <th style="color: #ff0505;">Fecha/Hora</th>
+          <th style="color: #0833a2">Temperatura</th>
+          <th style="color: #14faff;">pH</th>
+          <th style="color: #edff14;">°Brix</th>
+          <th style="color: #ff14ff;">%Alc.Vol</th>
+          <th style="color: #1eff05;">%Eficiencia</th>
+          <!-- <th style="color: #5B2C6F;">MaxTemp</th>
+          <th style="color: #FF0087;">MinTemp</th>
+          <th style="color: #D35400;">MaxpH</th>
+          <th style="color: #F08080;">MinpH</th> -->
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let excel of datosExcel">
+          <td>{{excel['x'] | date:'yyyy-MM-dd HH:mm:ss'| dateMinusSixHours}}</td>
+          <td>{{excel['y']}}</td>
+          <td>{{excel['z']}}</td>
+          <td>{{excel['w']}}</td>
+          <td>{{excel['v']}}</td>
+          <td>{{excel['u']}}</td>
+          <!-- <td>{{excel['tempMayor']}}</td>
+          <td>{{excel['tempMenor']}}</td>
+          <td>{{excel['phMayor']}}</td>
+          <td>{{excel['phMenor']}}</td> -->
+        </tr>
+      </tbody>
+    </table>
+  </ion-grid>
+<!-- </ion-card-content> -->
+</ion-card>
+<ion-button id="boton" expand="block" class = "registro" (click)="generarExcel()"> {{"PANTGRAF.DESCARGARXLSX" | translate}} </ion-button>
+</ion-content>

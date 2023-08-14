@@ -1,0 +1,39 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot = "start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>    
+    <ion-title>Formulario</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <br>
+  <br>
+  <ion-icon name="lock-open-sharp" id="icono"></ion-icon>
+  <br>
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title> Ingrese sus datos </ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+  <form [formGroup]="ionicForm" (ngSubmit) = "onSubmit()" novalidate>
+  
+    <ion-item lines="full">
+      <ion-input placeholder = "Nombre De Usuario" type="text" name = "nombre_usuario" formControlName="nombre_usuario" required></ion-input>
+    </ion-item> 
+
+    <ion-item lines="full"> 
+      <ion-input placeholder = "Nueva Contraseña" [type]="submit" name = "contrasena" formControlName="contrasena" required></ion-input>
+      <ion-icon [name]="passwordIcon" (click)='hideShowPassword()'></ion-icon>
+    </ion-item>
+
+    <br>
+    <ion-row>
+      <ion-col>
+        <ion-button type="submit" class = "registro" expand="block" [disabled]="!ionicForm.valid">Restablecer Contraseña</ion-button>
+      </ion-col>
+    </ion-row> 
+  </form>
+</ion-card-content>
+</ion-card> 
+</ion-content>

@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "747579349577",
+    "project_id": "ininbio-system",
+    "storage_bucket": "ininbio-system.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:747579349577:android:e0d041f1eb975febf63d98",
+        "android_client_info": {
+          "package_name": "ininbio_system.com"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "747579349577-k3qfefc7ou3tjbrh7805medco3fq6t81.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAVrWH48qx_WYKLim0RJ28BBmO_U8kmd3c"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "747579349577-k3qfefc7ou3tjbrh7805medco3fq6t81.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

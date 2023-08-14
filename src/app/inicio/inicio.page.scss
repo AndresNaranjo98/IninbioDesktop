@@ -1,0 +1,94 @@
+ion-card{
+    display: flex;
+    flex-direction: column !important;
+    // width: 35% !important;
+    // height: 90% !important;
+    margin: 0 !important;
+    background-color: #CECECE; 
+    box-shadow: none;
+  }
+
+  #tina{
+    width: 20%; 
+    height: 17%; 
+    left: 7.5%;
+    text-align: center;
+    --ion-item-background:#CECECE;
+  }
+
+  ion-label.numeros{
+    color: #000000 !important;
+    font-weight: bold;
+  }
+
+.logoIninbio{
+    position: absolute;
+    width:15%;
+    height:15%;
+    top: 79%;
+    left: 42%; 
+  }
+
+  ion-content{
+    background-color: #CECECE; 
+  }
+
+  ion-content.background {
+    --background-color : #000000 !important;
+  }  
+
+  .button-transparent {
+    --background: transparentize(100);
+    --background-hover: #FFFFFF;
+  }
+
+  ion-toolbar {
+    --text-align: center;
+    --background: #94b8d7;
+  }
+
+  ion-content.fondo { 
+    --ion-background-color: #CECECE; 
+  }
+
+  ion-button.fondo {
+    --background: #CECECE;
+    --border-color: none; 
+    --border-width: 0px !important;
+    --color : #000000;
+  }
+
+  ion-toolbar {
+    --background:#CECECE;
+    --border-width :0px !important;
+  }
+  
+  ion-content.menu { 
+    --ion-background-color: #1f1f1f;
+  }
+
+  ion-menu.menu{
+    --background : #1f1f1f;
+  }
+  
+  ion-label {
+    color: default !important;
+   }
+
+   ion-icon{
+    color: white;
+   }
+
+   .color{
+    --background: #1f1f1f;;
+   }
+
+   .tina {
+    width: 30%;
+  }
+
+   @media screen and (max-width: 480px) {
+    .tina {
+      width: 100%;
+    }
+   }
