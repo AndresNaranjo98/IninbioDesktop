@@ -189,13 +189,19 @@ let LoginPage = class LoginPage {
             this.servicio.login(this.loginForm.value).subscribe((data) => (0,tslib__WEBPACK_IMPORTED_MODULE_9__.__awaiter)(this, void 0, void 0, function* () {
                 let json = JSON.stringify(data);
                 let response = JSON.parse(json);
-                let teqEncrypt = (response.tequilera).toString();
+                let teqEncrypt = (response.empresa).toString();
                 let secret = src_environments_environment__WEBPACK_IMPORTED_MODULE_7__.environment.SECRET_KEY;
                 const datoEncriptado = crypto_js__WEBPACK_IMPORTED_MODULE_6__.AES.encrypt(teqEncrypt, secret).toString();
-                localStorage.setItem('tequilera', datoEncriptado);
+                localStorage.setItem('empresa', datoEncriptado);
                 localStorage.setItem('token', response.token);
+                localStorage.setItem('categoria', response.categoria);
                 loading.dismiss();
-                this.router.navigateByUrl('/inicio');
+                if (response.categoria == 1) {
+                    this.router.navigateByUrl('/inicio');
+                }
+                else if (response.categoria == 2) {
+                    this.router.navigateByUrl('/inicio-vino');
+                }
                 this.servicio.obtenerUsuarios(this.loginForm.value).subscribe((data) => (0,tslib__WEBPACK_IMPORTED_MODULE_9__.__awaiter)(this, void 0, void 0, function* () {
                     let json = JSON.stringify(data);
                     let response = JSON.parse(json);

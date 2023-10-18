@@ -36,7 +36,8 @@
     },
     "OPCIONESMENU": {
       "OPCIONES": "Opciones",
-      "FERJUAGAVE": "Fermentación Jugo de Agave",
+      "FERJUAGAVE": "Fermentación Tequila",
+      "FERUVA": "Fermentación Vino",
       "CERRARSESION": "Cerrar Sesión",
       "CATALOGO": "Catálogo Ininbio"
     },
@@ -118,6 +119,23 @@
       "GENERAR" : "Generar Reporte",
       "PERIODO" : "Periodo de tiempo",
       "INGRESARFECHAS" : "Ingrese las fechas para obtener su reporte"
+    },
+    "TABLAEXCEL" : {
+      "TITULO" : "Registros en Tiempo Real",
+      "FECHA" : "Fecha/Hora",
+      "TEMPERATURA" : "Temperatura",
+      "PH" : "pH",
+      "BRIX" : "°Brix",
+      "ALCVOL" : "%Alc.Vol",
+      "EFICIENCIA" : "%Eficiencia"
+    },
+    "TABLAEXCELVINO" : {
+      "TITULO" : "Registros en Tiempo Real",
+      "FECHA" : "Fecha/Hora",
+      "DENSIDAD" : "Densidad",
+      "ACIDEZ" : "Acidez",
+      "TEMPERATURA" : "Temperatura",
+      "VOLUMEN" : "Volumen"
     }
   }
   

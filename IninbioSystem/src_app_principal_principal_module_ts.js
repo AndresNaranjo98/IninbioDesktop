@@ -91,7 +91,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "PrincipalPage": () => (/* binding */ PrincipalPage)
 /* harmony export */ });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! tslib */ 8806);
-/* harmony import */ var _C_Users_tics_Desktop_IninbioApp_Ininbio_App_node_modules_ngtools_webpack_src_loaders_direct_resource_js_principal_page_html__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! !./node_modules/@ngtools/webpack/src/loaders/direct-resource.js!./principal.page.html */ 4529);
+/* harmony import */ var _C_Users_tics_Documents_BACKUP_APP_ESCRITORIO_FULL_IninbioSystemExpo_node_modules_ngtools_webpack_src_loaders_direct_resource_js_principal_page_html__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! !./node_modules/@ngtools/webpack/src/loaders/direct-resource.js!./principal.page.html */ 4529);
 /* harmony import */ var _principal_page_scss__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./principal.page.scss */ 9012);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @angular/core */ 4001);
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @angular/router */ 3252);
@@ -161,7 +161,7 @@ PrincipalPage.ctorParameters = () => [
 PrincipalPage = (0,tslib__WEBPACK_IMPORTED_MODULE_3__.__decorate)([
     (0,_angular_core__WEBPACK_IMPORTED_MODULE_7__.Component)({
         selector: 'app-principal',
-        template: _C_Users_tics_Desktop_IninbioApp_Ininbio_App_node_modules_ngtools_webpack_src_loaders_direct_resource_js_principal_page_html__WEBPACK_IMPORTED_MODULE_0__["default"],
+        template: _C_Users_tics_Documents_BACKUP_APP_ESCRITORIO_FULL_IninbioSystemExpo_node_modules_ngtools_webpack_src_loaders_direct_resource_js_principal_page_html__WEBPACK_IMPORTED_MODULE_0__["default"],
         styles: [_principal_page_scss__WEBPACK_IMPORTED_MODULE_1__]
     })
 ], PrincipalPage);

@@ -121,15 +121,15 @@
   <!-- <ion-card-content class="card-content"> -->
   <ion-grid>
     <table class="tablaExcel" style="text-align: center; width: 100%; border-collapse: separate;border-spacing: 20px;">
-      <caption style="font-weight: bold; font-size: 15px;">Registros en Tiempo Real</caption>
+      <caption style="font-weight: bold; font-size: 15px;">{{"TABLAEXCEL.TITULO" | translate}}</caption>
       <thead>
         <tr>
-          <th style="color: #ff0505;">Fecha/Hora</th>
-          <th style="color: #0833a2">Temperatura</th>
-          <th style="color: #14faff;">pH</th>
-          <th style="color: #edff14;">°Brix</th>
-          <th style="color: #ff14ff;">%Alc.Vol</th>
-          <th style="color: #1eff05;">%Eficiencia</th>
+          <th style="color: #ff0505;">{{"TABLAEXCEL.FECHA" | translate}}</th>
+          <th style="color: #0833a2">{{"TABLAEXCEL.TEMPERATURA" | translate}}</th>
+          <th style="color: #14faff;">{{"TABLAEXCEL.PH" | translate}}</th>
+          <th style="color: #edff14;">{{"TABLAEXCEL.BRIX" | translate}}</th>
+          <th style="color: #ff14ff;">{{"TABLAEXCEL.ALCVOL" | translate}}</th>
+          <th style="color: #1eff05;">{{"TABLAEXCEL.EFICIENCIA" | translate}}</th>
           <!-- <th style="color: #5B2C6F;">MaxTemp</th>
           <th style="color: #FF0087;">MinTemp</th>
           <th style="color: #D35400;">MaxpH</th>
@@ -138,7 +138,7 @@
       </thead>
       <tbody>
         <tr *ngFor="let excel of datosExcel">
-          <td>{{excel['x'] | date:'yyyy-MM-dd HH:mm:ss'| dateMinusSixHours}}</td>
+          <td>{{excel['x'] | date:'yyyy-MM-dd HH:mm:ss'}}</td>
           <td>{{excel['y']}}</td>
           <td>{{excel['z']}}</td>
           <td>{{excel['w']}}</td>

@@ -146,9 +146,14 @@ let InicioPage = class InicioPage {
         this.file = file;
         this.serv = serv;
         this.translate = translate;
+        this.slideOpts = {
+            initialSlide: 0,
+            autoplay: 300,
+            slidesPerView: 5
+        };
         this.fileTransfer = this.transfer.create();
         this.translate.use(localStorage.getItem('idioma'));
-        this.user = localStorage.getItem('tequilera');
+        this.user = localStorage.getItem('empresa');
         const bytes = crypto_js__WEBPACK_IMPORTED_MODULE_8__.AES.decrypt(this.user, src_environments_environment__WEBPACK_IMPORTED_MODULE_7__.environment.SECRET_KEY);
         const datoDesencriptado = bytes.toString(crypto_js__WEBPACK_IMPORTED_MODULE_8__.enc.Utf8);
         if (datoDesencriptado === '1') {
@@ -159,6 +164,9 @@ let InicioPage = class InicioPage {
         }
         else if (datoDesencriptado === '3') {
             this.numberOfCards = 21;
+        }
+        else if (datoDesencriptado === '4') {
+            this.numberOfCards = 60;
         }
     }
     opcionCatalogo(opcion) {
@@ -217,7 +225,7 @@ let InicioPage = class InicioPage {
     }
     ngOnInit() {
         return (0,tslib__WEBPACK_IMPORTED_MODULE_9__.__awaiter)(this, void 0, void 0, function* () {
-            this.usuario = localStorage.getItem('tequilera');
+            this.usuario = localStorage.getItem('empresa');
         });
     }
     showConfirm() {
@@ -424,7 +432,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("<ion-content class=\"fondo\">\r\n  <ion-toolbar class=\"fondo\">\r\n  <ion-buttons>\r\n  <ion-button class=\"fondo\" (click)=\"openMenu1()\" fill=\"outline\">\r\n    <ion-icon name=\"menu-sharp\" slot=\"icon-only\" style=\"color: black;\"></ion-icon>\r\n  </ion-button>\r\n</ion-buttons>\r\n</ion-toolbar>\r\n\r\n<ion-menu side=\"start\" menuId=\"second\" contentId=\"main1\" class=\"menu\">\r\n  <ion-header>\r\n    <ion-toolbar class=\"color\">\r\n      <ion-title>{{\"OPCIONESMENU.OPCIONES\" | translate}}</ion-title>\r\n    </ion-toolbar> \r\n  </ion-header>\r\n  <ion-content class=\"menu\">\r\n    <ion-list>\r\n      <ion-item><ion-icon name=\"beer-outline\" slot=\"start\"></ion-icon> {{\"OPCIONESMENU.FERJUAGAVE\" | translate}} </ion-item>\r\n      <ion-item button (click)=\"showConfirm()\"><ion-icon name=\"log-in-outline\" slot=\"start\"></ion-icon> {{\"OPCIONESMENU.CERRARSESION\" | translate}} </ion-item>\r\n    </ion-list>\r\n  </ion-content>  \r\n  <ion-item class=\"color\">\r\n    <ion-icon name=\"book-outline\" slot=\"start\"></ion-icon>\r\n    <ion-label>{{\"OPCIONESMENU.CATALOGO\" | translate}}</ion-label>\r\n      <ion-select interface=\"action-sheet\" [(ngModel)]=\"opcion\" (ionChange)=\"opcionCatalogo(opcion)\">\r\n        <ion-select-option value=\"mezcal\">{{\"PDFCATALOGO.MEZCAL\" | translate}}</ion-select-option>\r\n        <ion-select-option value=\"tequila\">{{\"PDFCATALOGO.TEQUILA\" | translate}}</ion-select-option>\r\n        <ion-select-option value=\"vino\">{{\"PDFCATALOGO.VINO\" | translate}}</ion-select-option>\r\n      </ion-select>\r\n  </ion-item>\r\n</ion-menu>\r\n<ion-router-outlet id=\"main1\"></ion-router-outlet>\r\n<ion-grid>\r\n  <ion-row style=\"display: flex; justify-content: center;\">\r\n    <ion-col size=\"4\" size-md=\"2\" size-lg=\"2\" *ngFor=\"let card of [].constructor(numberOfCards); let i = index;\"\r\n      class=\"padding\" style=\"color: black; text-align: center;\">{{i+1}}\r\n      <ion-card [routerLink]=\"['/charts']\" (click)=\"idTina(i+1)\">\r\n        <img src=\"assets\\imagenes\\tina.png\" alt=\"ion\" class=\"tina\">\r\n      </ion-card>\r\n    </ion-col>\r\n  </ion-row>\r\n</ion-grid>\r\n<!-- <img src=\"assets\\imagenes\\logo_sistema.png\" alt=\"ion\" class=\"logoIninbio\"> -->\r\n</ion-content>\r\n");
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("<ion-content class=\"fondo\">\r\n  <ion-toolbar class=\"fondo\">\r\n  <ion-buttons>\r\n  <ion-button class=\"fondo\" (click)=\"openMenu1()\" fill=\"outline\">\r\n    <ion-icon name=\"menu-sharp\" slot=\"icon-only\" style=\"color: black;\"></ion-icon>\r\n  </ion-button>\r\n</ion-buttons>\r\n</ion-toolbar>\r\n\r\n<ion-menu side=\"start\" menuId=\"second\" contentId=\"main1\" class=\"menu\">\r\n  <ion-header>\r\n    <ion-toolbar class=\"color\">\r\n      <ion-title>{{\"OPCIONESMENU.OPCIONES\" | translate}}</ion-title>\r\n    </ion-toolbar> \r\n  </ion-header>\r\n  <ion-content class=\"menu\">\r\n    <ion-list>\r\n      <ion-item><ion-icon src=\"assets/imagenes/agave.svg\" slot=\"start\"></ion-icon> {{\"OPCIONESMENU.FERJUAGAVE\" | translate}} </ion-item>\r\n      <ion-item button (click)=\"showConfirm()\"><ion-icon src=\"assets/imagenes/cerrar-sesion.svg\" slot=\"start\"></ion-icon> {{\"OPCIONESMENU.CERRARSESION\" | translate}} </ion-item>\r\n    </ion-list>\r\n  </ion-content>  \r\n  <ion-item class=\"color\">\r\n    <ion-icon src=\"assets/imagenes/catalogo.svg\" slot=\"start\"></ion-icon>\r\n    <ion-label>{{\"OPCIONESMENU.CATALOGO\" | translate}}</ion-label> \r\n      <ion-select interface=\"action-sheet\" [(ngModel)]=\"opcion\" (ionChange)=\"opcionCatalogo(opcion)\">\r\n        <ion-select-option value=\"mezcal\">{{\"PDFCATALOGO.MEZCAL\" | translate}}</ion-select-option>\r\n        <ion-select-option value=\"tequila\">{{\"PDFCATALOGO.TEQUILA\" | translate}}</ion-select-option>\r\n        <ion-select-option value=\"vino\">{{\"PDFCATALOGO.VINO\" | translate}}</ion-select-option>\r\n      </ion-select>\r\n  </ion-item>\r\n</ion-menu>\r\n<ion-router-outlet id=\"main1\"></ion-router-outlet>\r\n<ion-grid>\r\n  <ion-row style=\"display: flex; justify-content: center;\">\r\n    <ion-col size=\"4\" size-md=\"2\" size-lg=\"2\" class=\"padding\" style=\"color: black; text-align: center;\" *ngFor=\"let card of [].constructor(numberOfCards); let i = index;\">\r\n      {{i+1}}\r\n      <ion-card [routerLink]=\"['/charts']\" (click)=\"idTina(i+1)\">\r\n        <img src=\"assets\\imagenes\\p4.png\" alt=\"ion\" class=\"tina\">\r\n      </ion-card>\r\n    </ion-col>\r\n  </ion-row>\r\n</ion-grid>\r\n<!-- <img src=\"assets\\imagenes\\logo_sistema.png\" alt=\"ion\" class=\"logoIninbio\"> -->\r\n</ion-content>\r\n");
 
 /***/ }),
 

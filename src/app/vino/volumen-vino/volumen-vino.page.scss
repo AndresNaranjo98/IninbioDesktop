@@ -1,0 +1,35 @@
+ion-toolbar{
+    --text-align: center;
+    --background: #94b8d7;
+  }
+
+  ion-back-button {
+    --color: #fff;
+  }
+
+  #volumen {
+    width : auto !important;
+    height : 300px !important;
+  }
+
+  .fondo {
+    --background: #ffffff;
+    --color : #ffffff;
+  }
+
+  .graficas {
+    --background : #ffffff;
+  }
+
+  #cargador {
+    color: #0833a2;
+    top: 25vh;
+    left: 50%;
+    transform: scale(1.5);
+  }
+
+  @media screen and (max-width: 480px) {
+    #cargador {
+      top: 17vh;
+    }
+  }

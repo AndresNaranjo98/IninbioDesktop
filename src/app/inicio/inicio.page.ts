@@ -36,7 +36,7 @@ export class InicioPage implements OnInit {
     private serv : DescargaExcelService, private translate : TranslateService) 
   {
     this.translate.use(localStorage.getItem('idioma'));
-    this.user = localStorage.getItem('tequilera');
+    this.user = localStorage.getItem('empresa');
     const bytes = CryptoJS.AES.decrypt(this.user, environment.SECRET_KEY);
     const datoDesencriptado = bytes.toString(CryptoJS.enc.Utf8);
     if (datoDesencriptado === '1') {
@@ -45,6 +45,9 @@ export class InicioPage implements OnInit {
       this.numberOfCards = 3;
     } else if (datoDesencriptado === '3') {
       this.numberOfCards = 21;
+    }
+    else if (datoDesencriptado === '4') {
+      this.numberOfCards = 60;
     }
   }
 
@@ -111,7 +114,7 @@ export class InicioPage implements OnInit {
     }
 
   async ngOnInit() {
-    this.usuario = localStorage.getItem('tequilera');
+    this.usuario = localStorage.getItem('empresa');
   }
 
   async showConfirm() {

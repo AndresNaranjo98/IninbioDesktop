@@ -1,0 +1,62 @@
+ion-content.fondo { 
+    --ion-background-color: #CECECE; 
+}
+
+ion-content{
+    background-color: #CECECE; 
+}
+
+ion-content.fondo { 
+    --ion-background-color: #CECECE; 
+}
+
+ion-content.menu { 
+    --ion-background-color: #1f1f1f;
+}
+
+ion-menu.menu{
+    --background : #1f1f1f;
+}
+
+.color{
+    --background: #1f1f1f;;
+}
+
+ion-icon{
+    color: white;
+}
+
+ion-button.fondo {
+    --background: #CECECE;
+    --border-color: none; 
+    --border-width: 0px !important;
+    --color : #000000;
+}
+
+ion-card{
+    display: flex;
+    flex-direction: column !important;
+    // width: 35% !important;
+    // height: 90% !important;
+    margin: 0 !important;
+    background-color: #CECECE; 
+    box-shadow: none;
+}
+
+#tina{
+    width: 20%; 
+    height: 17%; 
+    left: 7.5%;
+    text-align: center;
+    --ion-item-background:#CECECE;
+}
+
+.tina {
+    width: 30%;
+}
+
+@media screen and (max-width: 480px) {
+    .tina {
+      width: 100%;
+    }
+}

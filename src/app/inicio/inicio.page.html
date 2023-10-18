@@ -15,13 +15,13 @@
   </ion-header>
   <ion-content class="menu">
     <ion-list>
-      <ion-item><ion-icon name="beer-outline" slot="start"></ion-icon> {{"OPCIONESMENU.FERJUAGAVE" | translate}} </ion-item>
-      <ion-item button (click)="showConfirm()"><ion-icon name="log-in-outline" slot="start"></ion-icon> {{"OPCIONESMENU.CERRARSESION" | translate}} </ion-item>
+      <ion-item><ion-icon src="assets/imagenes/agave.svg" slot="start"></ion-icon> {{"OPCIONESMENU.FERJUAGAVE" | translate}} </ion-item>
+      <ion-item button (click)="showConfirm()"><ion-icon src="assets/imagenes/cerrar-sesion.svg" slot="start"></ion-icon> {{"OPCIONESMENU.CERRARSESION" | translate}} </ion-item>
     </ion-list>
   </ion-content>  
   <ion-item class="color">
-    <ion-icon name="book-outline" slot="start"></ion-icon>
-    <ion-label>{{"OPCIONESMENU.CATALOGO" | translate}}</ion-label>
+    <ion-icon src="assets/imagenes/catalogo.svg" slot="start"></ion-icon>
+    <ion-label>{{"OPCIONESMENU.CATALOGO" | translate}}</ion-label> 
       <ion-select interface="action-sheet" [(ngModel)]="opcion" (ionChange)="opcionCatalogo(opcion)">
         <ion-select-option value="mezcal">{{"PDFCATALOGO.MEZCAL" | translate}}</ion-select-option>
         <ion-select-option value="tequila">{{"PDFCATALOGO.TEQUILA" | translate}}</ion-select-option>
@@ -35,7 +35,7 @@
     <ion-col size="4" size-md="2" size-lg="2" class="padding" style="color: black; text-align: center;" *ngFor="let card of [].constructor(numberOfCards); let i = index;">
       {{i+1}}
       <ion-card [routerLink]="['/charts']" (click)="idTina(i+1)">
-        <img src="assets\imagenes\tina.png" alt="ion" class="tina">
+        <img src="assets\imagenes\p4.png" alt="ion" class="tina">
       </ion-card>
     </ion-col>
   </ion-row>

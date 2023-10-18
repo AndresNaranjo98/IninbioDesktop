@@ -42,9 +42,9 @@
     <ion-label color="danger" *ngIf="ionicForm.controls.nombre_usuario.errors?.minlength && (ionicForm.touched || ionicForm.dirty)">{{"VALIDACIONCAMPOSREGISTRO.TEXTOS" | translate}}</ion-label>
     
     <ion-item lines="full">
-      <ion-input class="letras" placeholder = "{{'FORMULARIOREGISTRO.TEQUILERA' | translate}}" type="text" name = "id_tequilera" formControlName="id_tequilera" required></ion-input>
+      <ion-input class="letras" placeholder = "{{'FORMULARIOREGISTRO.TEQUILERA' | translate}}" type="text" name = "empresa" formControlName="empresa" required></ion-input>
     </ion-item> 
-    <ion-label color="danger" *ngIf="ionicForm.controls.id_tequilera.errors?.minlength && (ionicForm.touched || ionicForm.dirty)">{{"VALIDACIONCAMPOSREGISTRO.TEXTOS" | translate}}</ion-label> 
+    <ion-label color="danger" *ngIf="ionicForm.controls.empresa.errors?.minlength && (ionicForm.touched || ionicForm.dirty)">{{"VALIDACIONCAMPOSREGISTRO.TEXTOS" | translate}}</ion-label> 
 
     <br>
     <ion-row>

@@ -11,11 +11,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "AppRoutingModule": () => (/* binding */ AppRoutingModule)
 /* harmony export */ });
-/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! tslib */ 8806);
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/core */ 4001);
-/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/router */ 3252);
-/* harmony import */ var _rutas_login_guard__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./rutas-login.guard */ 8523);
-/* harmony import */ var _rutas_no_login_guard__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./rutas-no-login.guard */ 414);
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! tslib */ 8806);
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/core */ 4001);
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/router */ 3252);
+/* harmony import */ var _rutas_no_login_guard__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./rutas-no-login.guard */ 414);
+/* harmony import */ var _guards_vino_acceso_guard__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./guards/vino-acceso.guard */ 2341);
+/* harmony import */ var _guards_tequila_acceso_guard__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./guards/tequila-acceso.guard */ 7097);
+
 
 
 
@@ -29,68 +31,98 @@ const routes = [
     },
     {
         path: 'login',
-        loadChildren: () => Promise.all(/*! import() */[__webpack_require__.e("common"), __webpack_require__.e("src_app_login_login_module_ts")]).then(__webpack_require__.bind(__webpack_require__, /*! ./login/login.module */ 9549)).then(m => m.LoginPageModule),
-        canActivate: [_rutas_no_login_guard__WEBPACK_IMPORTED_MODULE_1__.RutasNoLoginGuard]
+        loadChildren: () => Promise.all(/*! import() */[__webpack_require__.e("default-node_modules_crypto-js_index_js"), __webpack_require__.e("common"), __webpack_require__.e("src_app_login_login_module_ts")]).then(__webpack_require__.bind(__webpack_require__, /*! ./login/login.module */ 9549)).then(m => m.LoginPageModule),
+        canActivate: [_rutas_no_login_guard__WEBPACK_IMPORTED_MODULE_0__.RutasNoLoginGuard]
     },
     {
         path: 'registro',
         loadChildren: () => __webpack_require__.e(/*! import() */ "src_app_registro_registro_module_ts").then(__webpack_require__.bind(__webpack_require__, /*! ./registro/registro.module */ 8163)).then(m => m.RegistroPageModule),
-        canActivate: [_rutas_no_login_guard__WEBPACK_IMPORTED_MODULE_1__.RutasNoLoginGuard]
+        canActivate: [_rutas_no_login_guard__WEBPACK_IMPORTED_MODULE_0__.RutasNoLoginGuard]
     },
     {
         path: 'charts',
-        loadChildren: () => Promise.all(/*! import() */[__webpack_require__.e("default-node_modules_jquery_dist_jquery_js"), __webpack_require__.e("default-src_app_services_charts_service_ts-src_app_services_descarga-excel_service_ts"), __webpack_require__.e("src_app_charts_charts_module_ts")]).then(__webpack_require__.bind(__webpack_require__, /*! ./charts/charts.module */ 6028)).then(m => m.ChartsPageModule),
-        canActivate: [_rutas_login_guard__WEBPACK_IMPORTED_MODULE_0__.RutasLoginGuard]
+        loadChildren: () => Promise.all(/*! import() */[__webpack_require__.e("default-node_modules_crypto-js_index_js"), __webpack_require__.e("default-node_modules_jquery_dist_jquery_js"), __webpack_require__.e("default-src_app_services_charts_service_ts-src_app_services_descarga-excel_service_ts"), __webpack_require__.e("src_app_charts_charts_module_ts")]).then(__webpack_require__.bind(__webpack_require__, /*! ./charts/charts.module */ 6028)).then(m => m.ChartsPageModule),
+        canActivate: [_guards_tequila_acceso_guard__WEBPACK_IMPORTED_MODULE_2__.TequilaAccesoGuard]
     },
     {
         path: 'inicio',
-        loadChildren: () => Promise.all(/*! import() */[__webpack_require__.e("default-src_app_services_charts_service_ts-src_app_services_descarga-excel_service_ts"), __webpack_require__.e("common"), __webpack_require__.e("src_app_inicio_inicio_module_ts")]).then(__webpack_require__.bind(__webpack_require__, /*! ./inicio/inicio.module */ 2276)).then(m => m.InicioPageModule),
-        canActivate: [_rutas_login_guard__WEBPACK_IMPORTED_MODULE_0__.RutasLoginGuard]
+        loadChildren: () => Promise.all(/*! import() */[__webpack_require__.e("default-node_modules_crypto-js_index_js"), __webpack_require__.e("default-src_app_services_charts_service_ts-src_app_services_descarga-excel_service_ts"), __webpack_require__.e("common"), __webpack_require__.e("src_app_inicio_inicio_module_ts")]).then(__webpack_require__.bind(__webpack_require__, /*! ./inicio/inicio.module */ 2276)).then(m => m.InicioPageModule),
+        canActivate: [_guards_tequila_acceso_guard__WEBPACK_IMPORTED_MODULE_2__.TequilaAccesoGuard]
     },
     {
         path: 'principal',
         loadChildren: () => Promise.all(/*! import() */[__webpack_require__.e("common"), __webpack_require__.e("src_app_principal_principal_module_ts")]).then(__webpack_require__.bind(__webpack_require__, /*! ./principal/principal.module */ 9774)).then(m => m.PrincipalPageModule),
-        canActivate: [_rutas_login_guard__WEBPACK_IMPORTED_MODULE_0__.RutasLoginGuard]
+        canActivate: [_guards_tequila_acceso_guard__WEBPACK_IMPORTED_MODULE_2__.TequilaAccesoGuard]
     },
     {
         path: 'temperatura',
-        loadChildren: () => Promise.all(/*! import() */[__webpack_require__.e("default-node_modules_jquery_dist_jquery_js"), __webpack_require__.e("default-src_app_charts_temperatura_temperatura_module_ts")]).then(__webpack_require__.bind(__webpack_require__, /*! ./charts/temperatura/temperatura.module */ 1824)).then(m => m.TemperaturaPageModule),
-        canActivate: [_rutas_login_guard__WEBPACK_IMPORTED_MODULE_0__.RutasLoginGuard]
+        loadChildren: () => Promise.all(/*! import() */[__webpack_require__.e("default-node_modules_crypto-js_index_js"), __webpack_require__.e("default-node_modules_jquery_dist_jquery_js"), __webpack_require__.e("default-src_app_charts_temperatura_temperatura_module_ts")]).then(__webpack_require__.bind(__webpack_require__, /*! ./charts/temperatura/temperatura.module */ 1824)).then(m => m.TemperaturaPageModule),
+        canActivate: [_guards_tequila_acceso_guard__WEBPACK_IMPORTED_MODULE_2__.TequilaAccesoGuard]
     },
     {
         path: 'ph',
-        loadChildren: () => Promise.all(/*! import() */[__webpack_require__.e("default-node_modules_jquery_dist_jquery_js"), __webpack_require__.e("default-src_app_charts_ph_ph_module_ts")]).then(__webpack_require__.bind(__webpack_require__, /*! ./charts/ph/ph.module */ 2958)).then(m => m.PhPageModule),
-        canActivate: [_rutas_login_guard__WEBPACK_IMPORTED_MODULE_0__.RutasLoginGuard]
+        loadChildren: () => Promise.all(/*! import() */[__webpack_require__.e("default-node_modules_crypto-js_index_js"), __webpack_require__.e("default-node_modules_jquery_dist_jquery_js"), __webpack_require__.e("default-src_app_charts_ph_ph_module_ts")]).then(__webpack_require__.bind(__webpack_require__, /*! ./charts/ph/ph.module */ 2958)).then(m => m.PhPageModule),
+        canActivate: [_guards_tequila_acceso_guard__WEBPACK_IMPORTED_MODULE_2__.TequilaAccesoGuard]
     },
     {
         path: 'brix',
-        loadChildren: () => Promise.all(/*! import() */[__webpack_require__.e("default-node_modules_jquery_dist_jquery_js"), __webpack_require__.e("default-src_app_charts_brix_brix_module_ts")]).then(__webpack_require__.bind(__webpack_require__, /*! ./charts/brix/brix.module */ 2593)).then(m => m.BrixPageModule),
-        canActivate: [_rutas_login_guard__WEBPACK_IMPORTED_MODULE_0__.RutasLoginGuard]
+        loadChildren: () => Promise.all(/*! import() */[__webpack_require__.e("default-node_modules_crypto-js_index_js"), __webpack_require__.e("default-node_modules_jquery_dist_jquery_js"), __webpack_require__.e("default-src_app_charts_brix_brix_module_ts")]).then(__webpack_require__.bind(__webpack_require__, /*! ./charts/brix/brix.module */ 2593)).then(m => m.BrixPageModule),
+        canActivate: [_guards_tequila_acceso_guard__WEBPACK_IMPORTED_MODULE_2__.TequilaAccesoGuard]
     },
     {
         path: 'eficiencia',
-        loadChildren: () => Promise.all(/*! import() */[__webpack_require__.e("default-node_modules_jquery_dist_jquery_js"), __webpack_require__.e("default-src_app_charts_eficiencia_eficiencia_module_ts")]).then(__webpack_require__.bind(__webpack_require__, /*! ./charts/eficiencia/eficiencia.module */ 8272)).then(m => m.EficienciaPageModule),
-        canActivate: [_rutas_login_guard__WEBPACK_IMPORTED_MODULE_0__.RutasLoginGuard]
+        loadChildren: () => Promise.all(/*! import() */[__webpack_require__.e("default-node_modules_crypto-js_index_js"), __webpack_require__.e("default-node_modules_jquery_dist_jquery_js"), __webpack_require__.e("default-src_app_charts_eficiencia_eficiencia_module_ts")]).then(__webpack_require__.bind(__webpack_require__, /*! ./charts/eficiencia/eficiencia.module */ 8272)).then(m => m.EficienciaPageModule),
+        canActivate: [_guards_tequila_acceso_guard__WEBPACK_IMPORTED_MODULE_2__.TequilaAccesoGuard]
     },
     {
         path: 'alcvol',
-        loadChildren: () => Promise.all(/*! import() */[__webpack_require__.e("default-node_modules_jquery_dist_jquery_js"), __webpack_require__.e("default-src_app_charts_alcvol_alcvol_module_ts")]).then(__webpack_require__.bind(__webpack_require__, /*! ./charts/alcvol/alcvol.module */ 9078)).then(m => m.AlcvolPageModule),
-        canActivate: [_rutas_login_guard__WEBPACK_IMPORTED_MODULE_0__.RutasLoginGuard]
+        loadChildren: () => Promise.all(/*! import() */[__webpack_require__.e("default-node_modules_crypto-js_index_js"), __webpack_require__.e("default-node_modules_jquery_dist_jquery_js"), __webpack_require__.e("default-src_app_charts_alcvol_alcvol_module_ts")]).then(__webpack_require__.bind(__webpack_require__, /*! ./charts/alcvol/alcvol.module */ 9078)).then(m => m.AlcvolPageModule),
+        canActivate: [_guards_tequila_acceso_guard__WEBPACK_IMPORTED_MODULE_2__.TequilaAccesoGuard]
     },
     {
         path: 'rest-contrasena',
         loadChildren: () => Promise.all(/*! import() */[__webpack_require__.e("common"), __webpack_require__.e("src_app_rest-contrasena_rest-contrasena_module_ts")]).then(__webpack_require__.bind(__webpack_require__, /*! ./rest-contrasena/rest-contrasena.module */ 3664)).then(m => m.RestContrasenaPageModule),
-        canActivate: [_rutas_no_login_guard__WEBPACK_IMPORTED_MODULE_1__.RutasNoLoginGuard]
+        canActivate: [_rutas_no_login_guard__WEBPACK_IMPORTED_MODULE_0__.RutasNoLoginGuard]
+    },
+    {
+        path: 'inicio-vino',
+        loadChildren: () => Promise.all(/*! import() */[__webpack_require__.e("default-node_modules_crypto-js_index_js"), __webpack_require__.e("src_app_vino_inicio-vino_inicio-vino_module_ts")]).then(__webpack_require__.bind(__webpack_require__, /*! ./vino/inicio-vino/inicio-vino.module */ 5358)).then(m => m.InicioVinoPageModule),
+        canActivate: [_guards_vino_acceso_guard__WEBPACK_IMPORTED_MODULE_1__.VinoAccesoGuard]
+    },
+    {
+        path: 'charts-vino',
+        loadChildren: () => Promise.all(/*! import() */[__webpack_require__.e("default-node_modules_crypto-js_index_js"), __webpack_require__.e("default-node_modules_jquery_dist_jquery_js"), __webpack_require__.e("default-src_app_services_charts_service_ts-src_app_services_descarga-excel_service_ts"), __webpack_require__.e("src_app_vino_charts-vino_charts-vino_module_ts")]).then(__webpack_require__.bind(__webpack_require__, /*! ./vino/charts-vino/charts-vino.module */ 7923)).then(m => m.ChartsVinoPageModule),
+        canActivate: [_guards_vino_acceso_guard__WEBPACK_IMPORTED_MODULE_1__.VinoAccesoGuard]
+    },
+    {
+        path: 'densidad-vino',
+        loadChildren: () => Promise.all(/*! import() */[__webpack_require__.e("default-node_modules_crypto-js_index_js"), __webpack_require__.e("default-node_modules_jquery_dist_jquery_js"), __webpack_require__.e("src_app_vino_densidad-vino_densidad-vino_module_ts")]).then(__webpack_require__.bind(__webpack_require__, /*! ./vino/densidad-vino/densidad-vino.module */ 7769)).then(m => m.DensidadVinoPageModule),
+        canActivate: [_guards_vino_acceso_guard__WEBPACK_IMPORTED_MODULE_1__.VinoAccesoGuard]
+    },
+    {
+        path: 'acidez-vino',
+        loadChildren: () => Promise.all(/*! import() */[__webpack_require__.e("default-node_modules_crypto-js_index_js"), __webpack_require__.e("default-node_modules_jquery_dist_jquery_js"), __webpack_require__.e("src_app_vino_acidez-vino_acidez-vino_module_ts")]).then(__webpack_require__.bind(__webpack_require__, /*! ./vino/acidez-vino/acidez-vino.module */ 9040)).then(m => m.AcidezVinoPageModule),
+        canActivate: [_guards_vino_acceso_guard__WEBPACK_IMPORTED_MODULE_1__.VinoAccesoGuard]
+    },
+    {
+        path: 'temperatura-vino',
+        loadChildren: () => Promise.all(/*! import() */[__webpack_require__.e("default-node_modules_crypto-js_index_js"), __webpack_require__.e("default-node_modules_jquery_dist_jquery_js"), __webpack_require__.e("src_app_vino_temperatura-vino_temperatura-vino_module_ts")]).then(__webpack_require__.bind(__webpack_require__, /*! ./vino/temperatura-vino/temperatura-vino.module */ 2363)).then(m => m.TemperaturaVinoPageModule),
+        canActivate: [_guards_vino_acceso_guard__WEBPACK_IMPORTED_MODULE_1__.VinoAccesoGuard]
+    },
+    {
+        path: 'volumen-vino',
+        loadChildren: () => Promise.all(/*! import() */[__webpack_require__.e("default-node_modules_crypto-js_index_js"), __webpack_require__.e("default-node_modules_jquery_dist_jquery_js"), __webpack_require__.e("src_app_vino_volumen-vino_volumen-vino_module_ts")]).then(__webpack_require__.bind(__webpack_require__, /*! ./vino/volumen-vino/volumen-vino.module */ 231)).then(m => m.VolumenVinoPageModule),
+        canActivate: [_guards_vino_acceso_guard__WEBPACK_IMPORTED_MODULE_1__.VinoAccesoGuard]
     }
 ];
 let AppRoutingModule = class AppRoutingModule {
 };
-AppRoutingModule = (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__decorate)([
-    (0,_angular_core__WEBPACK_IMPORTED_MODULE_3__.NgModule)({
+AppRoutingModule = (0,tslib__WEBPACK_IMPORTED_MODULE_3__.__decorate)([
+    (0,_angular_core__WEBPACK_IMPORTED_MODULE_4__.NgModule)({
         imports: [
-            _angular_router__WEBPACK_IMPORTED_MODULE_4__.RouterModule.forRoot(routes, { preloadingStrategy: _angular_router__WEBPACK_IMPORTED_MODULE_4__.PreloadAllModules })
+            _angular_router__WEBPACK_IMPORTED_MODULE_5__.RouterModule.forRoot(routes, { preloadingStrategy: _angular_router__WEBPACK_IMPORTED_MODULE_5__.PreloadAllModules })
         ],
-        exports: [_angular_router__WEBPACK_IMPORTED_MODULE_4__.RouterModule]
+        exports: [_angular_router__WEBPACK_IMPORTED_MODULE_5__.RouterModule]
     })
 ], AppRoutingModule);
 
@@ -110,7 +142,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "AppComponent": () => (/* binding */ AppComponent)
 /* harmony export */ });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! tslib */ 8806);
-/* harmony import */ var _C_Users_tics_Desktop_IninbioApp_Ininbio_App_node_modules_ngtools_webpack_src_loaders_direct_resource_js_app_component_html__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! !./node_modules/@ngtools/webpack/src/loaders/direct-resource.js!./app.component.html */ 5158);
+/* harmony import */ var _C_Users_tics_Documents_BACKUP_APP_ESCRITORIO_FULL_IninbioSystemExpo_node_modules_ngtools_webpack_src_loaders_direct_resource_js_app_component_html__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! !./node_modules/@ngtools/webpack/src/loaders/direct-resource.js!./app.component.html */ 5158);
 /* harmony import */ var _app_component_scss__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./app.component.scss */ 836);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/core */ 4001);
 /* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @ionic/angular */ 8099);
@@ -140,7 +172,7 @@ AppComponent.ctorParameters = () => [
 AppComponent = (0,tslib__WEBPACK_IMPORTED_MODULE_4__.__decorate)([
     (0,_angular_core__WEBPACK_IMPORTED_MODULE_5__.Component)({
         selector: 'app-root',
-        template: _C_Users_tics_Desktop_IninbioApp_Ininbio_App_node_modules_ngtools_webpack_src_loaders_direct_resource_js_app_component_html__WEBPACK_IMPORTED_MODULE_0__["default"],
+        template: _C_Users_tics_Documents_BACKUP_APP_ESCRITORIO_FULL_IninbioSystemExpo_node_modules_ngtools_webpack_src_loaders_direct_resource_js_app_component_html__WEBPACK_IMPORTED_MODULE_0__["default"],
         styles: [_app_component_scss__WEBPACK_IMPORTED_MODULE_1__]
     })
 ], AppComponent);
@@ -239,45 +271,155 @@ AppModule = (0,tslib__WEBPACK_IMPORTED_MODULE_8__.__decorate)([
 
 /***/ }),
 
-/***/ 8523:
+/***/ 7097:
+/*!************************************************!*\
+  !*** ./src/app/guards/tequila-acceso.guard.ts ***!
+  \************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "TequilaAccesoGuard": () => (/* binding */ TequilaAccesoGuard)
+/* harmony export */ });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! tslib */ 8806);
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/core */ 4001);
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ 3252);
+/* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @ionic/angular */ 8099);
+/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/common */ 8267);
+/* harmony import */ var _last_path_service__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../last-path.service */ 1686);
+
+
+
+
+
+
+let TequilaAccesoGuard = class TequilaAccesoGuard {
+    constructor(navControl, router, location, last) {
+        this.navControl = navControl;
+        this.router = router;
+        this.location = location;
+        this.last = last;
+    }
+    canActivate(route, state) {
+        if (localStorage.getItem('categoria') == '1') {
+            return true;
+        }
+        else {
+            this.router.navigateByUrl(localStorage.getItem('routLast'));
+            return false;
+        }
+    }
+};
+TequilaAccesoGuard.ctorParameters = () => [
+    { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_1__.NavController },
+    { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__.Router },
+    { type: _angular_common__WEBPACK_IMPORTED_MODULE_3__.Location },
+    { type: _last_path_service__WEBPACK_IMPORTED_MODULE_0__.LastPathService }
+];
+TequilaAccesoGuard = (0,tslib__WEBPACK_IMPORTED_MODULE_4__.__decorate)([
+    (0,_angular_core__WEBPACK_IMPORTED_MODULE_5__.Injectable)({
+        providedIn: 'root'
+    })
+], TequilaAccesoGuard);
+
+
+
+/***/ }),
+
+/***/ 2341:
+/*!*********************************************!*\
+  !*** ./src/app/guards/vino-acceso.guard.ts ***!
+  \*********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "VinoAccesoGuard": () => (/* binding */ VinoAccesoGuard)
+/* harmony export */ });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! tslib */ 8806);
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/core */ 4001);
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/router */ 3252);
+/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common */ 8267);
+/* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @ionic/angular */ 8099);
+/* harmony import */ var _last_path_service__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../last-path.service */ 1686);
+
+
+
+
+
+
+let VinoAccesoGuard = class VinoAccesoGuard {
+    constructor(router, location, navControl, last) {
+        this.router = router;
+        this.location = location;
+        this.navControl = navControl;
+        this.last = last;
+    }
+    canActivate(route, state) {
+        if (localStorage.getItem('categoria') == '2') {
+            return true;
+        }
+        else {
+            this.router.navigateByUrl(localStorage.getItem('routLast'));
+            return false;
+        }
+    }
+};
+VinoAccesoGuard.ctorParameters = () => [
+    { type: _angular_router__WEBPACK_IMPORTED_MODULE_1__.Router },
+    { type: _angular_common__WEBPACK_IMPORTED_MODULE_2__.Location },
+    { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_3__.NavController },
+    { type: _last_path_service__WEBPACK_IMPORTED_MODULE_0__.LastPathService }
+];
+VinoAccesoGuard = (0,tslib__WEBPACK_IMPORTED_MODULE_4__.__decorate)([
+    (0,_angular_core__WEBPACK_IMPORTED_MODULE_5__.Injectable)({
+        providedIn: 'root'
+    })
+], VinoAccesoGuard);
+
+
+
+/***/ }),
+
+/***/ 1686:
 /*!**************************************!*\
-  !*** ./src/app/rutas-login.guard.ts ***!
+  !*** ./src/app/last-path.service.ts ***!
   \**************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "RutasLoginGuard": () => (/* binding */ RutasLoginGuard)
+/* harmony export */   "LastPathService": () => (/* binding */ LastPathService)
 /* harmony export */ });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! tslib */ 8806);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/core */ 4001);
-/* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @ionic/angular */ 8099);
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/router */ 3252);
 
 
 
-let RutasLoginGuard = class RutasLoginGuard {
-    constructor(navControl) {
-        this.navControl = navControl;
-    }
-    canActivate(route, state) {
-        if (localStorage.getItem('tequilera')) {
-            return true;
-        }
-        else {
-            this.navControl.navigateRoot('login');
-            return false;
-        }
+let LastPathService = class LastPathService {
+    constructor(router) {
+        this.router = router;
+        this.previousUrl = '';
+        this.router.events.subscribe((event) => {
+            if (event instanceof _angular_router__WEBPACK_IMPORTED_MODULE_0__.NavigationEnd) {
+                this.previousUrl = this.router.url;
+                localStorage.setItem('routLast', this.previousUrl);
+            }
+        });
     }
 };
-RutasLoginGuard.ctorParameters = () => [
-    { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_0__.NavController }
+LastPathService.ctorParameters = () => [
+    { type: _angular_router__WEBPACK_IMPORTED_MODULE_0__.Router }
 ];
-RutasLoginGuard = (0,tslib__WEBPACK_IMPORTED_MODULE_1__.__decorate)([
+LastPathService = (0,tslib__WEBPACK_IMPORTED_MODULE_1__.__decorate)([
     (0,_angular_core__WEBPACK_IMPORTED_MODULE_2__.Injectable)({
         providedIn: 'root'
     })
-], RutasLoginGuard);
+], LastPathService);
 
 
 
@@ -305,13 +447,12 @@ let RutasNoLoginGuard = class RutasNoLoginGuard {
         this.navControl = navControl;
     }
     canActivate(route, state) {
-        if (localStorage.getItem('tequilera')) {
-            this.navControl.navigateRoot('inicio');
-            return false;
-        }
-        else {
-            return true;
-        }
+        localStorage.removeItem('idTina');
+        localStorage.removeItem('empresa');
+        localStorage.removeItem('token');
+        localStorage.removeItem('categoria');
+        localStorage.removeItem('routLast');
+        return true;
     }
 };
 RutasNoLoginGuard.ctorParameters = () => [
@@ -346,13 +487,14 @@ __webpack_require__.r(__webpack_exports__);
 
 const environment = {
     production: false,
-    apiUsuarios: 'https://www.ininbio.com/pruebasLocalesFull/principal.php',
-    apiSensores: 'https://www.ininbio.com/pruebasLocalesFull/datos_Grafica.php',
-    apiLogin: 'https://www.ininbio.com/pruebasLocalesFull/obtenerUsuarios.php',
-    apiExcel: 'https://www.ininbio.com/pruebasLocalesFull/generar_Excel.php',
-    apiRestContrasena: 'https://www.ininbio.com/pruebasLocalesFull/newContra.php',
+    apiUsuarios: 'https://www.ininbio.com//pruebasLocalesFull/principal_.php',
+    apiSensores: 'https://www.ininbio.com//pruebasLocalesFull/datos_Grafica.php',
+    apiLogin: 'https://www.ininbio.com//pruebasLocalesFull/obtener_Usuarios.php',
+    apiExcel: 'https://www.ininbio.com//pruebasLocalesFull/generar_Excel.php',
+    apiRestContrasena: 'https://www.ininbio.com//pruebasLocalesFull/new_Contra.php',
     apiMezcalPDF: 'http://3.138.161.216:80/Catalogos/Catalogo_Vino.pdf',
-    apiAlertas: 'https://www.ininbio.com/pruebasLocalesFull/alertasApp.php'
+    apiAlertas: 'https://www.ininbio.com//pruebasLocalesFull/alertas_App.php',
+    SECRET_KEY: 'Ininbio.TI2022?'
 };
 /*
  * For easier debugging in development mode, you can import the following file

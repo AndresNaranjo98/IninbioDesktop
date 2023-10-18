@@ -117,7 +117,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "RestContrasenaPage": () => (/* binding */ RestContrasenaPage)
 /* harmony export */ });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! tslib */ 8806);
-/* harmony import */ var _C_Users_tics_Desktop_IninbioApp_Ininbio_App_node_modules_ngtools_webpack_src_loaders_direct_resource_js_rest_contrasena_page_html__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! !./node_modules/@ngtools/webpack/src/loaders/direct-resource.js!./rest-contrasena.page.html */ 3638);
+/* harmony import */ var _C_Users_tics_Documents_BACKUP_APP_ESCRITORIO_FULL_IninbioSystemExpo_node_modules_ngtools_webpack_src_loaders_direct_resource_js_rest_contrasena_page_html__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! !./node_modules/@ngtools/webpack/src/loaders/direct-resource.js!./rest-contrasena.page.html */ 3638);
 /* harmony import */ var _rest_contrasena_page_scss__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./rest-contrasena.page.scss */ 5100);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @angular/core */ 4001);
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @angular/router */ 3252);
@@ -207,7 +207,7 @@ RestContrasenaPage.ctorParameters = () => [
 RestContrasenaPage = (0,tslib__WEBPACK_IMPORTED_MODULE_5__.__decorate)([
     (0,_angular_core__WEBPACK_IMPORTED_MODULE_8__.Component)({
         selector: 'app-rest-contrasena',
-        template: _C_Users_tics_Desktop_IninbioApp_Ininbio_App_node_modules_ngtools_webpack_src_loaders_direct_resource_js_rest_contrasena_page_html__WEBPACK_IMPORTED_MODULE_0__["default"],
+        template: _C_Users_tics_Documents_BACKUP_APP_ESCRITORIO_FULL_IninbioSystemExpo_node_modules_ngtools_webpack_src_loaders_direct_resource_js_rest_contrasena_page_html__WEBPACK_IMPORTED_MODULE_0__["default"],
         styles: [_rest_contrasena_page_scss__WEBPACK_IMPORTED_MODULE_1__]
     })
 ], RestContrasenaPage);

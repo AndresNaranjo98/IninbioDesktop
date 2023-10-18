@@ -16762,23 +16762,25 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "createTranslateLoader": () => (/* binding */ createTranslateLoader),
 /* harmony export */   "ChartsPageModule": () => (/* binding */ ChartsPageModule)
 /* harmony export */ });
-/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! tslib */ 8806);
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @angular/core */ 4001);
-/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @angular/common */ 8267);
-/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @angular/forms */ 8346);
-/* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @ionic/angular */ 8099);
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! tslib */ 8806);
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @angular/core */ 4001);
+/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @angular/common */ 8267);
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @angular/forms */ 8346);
+/* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! @ionic/angular */ 8099);
 /* harmony import */ var _charts_routing_module__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./charts-routing.module */ 9485);
 /* harmony import */ var _charts_page__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./charts.page */ 9266);
-/* harmony import */ var angular_highcharts__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! angular-highcharts */ 6321);
-/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! @angular/common/http */ 3981);
+/* harmony import */ var angular_highcharts__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! angular-highcharts */ 6321);
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! @angular/common/http */ 3981);
 /* harmony import */ var highcharts_highcharts_more_src__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! highcharts/highcharts-more.src */ 4686);
 /* harmony import */ var highcharts_highcharts_more_src__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(highcharts_highcharts_more_src__WEBPACK_IMPORTED_MODULE_2__);
 /* harmony import */ var highcharts_modules_exporting_src__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! highcharts/modules/exporting.src */ 4399);
 /* harmony import */ var highcharts_modules_exporting_src__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(highcharts_modules_exporting_src__WEBPACK_IMPORTED_MODULE_3__);
 /* harmony import */ var highcharts_modules_solid_gauge_src__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! highcharts/modules/solid-gauge.src */ 9802);
 /* harmony import */ var highcharts_modules_solid_gauge_src__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(highcharts_modules_solid_gauge_src__WEBPACK_IMPORTED_MODULE_4__);
-/* harmony import */ var _ngx_translate_core__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! @ngx-translate/core */ 466);
-/* harmony import */ var _ngx_translate_http_loader__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @ngx-translate/http-loader */ 2003);
+/* harmony import */ var _ngx_translate_core__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! @ngx-translate/core */ 466);
+/* harmony import */ var _ngx_translate_http_loader__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @ngx-translate/http-loader */ 2003);
+/* harmony import */ var _date_minus_six_hours_pipe__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../date-minus-six-hours.pipe */ 5203);
+
 
 
 
@@ -16794,25 +16796,28 @@ __webpack_require__.r(__webpack_exports__);
 
 
 function createTranslateLoader(http) {
-    return new _ngx_translate_http_loader__WEBPACK_IMPORTED_MODULE_5__.TranslateHttpLoader(http, "./assets/i18n/", ".json");
+    return new _ngx_translate_http_loader__WEBPACK_IMPORTED_MODULE_6__.TranslateHttpLoader(http, "./assets/i18n/", ".json");
 }
 let ChartsPageModule = class ChartsPageModule {
 };
-ChartsPageModule = (0,tslib__WEBPACK_IMPORTED_MODULE_6__.__decorate)([
-    (0,_angular_core__WEBPACK_IMPORTED_MODULE_7__.NgModule)({
+ChartsPageModule = (0,tslib__WEBPACK_IMPORTED_MODULE_7__.__decorate)([
+    (0,_angular_core__WEBPACK_IMPORTED_MODULE_8__.NgModule)({
         imports: [
-            _angular_common__WEBPACK_IMPORTED_MODULE_8__.CommonModule,
-            _angular_forms__WEBPACK_IMPORTED_MODULE_9__.FormsModule,
-            _ionic_angular__WEBPACK_IMPORTED_MODULE_10__.IonicModule,
+            _angular_common__WEBPACK_IMPORTED_MODULE_9__.CommonModule,
+            _angular_forms__WEBPACK_IMPORTED_MODULE_10__.FormsModule,
+            _ionic_angular__WEBPACK_IMPORTED_MODULE_11__.IonicModule,
             _charts_routing_module__WEBPACK_IMPORTED_MODULE_0__.ChartsPageRoutingModule,
-            angular_highcharts__WEBPACK_IMPORTED_MODULE_11__.ChartModule,
-            _angular_common_http__WEBPACK_IMPORTED_MODULE_12__.HttpClientModule,
-            _ngx_translate_core__WEBPACK_IMPORTED_MODULE_13__.TranslateModule,
+            angular_highcharts__WEBPACK_IMPORTED_MODULE_12__.ChartModule,
+            _angular_common_http__WEBPACK_IMPORTED_MODULE_13__.HttpClientModule,
+            _ngx_translate_core__WEBPACK_IMPORTED_MODULE_14__.TranslateModule,
         ],
-        declarations: [_charts_page__WEBPACK_IMPORTED_MODULE_1__.ChartsPage],
+        declarations: [_charts_page__WEBPACK_IMPORTED_MODULE_1__.ChartsPage, _date_minus_six_hours_pipe__WEBPACK_IMPORTED_MODULE_5__.DateMinusSixHoursPipe],
         providers: [
-            { provide: angular_highcharts__WEBPACK_IMPORTED_MODULE_11__.HIGHCHARTS_MODULES, useFactory: () => [highcharts_highcharts_more_src__WEBPACK_IMPORTED_MODULE_2__, highcharts_modules_solid_gauge_src__WEBPACK_IMPORTED_MODULE_4__, highcharts_modules_exporting_src__WEBPACK_IMPORTED_MODULE_3__] }
+            { provide: angular_highcharts__WEBPACK_IMPORTED_MODULE_12__.HIGHCHARTS_MODULES, useFactory: () => [highcharts_highcharts_more_src__WEBPACK_IMPORTED_MODULE_2__, highcharts_modules_solid_gauge_src__WEBPACK_IMPORTED_MODULE_4__, highcharts_modules_exporting_src__WEBPACK_IMPORTED_MODULE_3__] }
         ],
+        exports: [
+            _date_minus_six_hours_pipe__WEBPACK_IMPORTED_MODULE_5__.DateMinusSixHoursPipe
+        ]
     })
 ], ChartsPageModule);
 
@@ -16830,10 +16835,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "ChartsPage": () => (/* binding */ ChartsPage)
 /* harmony export */ });
-/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! tslib */ 8806);
-/* harmony import */ var _C_Users_tics_Desktop_IninbioApp_Ininbio_App_node_modules_ngtools_webpack_src_loaders_direct_resource_js_charts_page_html__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! !./node_modules/@ngtools/webpack/src/loaders/direct-resource.js!./charts.page.html */ 6514);
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! tslib */ 8806);
+/* harmony import */ var _C_Users_tics_Documents_BACKUP_APP_ESCRITORIO_FULL_IninbioSystemExpo_node_modules_ngtools_webpack_src_loaders_direct_resource_js_charts_page_html__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! !./node_modules/@ngtools/webpack/src/loaders/direct-resource.js!./charts.page.html */ 6514);
 /* harmony import */ var _charts_page_scss__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./charts.page.scss */ 820);
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! @angular/core */ 4001);
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! @angular/core */ 4001);
 /* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! jquery */ 4940);
 /* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_2__);
 /* harmony import */ var highcharts_highcharts_more__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! highcharts/highcharts-more */ 9301);
@@ -16844,10 +16849,15 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var highcharts_highstock__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! highcharts/highstock */ 9193);
 /* harmony import */ var highcharts_highstock__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(highcharts_highstock__WEBPACK_IMPORTED_MODULE_6__);
 /* harmony import */ var _ionic_native_downloader_ngx__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @ionic-native/downloader/ngx */ 3857);
-/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @angular/router */ 3252);
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! @angular/router */ 3252);
 /* harmony import */ var _services_descarga_excel_service__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../services/descarga-excel.service */ 3364);
-/* harmony import */ var _ngx_translate_core__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! @ngx-translate/core */ 466);
-/* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! @ionic/angular */ 8099);
+/* harmony import */ var _ngx_translate_core__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! @ngx-translate/core */ 466);
+/* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! @ionic/angular */ 8099);
+/* harmony import */ var crypto_js__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! crypto-js */ 3706);
+/* harmony import */ var crypto_js__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(crypto_js__WEBPACK_IMPORTED_MODULE_9__);
+/* harmony import */ var src_environments_environment__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! src/environments/environment */ 8260);
+
+
 
 
 
@@ -16878,6 +16888,7 @@ let ChartsPage = class ChartsPage {
         this.date = new Date();
         this.formatoFecha = this.date.toISOString().split('T')[0];
         this.grados = false;
+        this.showSpinner = true;
         this.translate.use(localStorage.getItem('idioma'));
     }
     ngOnInit() { }
@@ -16886,10 +16897,12 @@ let ChartsPage = class ChartsPage {
     }
     ionViewWillEnter() {
         this.graficaTinas();
+        this.cargarDatos();
+        this.cargarDatosFull();
         this.intervalUpdate = setInterval(function () {
             this.cargarDatos();
             this.cargarDatosFull();
-        }.bind(this), 1000);
+        }.bind(this), 60000);
         this.obtenerLimites();
     }
     ionViewDidLeave() {
@@ -16897,7 +16910,7 @@ let ChartsPage = class ChartsPage {
         clearInterval(this.intervalFunction);
     }
     generarExcel() {
-        return (0,tslib__WEBPACK_IMPORTED_MODULE_9__.__awaiter)(this, void 0, void 0, function* () {
+        return (0,tslib__WEBPACK_IMPORTED_MODULE_11__.__awaiter)(this, void 0, void 0, function* () {
             let num_tina = localStorage.getItem('idTina');
             let tina = num_tina.toString();
             const alert = yield this.alertController.create({
@@ -16919,7 +16932,7 @@ let ChartsPage = class ChartsPage {
                 buttons: [{
                         cssClass: 'confirmacion',
                         text: this.translate.instant("FECHASEXCEL.GENERAR"),
-                        handler: (datosAlerta) => (0,tslib__WEBPACK_IMPORTED_MODULE_9__.__awaiter)(this, void 0, void 0, function* () {
+                        handler: (datosAlerta) => (0,tslib__WEBPACK_IMPORTED_MODULE_11__.__awaiter)(this, void 0, void 0, function* () {
                             let primerFecha = datosAlerta.primer;
                             let segundaFecha = datosAlerta.segunda;
                             if (primerFecha != "" && segundaFecha != "") {
@@ -16961,10 +16974,14 @@ let ChartsPage = class ChartsPage {
         }
     }
     graficaTinas() {
-        var ultimox, ultimoy, ultimoz, ultimov, ultimow, ultimou, chart;
-        let num_tina = localStorage.getItem('idTina');
-        let tequilera = localStorage.getItem('tequilera');
+        var ultimox, ultimoy, ultimoz, ultimov, ultimow, ultimou, ultimoTempMayor, ultimoTempMenor, ultimophMayor, ultimophMenor, chart;
+        let idTina = localStorage.getItem('idTina');
+        let tinaIndividual = localStorage.getItem('idTina');
+        let empresa = localStorage.getItem('empresa');
+        let categoria = localStorage.getItem('categoria');
         let idiomas = localStorage.getItem('idioma');
+        let Consultar = 1;
+        let token = localStorage.getItem('token');
         setTimeout(function () {
             if (idiomas === 'en') {
                 highcharts_highstock__WEBPACK_IMPORTED_MODULE_6__.charts.forEach(function (ch) {
@@ -17009,22 +17026,34 @@ let ChartsPage = class ChartsPage {
                 });
             }
         }, 1000);
+        const bytes = crypto_js__WEBPACK_IMPORTED_MODULE_9__.AES.decrypt(empresa, src_environments_environment__WEBPACK_IMPORTED_MODULE_10__.environment.SECRET_KEY);
+        const datoDesencriptado = bytes.toString(crypto_js__WEBPACK_IMPORTED_MODULE_9__.enc.Utf8);
+        var parseo = { 'idTina': idTina, 'empresa': datoDesencriptado, 'categoria': categoria };
+        var parseo2 = { 'tinaIndividual': tinaIndividual, 'empresa': datoDesencriptado, 'Consultar': Consultar, 'categoria': categoria };
         jquery__WEBPACK_IMPORTED_MODULE_2__.ajax({
-            url: 'https://www.ininbio.com/pruebasLocalesFull/datos_Grafica.php?idTina=' +
-                num_tina +
-                '&tequilera=' +
-                tequilera,
-            type: 'GET',
+            url: 'https://www.ininbio.com//pruebasLocalesFull/datos_Grafica.php',
+            headers: { "Authorization": "Bearer " + token, "Content-Type": "application/json" },
+            type: 'POST',
             dataType: 'json',
+            data: JSON.stringify(parseo),
             success: function (datosGrafica) {
+                document.getElementById('spinner').style.display = 'none';
                 let temp = [];
                 let pH = [];
                 let brix = [];
                 let alcvol = [];
                 let eficiencia = [];
+                let tempMayor = [];
+                let tempMenor = [];
+                let phMayor = [];
+                let phMenor = [];
                 jquery__WEBPACK_IMPORTED_MODULE_2__.each(datosGrafica, function (key, value) {
+                    var sixHoursInMilliseconds = 6 * 60 * 60 * 1000;
+                    var newTimestamp = datosGrafica[key].x - sixHoursInMilliseconds;
+                    datosGrafica[key].x = newTimestamp;
                     if (value.x) {
                         datosGrafica[key].x = parseInt(value.x);
+                        // datosGrafica[key].x -= 6*3600;
                     }
                     if (value.y) {
                         datosGrafica[key].y = parseFloat(value.y);
@@ -17041,11 +17070,27 @@ let ChartsPage = class ChartsPage {
                     if (value.u) {
                         datosGrafica[key].u = parseInt(value.u);
                     }
+                    if (value.tempMayor) {
+                        datosGrafica[key].tempMayor = parseFloat(value.tempMayor);
+                    }
+                    if (value.tempMenor) {
+                        datosGrafica[key].tempMenor = parseFloat(value.tempMenor);
+                    }
+                    if (value.phMayor) {
+                        datosGrafica[key].phMayor = parseFloat(value.phMayor);
+                    }
+                    if (value.phMenor) {
+                        datosGrafica[key].phMenor = parseFloat(value.phMenor);
+                    }
                     temp.push([value.x, value.y]);
                     pH.push([value.x, value.z]);
                     brix.push([value.x, value.w]);
                     alcvol.push([value.x, value.v]);
                     eficiencia.push([value.x, value.u]);
+                    tempMayor.push([value.x, value.tempMayor]);
+                    tempMenor.push([value.x, value.tempMenor]);
+                    phMayor.push([value.x, value.phMayor]);
+                    phMenor.push([value.x, value.phMenor]);
                 });
                 var container = document.createElement('div');
                 document.body.appendChild(container);
@@ -17161,7 +17206,10 @@ let ChartsPage = class ChartsPage {
                         },
                     },
                     legend: {
-                        enabled: false,
+                        verticalAlign: 'bottom',
+                        layout: 'horizontal',
+                        alignColumns: false,
+                        align: 'center',
                     },
                     exporting: {
                         enabled: false,
@@ -17180,76 +17228,115 @@ let ChartsPage = class ChartsPage {
                         {
                             name: 'Temperatura',
                             type: 'spline',
-                            yAxis: 0,
+                            // yAxis: 0,
                             data: temp,
                             color: '#0833a2',
                         },
                         {
                             name: 'pH',
                             type: 'spline',
-                            yAxis: 1,
+                            // yAxis: 1,
                             data: pH,
                             color: '#14faff',
                         },
                         {
                             name: 'Brix',
                             type: 'spline',
-                            yAxis: 2,
+                            // yAxis: 2,
                             data: brix,
                             color: '#edff14',
                         },
                         {
                             name: 'Alcohol Volumen',
                             type: 'spline',
-                            yAxis: 3,
+                            // yAxis: 3,
                             data: alcvol,
                             color: '#ff14ff',
                         },
                         {
                             name: 'Eficiencia',
                             type: 'spline',
-                            yAxis: 4,
+                            // yAxis: 4,
                             data: eficiencia,
                             color: '#1eff05',
                         },
+                        {
+                            name: 'MaxTemp',
+                            type: 'spline',
+                            data: tempMayor,
+                            color: '#5B2C6F'
+                        },
+                        {
+                            name: 'MinTemp',
+                            type: 'spline',
+                            data: tempMenor,
+                            color: '#FF0087'
+                        },
+                        {
+                            name: 'MaxpH',
+                            type: 'spline',
+                            data: phMayor,
+                            color: '#D35400'
+                        },
+                        {
+                            name: 'MinpH',
+                            type: 'spline',
+                            data: phMenor,
+                            color: '#F08080'
+                        }
                     ],
                 });
             },
         });
         this.intervalFunction = setInterval(function () {
-            jquery__WEBPACK_IMPORTED_MODULE_2__.get('https://www.ininbio.com/pruebasLocalesFull/datos_Grafica.php?tinaIndividual=' +
-                num_tina +
-                '&tequilera=' +
-                tequilera +
-                '&Consultar=1', function (UltimosDatos) {
-                if (UltimosDatos.length != 0) {
-                    var varlocalx = parseInt(UltimosDatos[0].x);
-                    var varlocaly = parseFloat(UltimosDatos[0].y);
-                    var varlocalz = parseFloat(UltimosDatos[0].z);
-                    var varlocalw = parseFloat(UltimosDatos[0].w);
-                    var varlocalv = parseFloat(UltimosDatos[0].v);
-                    var varlocalu = parseFloat(UltimosDatos[0].u);
-                    if (getx() != varlocalx &&
-                        gety() != varlocaly &&
-                        getz() != varlocalz &&
-                        getw() != varlocalw &&
-                        getv() != varlocalv &&
-                        getu() != varlocalu) {
-                        chart.series[0].addPoint([varlocalx, varlocaly]);
-                        chart.series[1].addPoint([varlocalx, varlocalz]);
-                        chart.series[2].addPoint([varlocalx, varlocalw]);
-                        chart.series[3].addPoint([varlocalx, varlocalv]);
-                        chart.series[4].addPoint([varlocalx, varlocalu]);
-                        //chart.series[0].addPoint([varlocalx, varlocaly - 1], false, true);
-                        //chart.series[1].addPoint([varlocalx,varlocalz - 1], false, true);
-                        //chart.series[2].addPoint([varlocalx,varlocalw - 1], false, true);
-                        //chart.series[3].addPoint([varlocalx,varlocalv - 1], false, true);
-                        //chart.series[4].addPoint([varlocalx,varlocalu - 1], false, true);
-                        chart.redraw();
+            jquery__WEBPACK_IMPORTED_MODULE_2__.post({
+                url: 'https://www.ininbio.com//pruebasLocalesFull/datos_Grafica.php',
+                headers: { "Authorization": "Bearer " + token, "Content-Type": "application/json" },
+                type: 'POST',
+                data: JSON.stringify(parseo2),
+                dataType: 'json',
+                success: function (UltimosDatos) {
+                    if (UltimosDatos.length != 0) {
+                        var varlocalx = parseInt(UltimosDatos[0].x);
+                        var varlocaly = parseFloat(UltimosDatos[0].y);
+                        var varlocalz = parseFloat(UltimosDatos[0].z);
+                        var varlocalw = parseFloat(UltimosDatos[0].w);
+                        var varlocalv = parseFloat(UltimosDatos[0].v);
+                        var varlocalu = parseFloat(UltimosDatos[0].u);
+                        var varlocaltempMayor = parseFloat(UltimosDatos[0].tempMayor);
+                        var varlocaltempMenor = parseFloat(UltimosDatos[0].tempMenor);
+                        var varlocalphMayor = parseFloat(UltimosDatos[0].phMayor);
+                        var varlocalphMenor = parseFloat(UltimosDatos[0].phMenor);
+                        if (getx() != varlocalx &&
+                            gety() != varlocaly &&
+                            getz() != varlocalz &&
+                            getw() != varlocalw &&
+                            getv() != varlocalv &&
+                            getu() != varlocalu &&
+                            getTempMayor() != varlocaltempMayor &&
+                            getTempMenor() != varlocaltempMenor &&
+                            getphMayor() != varlocalphMayor &&
+                            getphMenor() != varlocalphMenor) {
+                            chart.series[0].addPoint([varlocalx, varlocaly]);
+                            chart.series[1].addPoint([varlocalx, varlocalz]);
+                            chart.series[2].addPoint([varlocalx, varlocalw]);
+                            chart.series[3].addPoint([varlocalx, varlocalv]);
+                            chart.series[4].addPoint([varlocalx, varlocalu]);
+                            chart.series[5].addPoint([varlocalx, varlocaltempMayor]);
+                            chart.series[6].addPoint([varlocalx, varlocaltempMenor]);
+                            chart.series[7].addPoint([varlocalx, varlocalphMayor]);
+                            chart.series[8].addPoint([varlocalx, varlocalphMenor]);
+                            //chart.series[0].addPoint([varlocalx, varlocaly - 1], false, true);
+                            //chart.series[1].addPoint([varlocalx,varlocalz - 1], false, true);
+                            //chart.series[2].addPoint([varlocalx,varlocalw - 1], false, true);
+                            //chart.series[3].addPoint([varlocalx,varlocalv - 1], false, true);
+                            //chart.series[4].addPoint([varlocalx,varlocalu - 1], false, true);
+                            chart.redraw();
+                        }
                     }
                 }
             });
-        }, 1000);
+        }, 60000);
         function getx() {
             return ultimox;
         }
@@ -17268,6 +17355,18 @@ let ChartsPage = class ChartsPage {
         function getu() {
             return ultimou;
         }
+        function getTempMayor() {
+            return ultimoTempMayor;
+        }
+        function getTempMenor() {
+            return ultimoTempMenor;
+        }
+        function getphMayor() {
+            return ultimophMayor;
+        }
+        function getphMenor() {
+            return ultimophMenor;
+        }
     }
     obtenerLimites() {
         this.servicio.getLimites().subscribe((data) => {
@@ -17282,6 +17381,7 @@ let ChartsPage = class ChartsPage {
                 this.naranja2 = Number(this.tempMenor) + Number(1);
                 this.naranja3 = this.phMayor - 1;
                 this.naranja4 = Number(this.phMenor) + Number(1);
+                console.log(this.naranja3);
             }
         }, (err) => {
             console.log(err);
@@ -17292,6 +17392,7 @@ let ChartsPage = class ChartsPage {
             let json = JSON.stringify(data);
             let response = JSON.parse(json);
             this.datoSensores = response;
+            // console.log(this.datoSensores[0]['z']);
         }, (err) => {
             console.log(err);
         });
@@ -17301,6 +17402,7 @@ let ChartsPage = class ChartsPage {
             if (Object.entries(data).length != 0) {
                 let json = JSON.stringify(data);
                 let response = JSON.parse(json);
+                this.datosExcel = response;
                 this.datoSensores1 = response[response.length - 1];
                 this.datoSensores2 = response[response.length - 2];
                 if (this.datoSensores2 != undefined && this.datoSensores1 != undefined) {
@@ -17331,19 +17433,50 @@ let ChartsPage = class ChartsPage {
 ChartsPage.ctorParameters = () => [
     { type: _services_charts_service__WEBPACK_IMPORTED_MODULE_5__.ChartsService },
     { type: _ionic_native_downloader_ngx__WEBPACK_IMPORTED_MODULE_7__.Downloader },
-    { type: _angular_router__WEBPACK_IMPORTED_MODULE_10__.Router },
+    { type: _angular_router__WEBPACK_IMPORTED_MODULE_12__.Router },
     { type: _services_descarga_excel_service__WEBPACK_IMPORTED_MODULE_8__.DescargaExcelService },
     { type: _services_descarga_excel_service__WEBPACK_IMPORTED_MODULE_8__.DescargaExcelService },
-    { type: _ngx_translate_core__WEBPACK_IMPORTED_MODULE_11__.TranslateService },
-    { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_12__.AlertController }
+    { type: _ngx_translate_core__WEBPACK_IMPORTED_MODULE_13__.TranslateService },
+    { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_14__.AlertController }
 ];
-ChartsPage = (0,tslib__WEBPACK_IMPORTED_MODULE_9__.__decorate)([
-    (0,_angular_core__WEBPACK_IMPORTED_MODULE_13__.Component)({
+ChartsPage = (0,tslib__WEBPACK_IMPORTED_MODULE_11__.__decorate)([
+    (0,_angular_core__WEBPACK_IMPORTED_MODULE_15__.Component)({
         selector: 'app-charts',
-        template: _C_Users_tics_Desktop_IninbioApp_Ininbio_App_node_modules_ngtools_webpack_src_loaders_direct_resource_js_charts_page_html__WEBPACK_IMPORTED_MODULE_0__["default"],
+        template: _C_Users_tics_Documents_BACKUP_APP_ESCRITORIO_FULL_IninbioSystemExpo_node_modules_ngtools_webpack_src_loaders_direct_resource_js_charts_page_html__WEBPACK_IMPORTED_MODULE_0__["default"],
         styles: [_charts_page_scss__WEBPACK_IMPORTED_MODULE_1__]
     })
 ], ChartsPage);
+
+
+
+/***/ }),
+
+/***/ 5203:
+/*!**********************************************!*\
+  !*** ./src/app/date-minus-six-hours.pipe.ts ***!
+  \**********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "DateMinusSixHoursPipe": () => (/* binding */ DateMinusSixHoursPipe)
+/* harmony export */ });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ 8806);
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ 4001);
+
+
+let DateMinusSixHoursPipe = class DateMinusSixHoursPipe {
+    transform(value) {
+        const date = new Date(value);
+        date.setHours(date.getHours() + 6);
+        return date.toLocaleString();
+    }
+};
+DateMinusSixHoursPipe = (0,tslib__WEBPACK_IMPORTED_MODULE_0__.__decorate)([
+    (0,_angular_core__WEBPACK_IMPORTED_MODULE_1__.Pipe)({
+        name: 'dateMinusSixHours'
+    })
+], DateMinusSixHoursPipe);
 
 
 
@@ -17359,7 +17492,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("<ion-header>\r\n  <ion-toolbar>\r\n    <ion-buttons slot = \"start\">\r\n      <ion-back-button defaultHref=\"/inicio\"></ion-back-button>\r\n    </ion-buttons>\r\n    <ion-title>{{\"PANTGRAF.GRAFICOS\" | translate}}</ion-title>\r\n  </ion-toolbar>\r\n  <ion-item class=\"contenido\">\r\n    <ion-label class=\"letras\" slot=\"end\">°F</ion-label>\r\n    <ion-toggle class=\"toggle\" slot=\"end\" [ngModel]=\"grados\" (ionChange)=\"cambiarGrados()\" checked=\"false\"></ion-toggle>\r\n    <ion-label class=\"letras\">{{\"IDTINA.ID\" | translate}} {{num_tina}}</ion-label>\r\n  </ion-item>\r\n</ion-header>\r\n\r\n<ion-content class=\"fondo\"> \r\n  <ion-card id=\"grafica\">\r\n    <div id=\"container\"></div>\r\n  </ion-card>\r\n<ion-grid>\r\n  <ion-row *ngFor = \"let dato of datoSensores\">\r\n    <ion-col class=\"ion-text-center\" size=\"4\">\r\n      <ion-card class=\"fondoBlanco\" (click)=\"graficaTemperatura()\" id=\"btnRojo\">\r\n        <ion-card-header>\r\n          <ion-card-subtitle class=\"letras\" *ngIf=\"!grados\">°C</ion-card-subtitle>\r\n          <ion-card-subtitle class=\"letras\" *ngIf=\"grados\">°F</ion-card-subtitle>\r\n          <ion-card-title class = \"color1\" *ngIf=\"!grados\">{{((dato.y * 1)+0).toFixed(1)}}</ion-card-title> \r\n          <ion-card-title *ngIf=\"grados\" class = \"color1\">{{((dato.y * 1.8)+32).toFixed(1)}}</ion-card-title> \r\n        </ion-card-header>            \r\n      </ion-card>\r\n      <ng-container *ngIf=\"dato['y'] >= this.tempMayor || dato['y'] <= this.tempMenor; else datosNormales\">\r\n      <div id=\"circuloRojo\" class=\"parpadea\"></div>\r\n      <div id=\"circuloAmarillo\"></div>\r\n      <div id=\"circuloVerde\"></div>  \r\n      </ng-container> \r\n      <ng-template #datosNormales>\r\n        <ng-container *ngIf=\"dato['y'] == this.naranja1 || dato['y'] == this.naranja2; else datosNormales3\">    \r\n          <div id=\"circuloRojo\"></div>\r\n          <div id=\"circuloAmarillo\" class=\"parpadea\"></div>\r\n          <div id=\"circuloVerde\"></div>\r\n        </ng-container>\r\n    </ng-template>\r\n    <ng-template #datosNormales3>\r\n      <div id=\"circuloRojo\"></div>\r\n      <div id=\"circuloAmarillo\"></div>\r\n      <div id=\"circuloVerde\" class=\"parpadea\"></div>\r\n    </ng-template>\r\n    </ion-col>\r\n\r\n    <ion-col class=\"ion-text-center\" size=\"4\">\r\n      <ion-card class=\"fondoBlanco\" (click)=\"graficapH()\">\r\n        <ion-card-header>\r\n          <ion-card-subtitle class=\"letras\">pH</ion-card-subtitle>\r\n          <ion-card-title class = \"color2\">{{((dato.z * 1)+0).toFixed(1)}}</ion-card-title>\r\n        </ion-card-header>         \r\n      </ion-card>\r\n      <ng-container *ngIf=\"dato['z'] >= this.phMayor || dato['z'] <= this.phMenor; else datosNormales1\">\r\n        <div id=\"circuloRojo\" class=\"parpadea\"></div>\r\n        <div id=\"circuloAmarillo\"></div>\r\n        <div id=\"circuloVerde\"></div>    \r\n      </ng-container>\r\n      <ng-template #datosNormales1>\r\n        <ng-container *ngIf=\"dato['z'] == this.naranja3 || dato['z'] == this.naranja4; else datosNormales4\">    \r\n          <div id=\"circuloRojo\"></div>\r\n          <div id=\"circuloAmarillo\" class=\"parpadea\"></div>\r\n          <div id=\"circuloVerde\"></div>\r\n        </ng-container>\r\n        </ng-template>\r\n        <ng-template #datosNormales4>\r\n          <div id=\"circuloRojo\"></div>\r\n          <div id=\"circuloAmarillo\"></div>\r\n          <div id=\"circuloVerde\" class=\"parpadea\"></div>\r\n        </ng-template>\r\n    </ion-col>\r\n\r\n    <ion-col class=\"ion-text-center\" size=\"4\">\r\n      <ion-card class=\"fondoBlanco\" (click)=\"graficaBrix()\">\r\n        <ion-card-header>\r\n          <ion-card-subtitle class=\"letras\">°Brix</ion-card-subtitle>\r\n          <ion-card-title class = \"color3\">{{((dato.w * 1)+0).toFixed(1)}}</ion-card-title>\r\n        </ion-card-header>\r\n      </ion-card>\r\n      <ng-container id=\"semaforo\" *ngIf=\"this.brix1 === this.brix2; else datosNormales2\">\r\n        <div id=\"circuloRojo\" class=\"parpadea\"></div>\r\n        <div id=\"circuloAmarillo\"></div>\r\n        <div id=\"circuloVerde\"></div>  \r\n      </ng-container>  \r\n      <ng-template id=\"semaforo\" #datosNormales2>\r\n        <div id=\"circuloRojo\"></div>\r\n        <div id=\"circuloAmarillo\"></div>\r\n        <div id=\"circuloVerde\" class=\"parpadea\"></div>\r\n        </ng-template>\r\n    </ion-col>\r\n  </ion-row>\r\n\r\n    <ion-row *ngFor = \"let dato of datoSensores\">\r\n    <ion-col class=\"ion-text-center\" size=\"6\">\r\n      <ion-card class=\"fondoBlanco\" (click)=\"graficaAlcVol()\">\r\n        <ion-card-header>\r\n          <ion-card-subtitle class=\"letras\">%Alc.Vol</ion-card-subtitle>\r\n          <ion-card-title class = \"color4\">{{((dato.v * 1)+0).toFixed(1)}}</ion-card-title>\r\n        </ion-card-header>\r\n      </ion-card>\r\n    </ion-col>\r\n\r\n    <ion-col class=\"ion-text-center\" size=\"6\">\r\n      <ion-card class=\"fondoBlanco\" (click)=\"graficaEficiencia()\">\r\n        <ion-card-header>\r\n          <ion-card-subtitle class=\"letras\">{{\"PANTGRAF.ETIQUETAPORCENT\" | translate}} (%)</ion-card-subtitle>\r\n          <ion-card-title class=\"color5\">{{((dato.u * 1)+0).toFixed(1)}}</ion-card-title>\r\n        </ion-card-header>\r\n      </ion-card>\r\n    </ion-col>\r\n  </ion-row>\r\n</ion-grid>\r\n<ion-button id=\"boton\" expand=\"block\" class = \"registro\" (click)=\"generarExcel()\"> {{\"PANTGRAF.DESCARGARXLSX\" | translate}} </ion-button>\r\n</ion-content>");
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("<ion-header>\r\n  <ion-toolbar>\r\n    <ion-buttons slot = \"start\">\r\n      <ion-back-button defaultHref=\"/inicio\"></ion-back-button>\r\n    </ion-buttons>\r\n    <ion-title>{{\"PANTGRAF.GRAFICOS\" | translate}}</ion-title>\r\n  </ion-toolbar>\r\n  <ion-item class=\"contenido\">\r\n    <ion-label class=\"letras\" slot=\"end\">°F</ion-label>\r\n    <ion-toggle class=\"toggle\" slot=\"end\" [ngModel]=\"grados\" (ionChange)=\"cambiarGrados()\" checked=\"false\"></ion-toggle>\r\n    <ion-label class=\"letras\">{{\"IDTINA.ID\" | translate}} {{num_tina}}</ion-label>\r\n  </ion-item>\r\n</ion-header>\r\n\r\n<ion-content class=\"fondo\"> \r\n  <ion-card id=\"grafica\">\r\n    <!-- <button (click)='clearInputText($event)' style=\"margin-left: 98%; background-color: transparent;\">\r\n      <ion-icon name=\"contrast\" style=\"color: black;\" size=\"large\">\r\n      </ion-icon>\r\n    </button> -->\r\n    <ion-spinner *ngIf=\"showSpinner\" id=\"spinner\" name=\"circles\"></ion-spinner>\r\n    <div id=\"container\"></div>\r\n  </ion-card>\r\n<ion-grid>\r\n  <ion-row *ngFor = \"let dato of datoSensores\">\r\n    <ion-col class=\"ion-text-center\" size=\"4\">\r\n      <ion-card class=\"fondoBlanco\" (click)=\"graficaTemperatura()\" id=\"btnRojo\">\r\n        <ion-card-header>\r\n          <ion-card-subtitle class=\"letras\" *ngIf=\"!grados\">°C</ion-card-subtitle>\r\n          <ion-card-subtitle class=\"letras\" *ngIf=\"grados\">°F</ion-card-subtitle>\r\n          <ion-card-title class = \"color1\" *ngIf=\"!grados\">{{((dato.y * 1)+0).toFixed(1)}}</ion-card-title> \r\n          <ion-card-title *ngIf=\"grados\" class = \"color1\">{{((dato.y * 1.8)+32).toFixed(1)}}</ion-card-title> \r\n        </ion-card-header>            \r\n      </ion-card>\r\n      <ng-container *ngIf=\"dato['y'] >= this.tempMayor || dato['y'] <= this.tempMenor; else datosNormales\">\r\n      <div id=\"circuloRojo\" class=\"parpadea\"></div>\r\n      <div id=\"circuloAmarillo\"></div>\r\n      <div id=\"circuloVerde\"></div>  \r\n      </ng-container> \r\n      <ng-template #datosNormales>\r\n        <ng-container *ngIf=\"dato['y'] == this.naranja1 || dato['y'] == this.naranja2; else datosNormales3\">    \r\n          <div id=\"circuloRojo\"></div>\r\n          <div id=\"circuloAmarillo\" class=\"parpadea\"></div>\r\n          <div id=\"circuloVerde\"></div>\r\n        </ng-container>\r\n    </ng-template>\r\n    <ng-template #datosNormales3>\r\n      <div id=\"circuloRojo\"></div>\r\n      <div id=\"circuloAmarillo\"></div>\r\n      <div id=\"circuloVerde\" class=\"parpadea\"></div>\r\n    </ng-template>\r\n    </ion-col>\r\n\r\n    <ion-col class=\"ion-text-center\" size=\"4\">\r\n      <ion-card class=\"fondoBlanco\" (click)=\"graficapH()\">\r\n        <ion-card-header>\r\n          <ion-card-subtitle class=\"letras\">pH</ion-card-subtitle>\r\n          <ion-card-title class = \"color2\">{{((dato.z * 1)+0).toFixed(1)}}</ion-card-title>\r\n        </ion-card-header>         \r\n      </ion-card>\r\n      <ng-container *ngIf=\"dato['z'] >= this.phMayor || dato['z'] <= this.phMenor; else datosNormales1\">\r\n        <div id=\"circuloRojo\" class=\"parpadea\"></div>\r\n        <div id=\"circuloAmarillo\"></div>\r\n        <div id=\"circuloVerde\"></div>    \r\n      </ng-container>\r\n      <ng-template #datosNormales1>\r\n        <ng-container *ngIf=\"dato['z'] == this.naranja3 || dato['z'] == this.naranja4; else datosNormales4\">    \r\n          <div id=\"circuloRojo\"></div>\r\n          <div id=\"circuloAmarillo\" class=\"parpadea\"></div>\r\n          <div id=\"circuloVerde\"></div>\r\n        </ng-container>\r\n        </ng-template>\r\n        <ng-template #datosNormales4>\r\n          <div id=\"circuloRojo\"></div>\r\n          <div id=\"circuloAmarillo\"></div>\r\n          <div id=\"circuloVerde\" class=\"parpadea\"></div>\r\n        </ng-template>\r\n    </ion-col>\r\n\r\n    <ion-col class=\"ion-text-center\" size=\"4\">\r\n      <ion-card class=\"fondoBlanco\" (click)=\"graficaBrix()\">\r\n        <ion-card-header>\r\n          <ion-card-subtitle class=\"letras\">°Brix</ion-card-subtitle>\r\n          <ion-card-title class = \"color3\">{{((dato.w * 1)+0).toFixed(1)}}</ion-card-title>\r\n        </ion-card-header>\r\n      </ion-card>\r\n      <ng-container id=\"semaforo\" *ngIf=\"this.brix1 === this.brix2; else datosNormales2\">\r\n        <div id=\"circuloRojo\" class=\"parpadea\"></div>\r\n        <div id=\"circuloAmarillo\"></div>\r\n        <div id=\"circuloVerde\"></div>  \r\n      </ng-container>  \r\n      <ng-template id=\"semaforo\" #datosNormales2>\r\n        <div id=\"circuloRojo\"></div>\r\n        <div id=\"circuloAmarillo\"></div>\r\n        <div id=\"circuloVerde\" class=\"parpadea\"></div>\r\n        </ng-template>\r\n    </ion-col>\r\n  </ion-row>\r\n\r\n    <ion-row *ngFor = \"let dato of datoSensores\">\r\n    <ion-col class=\"ion-text-center\" size=\"6\">\r\n      <ion-card class=\"fondoBlanco\" (click)=\"graficaAlcVol()\">\r\n        <ion-card-header>\r\n          <ion-card-subtitle class=\"letras\">%Alc.Vol</ion-card-subtitle>\r\n          <ion-card-title class = \"color4\">{{((dato.v * 1)+0).toFixed(1)}}</ion-card-title>\r\n        </ion-card-header>\r\n      </ion-card>\r\n    </ion-col>\r\n\r\n    <ion-col class=\"ion-text-center\" size=\"6\">\r\n      <ion-card class=\"fondoBlanco\" (click)=\"graficaEficiencia()\">\r\n        <ion-card-header>\r\n          <ion-card-subtitle class=\"letras\">{{\"PANTGRAF.ETIQUETAPORCENT\" | translate}} (%)</ion-card-subtitle>\r\n          <ion-card-title class=\"color5\">{{((dato.u * 1)+0).toFixed(1)}}</ion-card-title>\r\n        </ion-card-header>\r\n      </ion-card>\r\n    </ion-col>\r\n  </ion-row>\r\n</ion-grid>\r\n<ion-card class=\"no-scroll\" style=\"background-color: white; color: black; width: 100%; max-height: 50%; overflow-y: auto;\">\r\n  <!-- <ion-card-content class=\"card-content\"> -->\r\n  <ion-grid>\r\n    <table class=\"tablaExcel\" style=\"text-align: center; width: 100%; border-collapse: separate;border-spacing: 20px;\">\r\n      <caption style=\"font-weight: bold; font-size: 15px;\">{{\"TABLAEXCEL.TITULO\" | translate}}</caption>\r\n      <thead>\r\n        <tr>\r\n          <th style=\"color: #ff0505;\">{{\"TABLAEXCEL.FECHA\" | translate}}</th>\r\n          <th style=\"color: #0833a2\">{{\"TABLAEXCEL.TEMPERATURA\" | translate}}</th>\r\n          <th style=\"color: #14faff;\">{{\"TABLAEXCEL.PH\" | translate}}</th>\r\n          <th style=\"color: #edff14;\">{{\"TABLAEXCEL.BRIX\" | translate}}</th>\r\n          <th style=\"color: #ff14ff;\">{{\"TABLAEXCEL.ALCVOL\" | translate}}</th>\r\n          <th style=\"color: #1eff05;\">{{\"TABLAEXCEL.EFICIENCIA\" | translate}}</th>\r\n          <!-- <th style=\"color: #5B2C6F;\">MaxTemp</th>\r\n          <th style=\"color: #FF0087;\">MinTemp</th>\r\n          <th style=\"color: #D35400;\">MaxpH</th>\r\n          <th style=\"color: #F08080;\">MinpH</th> -->\r\n        </tr>\r\n      </thead>\r\n      <tbody>\r\n        <tr *ngFor=\"let excel of datosExcel\">\r\n          <td>{{excel['x'] | date:'yyyy-MM-dd HH:mm:ss'}}</td>\r\n          <td>{{excel['y']}}</td>\r\n          <td>{{excel['z']}}</td>\r\n          <td>{{excel['w']}}</td>\r\n          <td>{{excel['v']}}</td>\r\n          <td>{{excel['u']}}</td>\r\n          <!-- <td>{{excel['tempMayor']}}</td>\r\n          <td>{{excel['tempMenor']}}</td>\r\n          <td>{{excel['phMayor']}}</td>\r\n          <td>{{excel['phMenor']}}</td> -->\r\n        </tr>\r\n      </tbody>\r\n    </table>\r\n  </ion-grid>\r\n<!-- </ion-card-content> -->\r\n</ion-card>\r\n<ion-button id=\"boton\" expand=\"block\" class = \"registro\" (click)=\"generarExcel()\"> {{\"PANTGRAF.DESCARGARXLSX\" | translate}} </ion-button>\r\n</ion-content>");
 
 /***/ }),
 
@@ -17369,7 +17502,7 @@ __webpack_require__.r(__webpack_exports__);
   \*****************************************/
 /***/ ((module) => {
 
-module.exports = "ion-card-title.color1 {\n  --color:\t#0833a2;\n  --text-align: \"center\";\n}\n\nion-card-title.color2 {\n  --color: #14faff;\n  --text-align: \"center\";\n}\n\nion-card-title.color3 {\n  --color: #edff14;\n  --text-align: \"center\";\n}\n\nion-card-title.color4 {\n  --color: #ff14ff;\n  --text-align: \"center\";\n}\n\nion-card-title.color5 {\n  --color: #1eff05;\n  --text-align: \"center\";\n}\n\nion-toolbar {\n  --text-align: center;\n  --background: #94b8d7;\n}\n\nion-back-button {\n  --color: #fff;\n}\n\nion-button {\n  --background: #94b8d7;\n}\n\nion-card-subtitle {\n  --color: #ffffff;\n}\n\nion-button[shape=circle] {\n  --border-radius: 50%;\n  width: 20px;\n  height: 30px;\n}\n\nion-button.rojo {\n  --background: #ffffff;\n}\n\n#circuloRojo {\n  background-color: #ce1127;\n  height: 20px;\n  width: 20px;\n  position: absolute;\n  left: 30%;\n  top: 90%;\n  border-radius: 50px;\n}\n\n#circuloAmarillo {\n  background-color: #FFFB00;\n  height: 20px;\n  width: 20px;\n  position: absolute;\n  left: 49%;\n  top: 90%;\n  border-radius: 50px;\n}\n\n#circuloVerde {\n  background-color: #00FF00;\n  height: 20px;\n  width: 20px;\n  position: absolute;\n  left: 67%;\n  top: 90%;\n  border-radius: 50px;\n}\n\n#circuloRojo1 {\n  background-color: #ce1127;\n  height: 20px;\n  width: 20px;\n  position: absolute;\n  left: 35%;\n  top: 80%;\n  border-radius: 50px;\n}\n\n#circuloAmarillo1 {\n  background-color: #FFFB00;\n  height: 20px;\n  width: 20px;\n  position: absolute;\n  left: 47%;\n  top: 80%;\n  border-radius: 50px;\n}\n\n#circuloVerde1 {\n  background-color: #00FF00;\n  height: 20px;\n  width: 20px;\n  position: absolute;\n  left: 59%;\n  top: 80%;\n  border-radius: 50px;\n}\n\n#circuloRojo2 {\n  background-color: #ce1127;\n  height: 20px;\n  width: 20px;\n  position: absolute;\n  left: 35%;\n  top: 93%;\n  border-radius: 50px;\n}\n\n#circuloAmarillo2 {\n  background-color: #FFFB00;\n  height: 20px;\n  width: 20px;\n  position: absolute;\n  left: 47%;\n  top: 93%;\n  border-radius: 50px;\n}\n\n#circuloVerde2 {\n  background-color: #00FF00;\n  height: 20px;\n  width: 20px;\n  position: absolute;\n  left: 59%;\n  top: 93%;\n  border-radius: 50px;\n}\n\n.parpadea {\n  animation-name: parpadeo;\n  animation-duration: 1s;\n  animation-timing-function: linear;\n  animation-iteration-count: infinite;\n  -webkit-animation-name: parpadeo;\n  -webkit-animation-duration: 1s;\n  -webkit-animation-timing-function: linear;\n  -webkit-animation-iteration-count: infinite;\n}\n\n@keyframes parpadeo {\n  0% {\n    opacity: 1;\n  }\n  50% {\n    opacity: 0;\n  }\n  100% {\n    opacity: 1;\n  }\n}\n\n#container {\n  height: 101%;\n}\n\n#boton {\n  width: 50%;\n  margin-left: auto;\n  margin-right: auto;\n}\n\nion-item {\n  left: auto;\n}\n\nion-content {\n  height: 70%;\n  width: 100%;\n}\n\n#grafica {\n  height: 45%;\n  --background: #ffffff;\n}\n\n.fondo {\n  --background: #ffffff;\n  --color: #ffffff;\n}\n\n.graficas {\n  --background: #ffffff;\n}\n\n.fondoBlanco {\n  --background: #ffffff;\n}\n\n.letras {\n  --color: #000000;\n}\n\n.toggle {\n  --background: #000000;\n}\n\n.contenido {\n  --background: #ffffff;\n  --border-color: transparent;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbImNoYXJ0cy5wYWdlLnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUk7RUFDSSxnQkFBQTtFQUNBLHNCQUFBO0FBQ1I7O0FBQ0k7RUFDSSxnQkFBQTtFQUNBLHNCQUFBO0FBRVI7O0FBQUk7RUFDSSxnQkFBQTtFQUNBLHNCQUFBO0FBR1I7O0FBREk7RUFDSSxnQkFBQTtFQUNBLHNCQUFBO0FBSVI7O0FBRkk7RUFDSSxnQkFBQTtFQUNBLHNCQUFBO0FBS1I7O0FBRkE7RUFDSSxvQkFBQTtFQUNBLHFCQUFBO0FBS0o7O0FBRkU7RUFDRSxhQUFBO0FBS0o7O0FBRkU7RUFDRSxxQkFBQTtBQUtKOztBQUZFO0VBQ0UsZ0JBQUE7QUFLSjs7QUFGRTtFQUNFLG9CQUFBO0VBQ0EsV0FBQTtFQUNBLFlBQUE7QUFLSjs7QUFEQTtFQUNFLHFCQUFBO0FBSUY7O0FBREE7RUFFRSx5QkFBQTtFQUNBLFlBQUE7RUFDQSxXQUFBO0VBQ0Esa0JBQUE7RUFDQSxTQUFBO0VBQ0EsUUFBQTtFQUdBLG1CQUFBO0FBR0Y7O0FBQUE7RUFFRSx5QkFBQTtFQUNBLFlBQUE7RUFDQSxXQUFBO0VBQ0Esa0JBQUE7RUFDQSxTQUFBO0VBQ0EsUUFBQTtFQUdBLG1CQUFBO0FBRUY7O0FBQ0E7RUFFRSx5QkFBQTtFQUNBLFlBQUE7RUFDQSxXQUFBO0VBQ0Esa0JBQUE7RUFDQSxTQUFBO0VBQ0EsUUFBQTtFQUdBLG1CQUFBO0FBQ0Y7O0FBRUE7RUFFRSx5QkFBQTtFQUNBLFlBQUE7RUFDQSxXQUFBO0VBQ0Esa0JBQUE7RUFDQSxTQUFBO0VBQ0EsUUFBQTtFQUdBLG1CQUFBO0FBQUY7O0FBR0E7RUFFRSx5QkFBQTtFQUNBLFlBQUE7RUFDQSxXQUFBO0VBQ0Esa0JBQUE7RUFDQSxTQUFBO0VBQ0EsUUFBQTtFQUdBLG1CQUFBO0FBREY7O0FBSUE7RUFFRSx5QkFBQTtFQUNBLFlBQUE7RUFDQSxXQUFBO0VBQ0Esa0JBQUE7RUFDQSxTQUFBO0VBQ0EsUUFBQTtFQUdBLG1CQUFBO0FBRkY7O0FBS0E7RUFFRSx5QkFBQTtFQUNBLFlBQUE7RUFDQSxXQUFBO0VBQ0Esa0JBQUE7RUFDQSxTQUFBO0VBQ0EsUUFBQTtFQUdBLG1CQUFBO0FBSEY7O0FBTUE7RUFFRSx5QkFBQTtFQUNBLFlBQUE7RUFDQSxXQUFBO0VBQ0Esa0JBQUE7RUFDQSxTQUFBO0VBQ0EsUUFBQTtFQUdBLG1CQUFBO0FBSkY7O0FBT0E7RUFFRSx5QkFBQTtFQUNBLFlBQUE7RUFDQSxXQUFBO0VBQ0Esa0JBQUE7RUFDQSxTQUFBO0VBQ0EsUUFBQTtFQUdBLG1CQUFBO0FBTEY7O0FBUUE7RUFFRSx3QkFBQTtFQUNBLHNCQUFBO0VBQ0EsaUNBQUE7RUFDQSxtQ0FBQTtFQUVBLGdDQUFBO0VBQ0EsOEJBQUE7RUFDQSx5Q0FBQTtFQUNBLDJDQUFBO0FBUEY7O0FBc0JBO0VBQ0U7SUFBSyxVQUFBO0VBSUw7RUFIQztJQUFNLFVBQUE7RUFNUDtFQUxBO0lBQU8sVUFBQTtFQVFQO0FBQ0Y7O0FBUEE7RUFDRSxZQUFBO0FBU0Y7O0FBUEE7RUFDRSxVQUFBO0VBQ0EsaUJBQUE7RUFDQSxrQkFBQTtBQVVGOztBQVJBO0VBQ0UsVUFBQTtBQVdGOztBQVJBO0VBQ0UsV0FBQTtFQUNBLFdBQUE7QUFXRjs7QUFSQTtFQUNBLFdBQUE7RUFDQSxxQkFBQTtBQVdBOztBQVBBO0VBQ0UscUJBQUE7RUFDQSxnQkFBQTtBQVVGOztBQVBBO0VBQ0UscUJBQUE7QUFVRjs7QUFQQTtFQUNFLHFCQUFBO0FBVUY7O0FBUEE7RUFDRSxnQkFBQTtBQVVGOztBQVBBO0VBQ0UscUJBQUE7QUFVRjs7QUFQQTtFQUNFLHFCQUFBO0VBQ0EsMkJBQUE7QUFVRiIsImZpbGUiOiJjaGFydHMucGFnZS5zY3NzIiwic291cmNlc0NvbnRlbnQiOlsiICAgIGlvbi1jYXJkLXRpdGxlLmNvbG9yMXtcclxuICAgICAgICAtLWNvbG9yIDpcdCMwODMzYTI7IFxyXG4gICAgICAgIC0tdGV4dC1hbGlnbiA6ICdjZW50ZXInO1xyXG4gICAgfVxyXG4gICAgaW9uLWNhcmQtdGl0bGUuY29sb3Iye1xyXG4gICAgICAgIC0tY29sb3IgOiAjMTRmYWZmOyBcclxuICAgICAgICAtLXRleHQtYWxpZ24gOiAnY2VudGVyJztcclxuICAgIH1cclxuICAgIGlvbi1jYXJkLXRpdGxlLmNvbG9yM3tcclxuICAgICAgICAtLWNvbG9yIDogI2VkZmYxNDsgXHJcbiAgICAgICAgLS10ZXh0LWFsaWduIDogJ2NlbnRlcic7XHJcbiAgICB9XHJcbiAgICBpb24tY2FyZC10aXRsZS5jb2xvcjR7XHJcbiAgICAgICAgLS1jb2xvciA6ICNmZjE0ZmY7IFxyXG4gICAgICAgIC0tdGV4dC1hbGlnbiA6ICdjZW50ZXInO1xyXG4gICAgfVxyXG4gICAgaW9uLWNhcmQtdGl0bGUuY29sb3I1e1xyXG4gICAgICAgIC0tY29sb3IgOiAjMWVmZjA1OyBcclxuICAgICAgICAtLXRleHQtYWxpZ24gOiAnY2VudGVyJztcclxuICAgIH1cclxuXHJcbmlvbi10b29sYmFye1xyXG4gICAgLS10ZXh0LWFsaWduOiBjZW50ZXI7XHJcbiAgICAtLWJhY2tncm91bmQ6ICM5NGI4ZDc7XHJcbiAgfVxyXG5cclxuICBpb24tYmFjay1idXR0b24ge1xyXG4gICAgLS1jb2xvcjogI2ZmZjtcclxuICB9XHJcblxyXG4gIGlvbi1idXR0b257XHJcbiAgICAtLWJhY2tncm91bmQ6ICM5NGI4ZDc7XHJcbiAgfVxyXG5cclxuICBpb24tY2FyZC1zdWJ0aXRsZSB7XHJcbiAgICAtLWNvbG9yIDogI2ZmZmZmZjtcclxuICB9XHJcblxyXG4gIGlvbi1idXR0b25bc2hhcGU9Y2lyY2xlXSB7XHJcbiAgICAtLWJvcmRlci1yYWRpdXM6IDUwJTtcclxuICAgIHdpZHRoOiAyMHB4O1xyXG4gICAgaGVpZ2h0OiAzMHB4O1xyXG4gICAvLyAtLWJhY2tncm91bmQgOiAjZmZmZmZmO1xyXG59XHJcblxyXG5pb24tYnV0dG9uLnJvam97XHJcbiAgLS1iYWNrZ3JvdW5kIDogI2ZmZmZmZjtcclxufVxyXG5cclxuI2NpcmN1bG9Sb2pvIHtcclxuICBcclxuICBiYWNrZ3JvdW5kLWNvbG9yOiAjY2UxMTI3O1xyXG4gIGhlaWdodDoyMHB4O1xyXG4gIHdpZHRoOjIwcHg7XHJcbiAgcG9zaXRpb246YWJzb2x1dGU7XHJcbiAgbGVmdDozMCU7XHJcbiAgdG9wOjkwJTtcclxuICAtbW96LWJvcmRlci1yYWRpdXM6NTBweDtcclxuICAtd2Via2l0LWJvcmRlci1yYWRpdXM6NTBweDtcclxuICBib3JkZXItcmFkaXVzOjUwcHg7XHJcbn1cclxuXHJcbiNjaXJjdWxvQW1hcmlsbG8ge1xyXG4gIFxyXG4gIGJhY2tncm91bmQtY29sb3I6ICNGRkZCMDA7XHJcbiAgaGVpZ2h0OjIwcHg7XHJcbiAgd2lkdGg6MjBweDtcclxuICBwb3NpdGlvbjphYnNvbHV0ZTtcclxuICBsZWZ0OjQ5JTtcclxuICB0b3A6OTAlO1xyXG4gIC1tb3otYm9yZGVyLXJhZGl1czo1MHB4O1xyXG4gIC13ZWJraXQtYm9yZGVyLXJhZGl1czo1MHB4O1xyXG4gIGJvcmRlci1yYWRpdXM6NTBweDtcclxufVxyXG5cclxuI2NpcmN1bG9WZXJkZSB7XHJcbiAgXHJcbiAgYmFja2dyb3VuZC1jb2xvcjogIzAwRkYwMDtcclxuICBoZWlnaHQ6MjBweDtcclxuICB3aWR0aDoyMHB4O1xyXG4gIHBvc2l0aW9uOmFic29sdXRlO1xyXG4gIGxlZnQ6NjclO1xyXG4gIHRvcDo5MCU7XHJcbiAgLW1vei1ib3JkZXItcmFkaXVzOjUwcHg7XHJcbiAgLXdlYmtpdC1ib3JkZXItcmFkaXVzOjUwcHg7XHJcbiAgYm9yZGVyLXJhZGl1czo1MHB4O1xyXG59XHJcblxyXG4jY2lyY3Vsb1Jvam8xIHtcclxuICBcclxuICBiYWNrZ3JvdW5kLWNvbG9yOiAjY2UxMTI3O1xyXG4gIGhlaWdodDoyMHB4O1xyXG4gIHdpZHRoOjIwcHg7XHJcbiAgcG9zaXRpb246YWJzb2x1dGU7XHJcbiAgbGVmdDozNSU7XHJcbiAgdG9wOjgwJTtcclxuICAtbW96LWJvcmRlci1yYWRpdXM6NTBweDtcclxuICAtd2Via2l0LWJvcmRlci1yYWRpdXM6NTBweDtcclxuICBib3JkZXItcmFkaXVzOjUwcHg7XHJcbn1cclxuXHJcbiNjaXJjdWxvQW1hcmlsbG8xIHtcclxuICBcclxuICBiYWNrZ3JvdW5kLWNvbG9yOiAjRkZGQjAwO1xyXG4gIGhlaWdodDoyMHB4O1xyXG4gIHdpZHRoOjIwcHg7XHJcbiAgcG9zaXRpb246YWJzb2x1dGU7XHJcbiAgbGVmdDo0NyU7XHJcbiAgdG9wOjgwJTtcclxuICAtbW96LWJvcmRlci1yYWRpdXM6NTBweDtcclxuICAtd2Via2l0LWJvcmRlci1yYWRpdXM6NTBweDtcclxuICBib3JkZXItcmFkaXVzOjUwcHg7XHJcbn1cclxuXHJcbiNjaXJjdWxvVmVyZGUxIHtcclxuICBcclxuICBiYWNrZ3JvdW5kLWNvbG9yOiAjMDBGRjAwO1xyXG4gIGhlaWdodDoyMHB4O1xyXG4gIHdpZHRoOjIwcHg7XHJcbiAgcG9zaXRpb246YWJzb2x1dGU7XHJcbiAgbGVmdDo1OSU7XHJcbiAgdG9wOjgwJTtcclxuICAtbW96LWJvcmRlci1yYWRpdXM6NTBweDtcclxuICAtd2Via2l0LWJvcmRlci1yYWRpdXM6NTBweDtcclxuICBib3JkZXItcmFkaXVzOjUwcHg7XHJcbn1cclxuXHJcbiNjaXJjdWxvUm9qbzIge1xyXG4gIFxyXG4gIGJhY2tncm91bmQtY29sb3I6ICNjZTExMjc7XHJcbiAgaGVpZ2h0OjIwcHg7XHJcbiAgd2lkdGg6MjBweDtcclxuICBwb3NpdGlvbjphYnNvbHV0ZTtcclxuICBsZWZ0OjM1JTtcclxuICB0b3A6OTMlO1xyXG4gIC1tb3otYm9yZGVyLXJhZGl1czo1MHB4O1xyXG4gIC13ZWJraXQtYm9yZGVyLXJhZGl1czo1MHB4O1xyXG4gIGJvcmRlci1yYWRpdXM6NTBweDtcclxufVxyXG5cclxuI2NpcmN1bG9BbWFyaWxsbzIge1xyXG4gIFxyXG4gIGJhY2tncm91bmQtY29sb3I6ICNGRkZCMDA7XHJcbiAgaGVpZ2h0OjIwcHg7XHJcbiAgd2lkdGg6MjBweDtcclxuICBwb3NpdGlvbjphYnNvbHV0ZTtcclxuICBsZWZ0OjQ3JTtcclxuICB0b3A6OTMlO1xyXG4gIC1tb3otYm9yZGVyLXJhZGl1czo1MHB4O1xyXG4gIC13ZWJraXQtYm9yZGVyLXJhZGl1czo1MHB4O1xyXG4gIGJvcmRlci1yYWRpdXM6NTBweDtcclxufVxyXG5cclxuI2NpcmN1bG9WZXJkZTIge1xyXG4gIFxyXG4gIGJhY2tncm91bmQtY29sb3I6ICMwMEZGMDA7XHJcbiAgaGVpZ2h0OjIwcHg7XHJcbiAgd2lkdGg6MjBweDtcclxuICBwb3NpdGlvbjphYnNvbHV0ZTtcclxuICBsZWZ0OjU5JTtcclxuICB0b3A6OTMlO1xyXG4gIC1tb3otYm9yZGVyLXJhZGl1czo1MHB4O1xyXG4gIC13ZWJraXQtYm9yZGVyLXJhZGl1czo1MHB4O1xyXG4gIGJvcmRlci1yYWRpdXM6NTBweDtcclxufVxyXG5cclxuLnBhcnBhZGVhIHtcclxuICBcclxuICBhbmltYXRpb24tbmFtZTogcGFycGFkZW87XHJcbiAgYW5pbWF0aW9uLWR1cmF0aW9uOiAxcztcclxuICBhbmltYXRpb24tdGltaW5nLWZ1bmN0aW9uOiBsaW5lYXI7XHJcbiAgYW5pbWF0aW9uLWl0ZXJhdGlvbi1jb3VudDogaW5maW5pdGU7XHJcblxyXG4gIC13ZWJraXQtYW5pbWF0aW9uLW5hbWU6cGFycGFkZW87XHJcbiAgLXdlYmtpdC1hbmltYXRpb24tZHVyYXRpb246IDFzO1xyXG4gIC13ZWJraXQtYW5pbWF0aW9uLXRpbWluZy1mdW5jdGlvbjogbGluZWFyO1xyXG4gIC13ZWJraXQtYW5pbWF0aW9uLWl0ZXJhdGlvbi1jb3VudDogaW5maW5pdGU7XHJcbn1cclxuXHJcbkAtbW96LWtleWZyYW1lcyBwYXJwYWRlb3sgIFxyXG4gIDAlIHsgb3BhY2l0eTogMS4wOyB9XHJcbiAgNTAlIHsgb3BhY2l0eTogMC4wOyB9XHJcbiAgMTAwJSB7IG9wYWNpdHk6IDEuMDsgfVxyXG59XHJcblxyXG5ALXdlYmtpdC1rZXlmcmFtZXMgcGFycGFkZW8geyAgXHJcbiAgMCUgeyBvcGFjaXR5OiAxLjA7IH1cclxuICA1MCUgeyBvcGFjaXR5OiAwLjA7IH1cclxuICAgMTAwJSB7IG9wYWNpdHk6IDEuMDsgfVxyXG59XHJcblxyXG5Aa2V5ZnJhbWVzIHBhcnBhZGVvIHsgIFxyXG4gIDAlIHsgb3BhY2l0eTogMS4wOyB9XHJcbiAgIDUwJSB7IG9wYWNpdHk6IDAuMDsgfVxyXG4gIDEwMCUgeyBvcGFjaXR5OiAxLjA7IH1cclxufVxyXG4jY29udGFpbmVyIHtcclxuICBoZWlnaHQ6IDEwMSU7XHJcbn1cclxuI2JvdG9uIHtcclxuICB3aWR0aDogNTAlO1xyXG4gIG1hcmdpbi1sZWZ0OiBhdXRvO1xyXG4gIG1hcmdpbi1yaWdodDogYXV0bztcclxufVxyXG5pb24taXRlbXtcclxuICBsZWZ0OiBhdXRvO1xyXG59XHJcblxyXG5pb24tY29udGVudCB7XHJcbiAgaGVpZ2h0OiA3MCU7XHJcbiAgd2lkdGg6IDEwMCU7XHJcbn1cclxuXHJcbiNncmFmaWNhIHtcclxuaGVpZ2h0OiA0NSU7XHJcbi0tYmFja2dyb3VuZCA6ICNmZmZmZmY7XHJcbi8vYmFja2dyb3VuZC1jb2xvcjogcmdiKDAsIDAsIDApO1xyXG59XHJcblxyXG4uZm9uZG8ge1xyXG4gIC0tYmFja2dyb3VuZDogI2ZmZmZmZjtcclxuICAtLWNvbG9yIDogI2ZmZmZmZjtcclxufVxyXG5cclxuLmdyYWZpY2FzIHtcclxuICAtLWJhY2tncm91bmQgOiAjZmZmZmZmO1xyXG59XHJcblxyXG4uZm9uZG9CbGFuY28ge1xyXG4gIC0tYmFja2dyb3VuZCA6ICNmZmZmZmY7XHJcbn1cclxuXHJcbi5sZXRyYXMge1xyXG4gIC0tY29sb3IgOiAjMDAwMDAwO1xyXG59XHJcblxyXG4udG9nZ2xle1xyXG4gIC0tYmFja2dyb3VuZCA6ICMwMDAwMDA7XHJcbn1cclxuXHJcbi5jb250ZW5pZG8ge1xyXG4gIC0tYmFja2dyb3VuZDogI2ZmZmZmZjtcclxuICAtLWJvcmRlci1jb2xvciA6IHRyYW5zcGFyZW50O1xyXG59XHJcblxyXG4iXX0= */";
+module.exports = "ion-card-title.color1 {\n  --color:\t#0833a2;\n  --text-align: \"center\";\n}\n\nion-card-title.color2 {\n  --color: #14faff;\n  --text-align: \"center\";\n}\n\nion-card-title.color3 {\n  --color: #edff14;\n  --text-align: \"center\";\n}\n\nion-card-title.color4 {\n  --color: #ff14ff;\n  --text-align: \"center\";\n}\n\nion-card-title.color5 {\n  --color: #1eff05;\n  --text-align: \"center\";\n}\n\nion-toolbar {\n  --text-align: center;\n  --background: #94b8d7;\n}\n\nion-back-button {\n  --color: #fff;\n}\n\nion-button {\n  --background: #94b8d7;\n}\n\nion-card-subtitle {\n  --color: #ffffff;\n}\n\nion-button[shape=circle] {\n  --border-radius: 50%;\n  width: 20px;\n  height: 30px;\n}\n\nion-button.rojo {\n  --background: #ffffff;\n}\n\n#circuloRojo {\n  background-color: #ce1127;\n  height: 20px;\n  width: 20px;\n  position: absolute;\n  left: 30%;\n  top: 90%;\n  border-radius: 50px;\n}\n\n#circuloAmarillo {\n  background-color: #FFFB00;\n  height: 20px;\n  width: 20px;\n  position: absolute;\n  left: 49%;\n  top: 90%;\n  border-radius: 50px;\n}\n\n#circuloVerde {\n  background-color: #00FF00;\n  height: 20px;\n  width: 20px;\n  position: absolute;\n  left: 67%;\n  top: 90%;\n  border-radius: 50px;\n}\n\n#circuloRojo1 {\n  background-color: #ce1127;\n  height: 20px;\n  width: 20px;\n  position: absolute;\n  left: 35%;\n  top: 80%;\n  border-radius: 50px;\n}\n\n#circuloAmarillo1 {\n  background-color: #FFFB00;\n  height: 20px;\n  width: 20px;\n  position: absolute;\n  left: 47%;\n  top: 80%;\n  border-radius: 50px;\n}\n\n#circuloVerde1 {\n  background-color: #00FF00;\n  height: 20px;\n  width: 20px;\n  position: absolute;\n  left: 59%;\n  top: 80%;\n  border-radius: 50px;\n}\n\n#circuloRojo2 {\n  background-color: #ce1127;\n  height: 20px;\n  width: 20px;\n  position: absolute;\n  left: 35%;\n  top: 93%;\n  border-radius: 50px;\n}\n\n#circuloAmarillo2 {\n  background-color: #FFFB00;\n  height: 20px;\n  width: 20px;\n  position: absolute;\n  left: 47%;\n  top: 93%;\n  border-radius: 50px;\n}\n\n#circuloVerde2 {\n  background-color: #00FF00;\n  height: 20px;\n  width: 20px;\n  position: absolute;\n  left: 59%;\n  top: 93%;\n  border-radius: 50px;\n}\n\n.parpadea {\n  animation-name: parpadeo;\n  animation-duration: 1s;\n  animation-timing-function: linear;\n  animation-iteration-count: infinite;\n  -webkit-animation-name: parpadeo;\n  -webkit-animation-duration: 1s;\n  -webkit-animation-timing-function: linear;\n  -webkit-animation-iteration-count: infinite;\n}\n\n@keyframes parpadeo {\n  0% {\n    opacity: 1;\n  }\n  50% {\n    opacity: 0;\n  }\n  100% {\n    opacity: 1;\n  }\n}\n\n#container {\n  height: 101%;\n}\n\n#boton {\n  width: 50%;\n  margin-left: auto;\n  margin-right: auto;\n}\n\nion-item {\n  left: auto;\n}\n\nion-content {\n  height: 70%;\n  width: 100%;\n  background-color: #ffffff;\n}\n\n#grafica {\n  height: 70%;\n  --background: #ffffff;\n}\n\n.fondo {\n  --background: #ffffff;\n  --color: #ffffff;\n}\n\n.graficas {\n  --background: #ffffff;\n}\n\n.fondoBlanco {\n  --background: #ffffff;\n  cursor: pointer;\n}\n\n.letras {\n  --color: #000000;\n}\n\n.toggle {\n  --background: #000000;\n}\n\n.contenido {\n  --background: #ffffff;\n  --border-color: transparent;\n}\n\n#spinner {\n  color: #0833a2;\n  top: 30vh;\n  left: 50%;\n  transform: scale(1.5);\n}\n\ntable thead tr th {\n  position: sticky;\n  top: 0;\n  z-index: 1;\n  background-color: #fff;\n  /* opcional */\n}\n\n@media screen and (max-width: 480px) {\n  #grafica {\n    max-width: 100%;\n    max-height: 100%;\n  }\n\n  #boton {\n    margin-top: 0%;\n    width: 70%;\n  }\n\n  .tarjetaTabla {\n    overflow-x: auto;\n    overflow-y: auto;\n  }\n\n  .tablaExcel {\n    border-collapse: separate;\n    border-spacing: 15px;\n  }\n\n  #spinner {\n    top: 25vh;\n    left: 50%;\n  }\n}\n\n.registro {\n  font-size: medium;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbImNoYXJ0cy5wYWdlLnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUk7RUFDSSxnQkFBQTtFQUNBLHNCQUFBO0FBQ1I7O0FBQ0k7RUFDSSxnQkFBQTtFQUNBLHNCQUFBO0FBRVI7O0FBQUk7RUFDSSxnQkFBQTtFQUNBLHNCQUFBO0FBR1I7O0FBREk7RUFDSSxnQkFBQTtFQUNBLHNCQUFBO0FBSVI7O0FBRkk7RUFDSSxnQkFBQTtFQUNBLHNCQUFBO0FBS1I7O0FBRkE7RUFDSSxvQkFBQTtFQUNBLHFCQUFBO0FBS0o7O0FBRkU7RUFDRSxhQUFBO0FBS0o7O0FBRkU7RUFDRSxxQkFBQTtBQUtKOztBQUZFO0VBQ0UsZ0JBQUE7QUFLSjs7QUFGRTtFQUNFLG9CQUFBO0VBQ0EsV0FBQTtFQUNBLFlBQUE7QUFLSjs7QUFEQTtFQUNFLHFCQUFBO0FBSUY7O0FBREE7RUFFRSx5QkFBQTtFQUNBLFlBQUE7RUFDQSxXQUFBO0VBQ0Esa0JBQUE7RUFDQSxTQUFBO0VBQ0EsUUFBQTtFQUdBLG1CQUFBO0FBR0Y7O0FBQUE7RUFFRSx5QkFBQTtFQUNBLFlBQUE7RUFDQSxXQUFBO0VBQ0Esa0JBQUE7RUFDQSxTQUFBO0VBQ0EsUUFBQTtFQUdBLG1CQUFBO0FBRUY7O0FBQ0E7RUFFRSx5QkFBQTtFQUNBLFlBQUE7RUFDQSxXQUFBO0VBQ0Esa0JBQUE7RUFDQSxTQUFBO0VBQ0EsUUFBQTtFQUdBLG1CQUFBO0FBQ0Y7O0FBRUE7RUFFRSx5QkFBQTtFQUNBLFlBQUE7RUFDQSxXQUFBO0VBQ0Esa0JBQUE7RUFDQSxTQUFBO0VBQ0EsUUFBQTtFQUdBLG1CQUFBO0FBQUY7O0FBR0E7RUFFRSx5QkFBQTtFQUNBLFlBQUE7RUFDQSxXQUFBO0VBQ0Esa0JBQUE7RUFDQSxTQUFBO0VBQ0EsUUFBQTtFQUdBLG1CQUFBO0FBREY7O0FBSUE7RUFFRSx5QkFBQTtFQUNBLFlBQUE7RUFDQSxXQUFBO0VBQ0Esa0JBQUE7RUFDQSxTQUFBO0VBQ0EsUUFBQTtFQUdBLG1CQUFBO0FBRkY7O0FBS0E7RUFFRSx5QkFBQTtFQUNBLFlBQUE7RUFDQSxXQUFBO0VBQ0Esa0JBQUE7RUFDQSxTQUFBO0VBQ0EsUUFBQTtFQUdBLG1CQUFBO0FBSEY7O0FBTUE7RUFFRSx5QkFBQTtFQUNBLFlBQUE7RUFDQSxXQUFBO0VBQ0Esa0JBQUE7RUFDQSxTQUFBO0VBQ0EsUUFBQTtFQUdBLG1CQUFBO0FBSkY7O0FBT0E7RUFFRSx5QkFBQTtFQUNBLFlBQUE7RUFDQSxXQUFBO0VBQ0Esa0JBQUE7RUFDQSxTQUFBO0VBQ0EsUUFBQTtFQUdBLG1CQUFBO0FBTEY7O0FBUUE7RUFFRSx3QkFBQTtFQUNBLHNCQUFBO0VBQ0EsaUNBQUE7RUFDQSxtQ0FBQTtFQUVBLGdDQUFBO0VBQ0EsOEJBQUE7RUFDQSx5Q0FBQTtFQUNBLDJDQUFBO0FBUEY7O0FBc0JBO0VBQ0U7SUFBSyxVQUFBO0VBSUw7RUFIQztJQUFNLFVBQUE7RUFNUDtFQUxBO0lBQU8sVUFBQTtFQVFQO0FBQ0Y7O0FBUEE7RUFDRSxZQUFBO0FBU0Y7O0FBUEE7RUFDRSxVQUFBO0VBQ0EsaUJBQUE7RUFDQSxrQkFBQTtBQVVGOztBQVJBO0VBQ0UsVUFBQTtBQVdGOztBQVJBO0VBQ0UsV0FBQTtFQUNBLFdBQUE7RUFDQSx5QkFBQTtBQVdGOztBQVJBO0VBQ0UsV0FBQTtFQUNGLHFCQUFBO0FBV0E7O0FBUEE7RUFDRSxxQkFBQTtFQUNBLGdCQUFBO0FBVUY7O0FBUEE7RUFDRSxxQkFBQTtBQVVGOztBQVBBO0VBQ0UscUJBQUE7RUFDQSxlQUFBO0FBVUY7O0FBUEE7RUFDRSxnQkFBQTtBQVVGOztBQVBBO0VBQ0UscUJBQUE7QUFVRjs7QUFQQTtFQUNFLHFCQUFBO0VBQ0EsMkJBQUE7QUFVRjs7QUFQQTtFQUNFLGNBQUE7RUFDQSxTQUFBO0VBQ0EsU0FBQTtFQUNBLHFCQUFBO0FBVUY7O0FBUEE7RUFDRSxnQkFBQTtFQUNBLE1BQUE7RUFDQSxVQUFBO0VBQ0Esc0JBQUE7RUFBd0IsYUFBQTtBQVcxQjs7QUFSQTtFQUNFO0lBQ0UsZUFBQTtJQUNBLGdCQUFBO0VBV0Y7O0VBUkE7SUFDRSxjQUFBO0lBQ0EsVUFBQTtFQVdGOztFQVJFO0lBQ0UsZ0JBQUE7SUFDQSxnQkFBQTtFQVdKOztFQVJFO0lBQ0UseUJBQUE7SUFDQSxvQkFBQTtFQVdKOztFQVJFO0lBQ0UsU0FBQTtJQUNBLFNBQUE7RUFXSjtBQUNGOztBQVBBO0VBQ0UsaUJBQUE7QUFTRiIsImZpbGUiOiJjaGFydHMucGFnZS5zY3NzIiwic291cmNlc0NvbnRlbnQiOlsiICAgIGlvbi1jYXJkLXRpdGxlLmNvbG9yMXtcclxuICAgICAgICAtLWNvbG9yIDpcdCMwODMzYTI7IFxyXG4gICAgICAgIC0tdGV4dC1hbGlnbiA6ICdjZW50ZXInO1xyXG4gICAgfVxyXG4gICAgaW9uLWNhcmQtdGl0bGUuY29sb3Iye1xyXG4gICAgICAgIC0tY29sb3IgOiAjMTRmYWZmOyBcclxuICAgICAgICAtLXRleHQtYWxpZ24gOiAnY2VudGVyJztcclxuICAgIH1cclxuICAgIGlvbi1jYXJkLXRpdGxlLmNvbG9yM3tcclxuICAgICAgICAtLWNvbG9yIDogI2VkZmYxNDsgXHJcbiAgICAgICAgLS10ZXh0LWFsaWduIDogJ2NlbnRlcic7XHJcbiAgICB9XHJcbiAgICBpb24tY2FyZC10aXRsZS5jb2xvcjR7XHJcbiAgICAgICAgLS1jb2xvciA6ICNmZjE0ZmY7IFxyXG4gICAgICAgIC0tdGV4dC1hbGlnbiA6ICdjZW50ZXInO1xyXG4gICAgfVxyXG4gICAgaW9uLWNhcmQtdGl0bGUuY29sb3I1e1xyXG4gICAgICAgIC0tY29sb3IgOiAjMWVmZjA1OyBcclxuICAgICAgICAtLXRleHQtYWxpZ24gOiAnY2VudGVyJztcclxuICAgIH1cclxuXHJcbmlvbi10b29sYmFye1xyXG4gICAgLS10ZXh0LWFsaWduOiBjZW50ZXI7XHJcbiAgICAtLWJhY2tncm91bmQ6ICM5NGI4ZDc7XHJcbiAgfVxyXG5cclxuICBpb24tYmFjay1idXR0b24ge1xyXG4gICAgLS1jb2xvcjogI2ZmZjtcclxuICB9XHJcblxyXG4gIGlvbi1idXR0b257XHJcbiAgICAtLWJhY2tncm91bmQ6ICM5NGI4ZDc7XHJcbiAgfVxyXG5cclxuICBpb24tY2FyZC1zdWJ0aXRsZSB7XHJcbiAgICAtLWNvbG9yIDogI2ZmZmZmZjtcclxuICB9XHJcblxyXG4gIGlvbi1idXR0b25bc2hhcGU9Y2lyY2xlXSB7XHJcbiAgICAtLWJvcmRlci1yYWRpdXM6IDUwJTtcclxuICAgIHdpZHRoOiAyMHB4O1xyXG4gICAgaGVpZ2h0OiAzMHB4O1xyXG4gICAvLyAtLWJhY2tncm91bmQgOiAjZmZmZmZmO1xyXG59XHJcblxyXG5pb24tYnV0dG9uLnJvam97XHJcbiAgLS1iYWNrZ3JvdW5kIDogI2ZmZmZmZjtcclxufVxyXG5cclxuI2NpcmN1bG9Sb2pvIHtcclxuICBcclxuICBiYWNrZ3JvdW5kLWNvbG9yOiAjY2UxMTI3O1xyXG4gIGhlaWdodDoyMHB4O1xyXG4gIHdpZHRoOjIwcHg7XHJcbiAgcG9zaXRpb246YWJzb2x1dGU7XHJcbiAgbGVmdDozMCU7XHJcbiAgdG9wOjkwJTtcclxuICAtbW96LWJvcmRlci1yYWRpdXM6NTBweDtcclxuICAtd2Via2l0LWJvcmRlci1yYWRpdXM6NTBweDtcclxuICBib3JkZXItcmFkaXVzOjUwcHg7XHJcbn1cclxuXHJcbiNjaXJjdWxvQW1hcmlsbG8ge1xyXG4gIFxyXG4gIGJhY2tncm91bmQtY29sb3I6ICNGRkZCMDA7XHJcbiAgaGVpZ2h0OjIwcHg7XHJcbiAgd2lkdGg6MjBweDtcclxuICBwb3NpdGlvbjphYnNvbHV0ZTtcclxuICBsZWZ0OjQ5JTtcclxuICB0b3A6OTAlO1xyXG4gIC1tb3otYm9yZGVyLXJhZGl1czo1MHB4O1xyXG4gIC13ZWJraXQtYm9yZGVyLXJhZGl1czo1MHB4O1xyXG4gIGJvcmRlci1yYWRpdXM6NTBweDtcclxufVxyXG5cclxuI2NpcmN1bG9WZXJkZSB7XHJcbiAgXHJcbiAgYmFja2dyb3VuZC1jb2xvcjogIzAwRkYwMDtcclxuICBoZWlnaHQ6MjBweDtcclxuICB3aWR0aDoyMHB4O1xyXG4gIHBvc2l0aW9uOmFic29sdXRlO1xyXG4gIGxlZnQ6NjclO1xyXG4gIHRvcDo5MCU7XHJcbiAgLW1vei1ib3JkZXItcmFkaXVzOjUwcHg7XHJcbiAgLXdlYmtpdC1ib3JkZXItcmFkaXVzOjUwcHg7XHJcbiAgYm9yZGVyLXJhZGl1czo1MHB4O1xyXG59XHJcblxyXG4jY2lyY3Vsb1Jvam8xIHtcclxuICBcclxuICBiYWNrZ3JvdW5kLWNvbG9yOiAjY2UxMTI3O1xyXG4gIGhlaWdodDoyMHB4O1xyXG4gIHdpZHRoOjIwcHg7XHJcbiAgcG9zaXRpb246YWJzb2x1dGU7XHJcbiAgbGVmdDozNSU7XHJcbiAgdG9wOjgwJTtcclxuICAtbW96LWJvcmRlci1yYWRpdXM6NTBweDtcclxuICAtd2Via2l0LWJvcmRlci1yYWRpdXM6NTBweDtcclxuICBib3JkZXItcmFkaXVzOjUwcHg7XHJcbn1cclxuXHJcbiNjaXJjdWxvQW1hcmlsbG8xIHtcclxuICBcclxuICBiYWNrZ3JvdW5kLWNvbG9yOiAjRkZGQjAwO1xyXG4gIGhlaWdodDoyMHB4O1xyXG4gIHdpZHRoOjIwcHg7XHJcbiAgcG9zaXRpb246YWJzb2x1dGU7XHJcbiAgbGVmdDo0NyU7XHJcbiAgdG9wOjgwJTtcclxuICAtbW96LWJvcmRlci1yYWRpdXM6NTBweDtcclxuICAtd2Via2l0LWJvcmRlci1yYWRpdXM6NTBweDtcclxuICBib3JkZXItcmFkaXVzOjUwcHg7XHJcbn1cclxuXHJcbiNjaXJjdWxvVmVyZGUxIHtcclxuICBcclxuICBiYWNrZ3JvdW5kLWNvbG9yOiAjMDBGRjAwO1xyXG4gIGhlaWdodDoyMHB4O1xyXG4gIHdpZHRoOjIwcHg7XHJcbiAgcG9zaXRpb246YWJzb2x1dGU7XHJcbiAgbGVmdDo1OSU7XHJcbiAgdG9wOjgwJTtcclxuICAtbW96LWJvcmRlci1yYWRpdXM6NTBweDtcclxuICAtd2Via2l0LWJvcmRlci1yYWRpdXM6NTBweDtcclxuICBib3JkZXItcmFkaXVzOjUwcHg7XHJcbn1cclxuXHJcbiNjaXJjdWxvUm9qbzIge1xyXG4gIFxyXG4gIGJhY2tncm91bmQtY29sb3I6ICNjZTExMjc7XHJcbiAgaGVpZ2h0OjIwcHg7XHJcbiAgd2lkdGg6MjBweDtcclxuICBwb3NpdGlvbjphYnNvbHV0ZTtcclxuICBsZWZ0OjM1JTtcclxuICB0b3A6OTMlO1xyXG4gIC1tb3otYm9yZGVyLXJhZGl1czo1MHB4O1xyXG4gIC13ZWJraXQtYm9yZGVyLXJhZGl1czo1MHB4O1xyXG4gIGJvcmRlci1yYWRpdXM6NTBweDtcclxufVxyXG5cclxuI2NpcmN1bG9BbWFyaWxsbzIge1xyXG4gIFxyXG4gIGJhY2tncm91bmQtY29sb3I6ICNGRkZCMDA7XHJcbiAgaGVpZ2h0OjIwcHg7XHJcbiAgd2lkdGg6MjBweDtcclxuICBwb3NpdGlvbjphYnNvbHV0ZTtcclxuICBsZWZ0OjQ3JTtcclxuICB0b3A6OTMlO1xyXG4gIC1tb3otYm9yZGVyLXJhZGl1czo1MHB4O1xyXG4gIC13ZWJraXQtYm9yZGVyLXJhZGl1czo1MHB4O1xyXG4gIGJvcmRlci1yYWRpdXM6NTBweDtcclxufVxyXG5cclxuI2NpcmN1bG9WZXJkZTIge1xyXG4gIFxyXG4gIGJhY2tncm91bmQtY29sb3I6ICMwMEZGMDA7XHJcbiAgaGVpZ2h0OjIwcHg7XHJcbiAgd2lkdGg6MjBweDtcclxuICBwb3NpdGlvbjphYnNvbHV0ZTtcclxuICBsZWZ0OjU5JTtcclxuICB0b3A6OTMlO1xyXG4gIC1tb3otYm9yZGVyLXJhZGl1czo1MHB4O1xyXG4gIC13ZWJraXQtYm9yZGVyLXJhZGl1czo1MHB4O1xyXG4gIGJvcmRlci1yYWRpdXM6NTBweDtcclxufVxyXG5cclxuLnBhcnBhZGVhIHtcclxuICBcclxuICBhbmltYXRpb24tbmFtZTogcGFycGFkZW87XHJcbiAgYW5pbWF0aW9uLWR1cmF0aW9uOiAxcztcclxuICBhbmltYXRpb24tdGltaW5nLWZ1bmN0aW9uOiBsaW5lYXI7XHJcbiAgYW5pbWF0aW9uLWl0ZXJhdGlvbi1jb3VudDogaW5maW5pdGU7XHJcblxyXG4gIC13ZWJraXQtYW5pbWF0aW9uLW5hbWU6cGFycGFkZW87XHJcbiAgLXdlYmtpdC1hbmltYXRpb24tZHVyYXRpb246IDFzO1xyXG4gIC13ZWJraXQtYW5pbWF0aW9uLXRpbWluZy1mdW5jdGlvbjogbGluZWFyO1xyXG4gIC13ZWJraXQtYW5pbWF0aW9uLWl0ZXJhdGlvbi1jb3VudDogaW5maW5pdGU7XHJcbn1cclxuXHJcbkAtbW96LWtleWZyYW1lcyBwYXJwYWRlb3sgIFxyXG4gIDAlIHsgb3BhY2l0eTogMS4wOyB9XHJcbiAgNTAlIHsgb3BhY2l0eTogMC4wOyB9XHJcbiAgMTAwJSB7IG9wYWNpdHk6IDEuMDsgfVxyXG59XHJcblxyXG5ALXdlYmtpdC1rZXlmcmFtZXMgcGFycGFkZW8geyAgXHJcbiAgMCUgeyBvcGFjaXR5OiAxLjA7IH1cclxuICA1MCUgeyBvcGFjaXR5OiAwLjA7IH1cclxuICAgMTAwJSB7IG9wYWNpdHk6IDEuMDsgfVxyXG59XHJcblxyXG5Aa2V5ZnJhbWVzIHBhcnBhZGVvIHsgIFxyXG4gIDAlIHsgb3BhY2l0eTogMS4wOyB9XHJcbiAgIDUwJSB7IG9wYWNpdHk6IDAuMDsgfVxyXG4gIDEwMCUgeyBvcGFjaXR5OiAxLjA7IH1cclxufVxyXG4jY29udGFpbmVyIHtcclxuICBoZWlnaHQ6IDEwMSU7XHJcbn1cclxuI2JvdG9uIHtcclxuICB3aWR0aDogNTAlO1xyXG4gIG1hcmdpbi1sZWZ0OiBhdXRvO1xyXG4gIG1hcmdpbi1yaWdodDogYXV0bztcclxufVxyXG5pb24taXRlbXtcclxuICBsZWZ0OiBhdXRvO1xyXG59XHJcblxyXG5pb24tY29udGVudCB7XHJcbiAgaGVpZ2h0OiA3MCU7XHJcbiAgd2lkdGg6IDEwMCU7XHJcbiAgYmFja2dyb3VuZC1jb2xvcjogI2ZmZmZmZjtcclxufVxyXG5cclxuI2dyYWZpY2Ege1xyXG4gIGhlaWdodDogNzAlO1xyXG4tLWJhY2tncm91bmQgOiAjZmZmZmZmO1xyXG4vL2JhY2tncm91bmQtY29sb3I6IHJnYigwLCAwLCAwKTtcclxufVxyXG5cclxuLmZvbmRvIHtcclxuICAtLWJhY2tncm91bmQ6ICNmZmZmZmY7XHJcbiAgLS1jb2xvciA6ICNmZmZmZmY7XHJcbn1cclxuXHJcbi5ncmFmaWNhcyB7XHJcbiAgLS1iYWNrZ3JvdW5kIDogI2ZmZmZmZjtcclxufVxyXG5cclxuLmZvbmRvQmxhbmNvIHtcclxuICAtLWJhY2tncm91bmQgOiAjZmZmZmZmO1xyXG4gIGN1cnNvcjogcG9pbnRlcjtcclxufVxyXG5cclxuLmxldHJhcyB7XHJcbiAgLS1jb2xvciA6ICMwMDAwMDA7XHJcbn1cclxuXHJcbi50b2dnbGV7XHJcbiAgLS1iYWNrZ3JvdW5kIDogIzAwMDAwMDtcclxufVxyXG5cclxuLmNvbnRlbmlkbyB7XHJcbiAgLS1iYWNrZ3JvdW5kOiAjZmZmZmZmO1xyXG4gIC0tYm9yZGVyLWNvbG9yIDogdHJhbnNwYXJlbnQ7XHJcbn1cclxuXHJcbiNzcGlubmVyIHtcclxuICBjb2xvcjogIzA4MzNhMjtcclxuICB0b3A6IDMwdmg7XHJcbiAgbGVmdDogNTAlO1xyXG4gIHRyYW5zZm9ybTogc2NhbGUoMS41KTtcclxufVxyXG5cclxudGFibGUgdGhlYWQgdHIgdGgge1xyXG4gIHBvc2l0aW9uOiBzdGlja3k7XHJcbiAgdG9wOiAwO1xyXG4gIHotaW5kZXg6IDE7XHJcbiAgYmFja2dyb3VuZC1jb2xvcjogI2ZmZjsgLyogb3BjaW9uYWwgKi9cclxufVxyXG5cclxuQG1lZGlhIHNjcmVlbiBhbmQgKG1heC13aWR0aDogNDgwcHgpIHtcclxuICAjZ3JhZmljYSB7XHJcbiAgICBtYXgtd2lkdGg6IDEwMCU7XHJcbiAgICBtYXgtaGVpZ2h0OiAxMDAlO1xyXG4gICAgfVxyXG5cclxuICAjYm90b24ge1xyXG4gICAgbWFyZ2luLXRvcDogMCU7XHJcbiAgICB3aWR0aDogNzAlO1xyXG4gICAgfVxyXG4gICAgXHJcbiAgICAudGFyamV0YVRhYmxhIHtcclxuICAgICAgb3ZlcmZsb3cteDogYXV0bztcclxuICAgICAgb3ZlcmZsb3cteTogYXV0bztcclxuICAgIH1cclxuXHJcbiAgICAudGFibGFFeGNlbCB7XHJcbiAgICAgIGJvcmRlci1jb2xsYXBzZTogc2VwYXJhdGU7XHJcbiAgICAgIGJvcmRlci1zcGFjaW5nOiAxNXB4O1xyXG4gICAgfVxyXG5cclxuICAgICNzcGlubmVyIHtcclxuICAgICAgdG9wOiAyNXZoO1xyXG4gICAgICBsZWZ0OiA1MCU7XHJcbiAgICB9XHJcblxyXG59XHJcblxyXG4ucmVnaXN0cm8ge1xyXG4gIGZvbnQtc2l6ZTogbWVkaXVtO1xyXG59Il19 */";
 
 /***/ })
 

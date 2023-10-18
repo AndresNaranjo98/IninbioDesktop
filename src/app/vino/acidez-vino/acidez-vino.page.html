@@ -1,0 +1,14 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot = "start">
+      <ion-back-button defaultHref="/charts-vino"></ion-back-button>
+    </ion-buttons>
+    <ion-title>{{"PANTGRAF.GRAFICATEMP" | translate}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content class="fondo"> 
+    <ion-card class="graficas">
+      <ion-spinner *ngIf="showSpinner" id="cargador" name="circles"></ion-spinner>
+      <div id="acidez" style="display: block;"></div>
+    </ion-card>
+</ion-content>

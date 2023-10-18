@@ -81,13 +81,18 @@ export class LoginPage implements OnInit {
       async (data) => {
         let json = JSON.stringify(data);
         let response = JSON.parse(json);
-        let teqEncrypt = (response.tequilera).toString();
+        let teqEncrypt = (response.empresa).toString();
         let secret = environment.SECRET_KEY;
         const datoEncriptado = CryptoJS.AES.encrypt(teqEncrypt, secret).toString();
-        localStorage.setItem('tequilera', datoEncriptado);
+        localStorage.setItem('empresa', datoEncriptado);
         localStorage.setItem('token', response.token);
+        localStorage.setItem('categoria', response.categoria);
         loading.dismiss();
-        this.router.navigateByUrl('/inicio');
+        if (response.categoria == 1) {
+          this.router.navigateByUrl('/inicio');
+        } else if (response.categoria == 2) {
+          this.router.navigateByUrl('/inicio-vino');
+        }
         this.servicio.obtenerUsuarios(this.loginForm.value).subscribe(
           async (data) => {
             let json = JSON.stringify(data);

@@ -31,7 +31,8 @@ export class AlcvolPage implements OnInit {
     var chart;
     let idTina = localStorage.getItem('idTina');
     let tinaIndividual = localStorage.getItem('idTina');
-    let tequilera = localStorage.getItem('tequilera');
+    let empresa = localStorage.getItem('empresa');
+    let categoria = localStorage.getItem('categoria');
     let idiomas = localStorage.getItem('idioma');
     let Consultar : number = 1;
     let token = localStorage.getItem('token');
@@ -75,14 +76,14 @@ export class AlcvolPage implements OnInit {
       }
     },1000);
 
-    const bytes = CryptoJS.AES.decrypt(tequilera, environment.SECRET_KEY);
+    const bytes = CryptoJS.AES.decrypt(empresa, environment.SECRET_KEY);
     const datoDesencriptado = bytes.toString(CryptoJS.enc.Utf8);
 
-    var parseo = {'idTina' : idTina, 'tequilera' : datoDesencriptado};
-    var parseo2 = {'tinaIndividual' : tinaIndividual, 'tequilera' : datoDesencriptado, 'Consultar' : Consultar};
+    var parseo = {'idTina' : idTina, 'empresa' : datoDesencriptado, 'categoria' : categoria};
+    var parseo2 = {'tinaIndividual' : tinaIndividual, 'empresa' : datoDesencriptado, 'Consultar' : Consultar, 'categoria' : categoria};
 
     $.ajax({
-      url: 'https://www.ininbio.com/pruebasLocalesFull/datos_Grafica.php',
+      url: 'https://www.ininbio.com//pruebasLocalesFull/datos_Grafica.php',
       headers: {"Authorization": "Bearer "+token, "Content-Type" : "application/json"},
       type: "POST",
       dataType: "json",
@@ -91,6 +92,9 @@ export class AlcvolPage implements OnInit {
       document.getElementById('cargador').style.display = 'none';
         let alcvol = [];
         $.each(datosGrafica, function (key, value) {
+          var sixHoursInMilliseconds = 6 * 60 * 60 * 1000;
+          var newTimestamp = datosGrafica[key].x - sixHoursInMilliseconds;
+          datosGrafica[key].x = newTimestamp;
           if (value.x) {
             datosGrafica[key].x = parseInt(value.x);
           }
@@ -206,7 +210,7 @@ export class AlcvolPage implements OnInit {
     });
     setInterval(function () {
       $.post({
-        url : 'https://www.ininbio.com/pruebasLocalesFull/datos_Grafica.php',
+        url : 'https://www.ininbio.com//pruebasLocalesFull/datos_Grafica.php',
         headers: {"Authorization": "Bearer "+token, "Content-Type" : "application/json"},
         type : 'POST',
         data : JSON.stringify(parseo2),

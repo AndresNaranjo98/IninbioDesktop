@@ -22,9 +22,9 @@ export class RegistroPage implements OnInit {
     correo : null,
     contrasena : null,
     nombre_usuario : null,
-    id_tequilera : null
+    id_empresas : null
   }
-  tequileras: string[] = ['Ininbio System', 'La Joya', 'Alma de Mexico'];
+  empresas: string[] = ['Ininbio System', 'La Joya', 'Alma de Mexico', 'Trujillo', 'Penfolds'];
 
   constructor(private usuarioService: RegistrosService,
     private router: Router, private formBuilder: FormBuilder,private alertController: AlertController,
@@ -39,7 +39,7 @@ export class RegistroPage implements OnInit {
       contrasena: ['', [Validators.required, Validators.minLength(2)]],
       correo: ['', [Validators.required, Validators.pattern('[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$')]],
       nombre_usuario: ['', [Validators.required, Validators.minLength(2)]],
-      id_tequilera: ['', [Validators.required,Validators.minLength(2)]]
+      empresa: ['', [Validators.required,Validators.minLength(2)]]
     })   
   }
 
@@ -56,20 +56,20 @@ export class RegistroPage implements OnInit {
   }
 
   async onSubmit() {
-    var nombreTequileraSP = this.ionicForm.value['id_tequilera'];
+    var nombreEmpresaSP = this.ionicForm.value['empresa'];
     const removeAccents = (str) => {
       return str.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
     }
-    var nombreTequileraP = removeAccents(nombreTequileraSP);
+    var nombreEmpresaP = removeAccents(nombreEmpresaSP);
 
-    if(nombreTequileraP.toLowerCase() == this.tequileras[3].toLowerCase()){
+    if(nombreEmpresaP.toLowerCase() == this.empresas[0].toLowerCase()){
     this.registros = {
       nombre : this.ionicForm.value['nombre'],
       apellidos : this.ionicForm.value['apellidos'],
       correo : this.ionicForm.value['correo'],
       contrasena : this.ionicForm.value['contrasena'],
       nombre_usuario : this.ionicForm.value['nombre_usuario'],
-      id_tequilera : '1'
+      id_empresas : '1'
     }
     this.isSubmitted = true;
     this.usuarioService.addUsuario(this.registros).subscribe(async(datos : any) => {
@@ -102,14 +102,14 @@ export class RegistroPage implements OnInit {
         alert.present();
     })
   }
-  else if(nombreTequileraP.toLowerCase() == this.tequileras[1].toLowerCase()){
+  else if(nombreEmpresaP.toLowerCase() == this.empresas[1].toLowerCase()){
     this.registros = {
       nombre : this.ionicForm.value['nombre'],
       apellidos : this.ionicForm.value['apellidos'],
       correo : this.ionicForm.value['correo'],
       contrasena : this.ionicForm.value['contrasena'],
       nombre_usuario : this.ionicForm.value['nombre_usuario'],
-      id_tequilera : '2'
+      id_empresas : '2'
     }
     this.isSubmitted = true;
     this.usuarioService.addUsuario(this.registros).subscribe(async(datos : any) => {
@@ -128,6 +128,126 @@ export class RegistroPage implements OnInit {
     this.router.navigate(['/login']);
     },
     async () => {
+      let alert = await this.alertController.create({
+        cssClass: 'alerta',
+        header: this.translate.instant('ALERTAREGISTRO.HEADER1'),
+        message: this.translate.instant('ALERTAREGISTRO.MESSAGE1'),
+        buttons: [
+          {
+            cssClass : 'confirmacion',
+            text : 'Ok', 
+          }
+        ],
+        });
+        alert.present();
+    })
+  }
+  else if(nombreEmpresaP.toLowerCase() == this.empresas[2].toLowerCase()){
+    this.registros = {
+      nombre : this.ionicForm.value['nombre'],
+      apellidos : this.ionicForm.value['apellidos'],
+      correo : this.ionicForm.value['correo'],
+      contrasena : this.ionicForm.value['contrasena'],
+      nombre_usuario : this.ionicForm.value['nombre_usuario'],
+      id_empresas : '3'
+    }
+    this.isSubmitted = true;
+    this.usuarioService.addUsuario(this.registros).subscribe(async(datos : any) => {
+      let alert = await this.alertController.create({
+        cssClass: 'alerta',
+        header: this.translate.instant('ALERTAREGISTRO.HEADER'),
+        message: this.translate.instant('ALERTAREGISTRO.MESSAGE'),
+        buttons: [
+          {
+            cssClass : 'confirmacion',
+            text : 'Ok', 
+          }
+        ],
+        });
+        alert.present();
+    this.router.navigate(['/login']);
+    },
+    async () => {
+      let alert = await this.alertController.create({
+        cssClass: 'alerta',
+        header: this.translate.instant('ALERTAREGISTRO.HEADER1'),
+        message: this.translate.instant('ALERTAREGISTRO.MESSAGE1'),
+        buttons: [
+          {
+            cssClass : 'confirmacion',
+            text : 'Ok', 
+          }
+        ],
+        });
+        alert.present();
+    })
+  }
+  else if(nombreEmpresaP.toLowerCase() == this.empresas[3].toLowerCase()){
+    this.registros = {
+      nombre : this.ionicForm.value['nombre'],
+      apellidos : this.ionicForm.value['apellidos'],
+      correo : this.ionicForm.value['correo'],
+      contrasena : this.ionicForm.value['contrasena'],
+      nombre_usuario : this.ionicForm.value['nombre_usuario'],
+      id_empresas : '4'
+    }
+    this.isSubmitted = true;
+    this.usuarioService.addUsuario(this.registros).subscribe(async(datos : any) => {
+      let alert = await this.alertController.create({
+        cssClass: 'alerta',
+        header: this.translate.instant('ALERTAREGISTRO.HEADER'),
+        message: this.translate.instant('ALERTAREGISTRO.MESSAGE'),
+        buttons: [
+          {
+            cssClass : 'confirmacion',
+            text : 'Ok', 
+          }
+        ],
+        });
+        alert.present();
+    this.router.navigate(['/login']);
+    },
+    async () => {
+      let alert = await this.alertController.create({
+        cssClass: 'alerta',
+        header: this.translate.instant('ALERTAREGISTRO.HEADER1'),
+        message: this.translate.instant('ALERTAREGISTRO.MESSAGE1'),
+        buttons: [
+          {
+            cssClass : 'confirmacion',
+            text : 'Ok', 
+          }
+        ],
+        });
+        alert.present();
+    })
+  } else if(nombreEmpresaP.toLowerCase() == this.empresas[4].toLowerCase()){
+    this.registros = {
+      nombre : this.ionicForm.value['nombre'],
+      apellidos : this.ionicForm.value['apellidos'],
+      correo : this.ionicForm.value['correo'],
+      contrasena : this.ionicForm.value['contrasena'],
+      nombre_usuario : this.ionicForm.value['nombre_usuario'],
+      id_empresas : '5'
+    }
+    this.isSubmitted = true;
+    this.usuarioService.addUsuario(this.registros).subscribe(async(datos : any) => {
+      let alert = await this.alertController.create({
+        cssClass: 'alerta',
+        header: this.translate.instant('ALERTAREGISTRO.HEADER'),
+        message: this.translate.instant('ALERTAREGISTRO.MESSAGE'),
+        buttons: [
+          {
+            cssClass : 'confirmacion',
+            text : 'Ok', 
+          }
+        ],
+        });
+        alert.present();
+    this.router.navigate(['/login']);
+    },
+    async (error : any) => {
+      // console.log(error);
       let alert = await this.alertController.create({
         cssClass: 'alerta',
         header: this.translate.instant('ALERTAREGISTRO.HEADER1'),

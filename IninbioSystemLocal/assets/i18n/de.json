@@ -36,7 +36,8 @@
     },
     "OPCIONESMENU" : {
       "OPCIONES" : "Optionen",
-      "FERJUAGAVE" : "Fermentierung von Agavensaft",
+      "FERJUAGAVE" : "Tequila-Fermentierung",
+      "FERUVA": "Gärung Wein",
       "CERRARSESION" : "Abmelden",
       "CATALOGO" : "Ininbio Katalog"
     },
@@ -118,6 +119,23 @@
       "GENERAR" : "Bericht generieren",
       "PERIODO" : "Zeitspanne",
       "INGRESARFECHAS" : "Geben Sie die Daten ein, um Ihren Bericht zu erhalten"
+    },
+    "TABLAEXCEL" : {
+      "TITULO" : "Echtzeit-Aufzeichnungen",
+      "FECHA" : "Datum/Uhrzeit",
+      "TEMPERATURA" : "Temperatur",
+      "PH" : "pH",
+      "BRIX" : "°Brix",
+      "ALCVOL" : "%Alc.Vol",
+      "EFICIENCIA" : "Effizienz (%)"
+    },
+    "TABLAEXCELVINO" : {
+      "TITULO" : "Echtzeit-Aufzeichnungen",
+      "FECHA" : "Datum/Uhrzeit",
+      "DENSIDAD" : "Dichte",
+      "ACIDEZ" : "Azidität",
+      "TEMPERATURA" : "Temperatur",
+      "VOLUMEN" : "Umfang"
     }
   }
   

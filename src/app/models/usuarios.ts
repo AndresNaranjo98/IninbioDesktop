@@ -5,6 +5,6 @@ export class Usuarios {
         public correo: string,
         public contrasena: string,
         public nombre_usuario: string,
-        public id_tequilera : string
+        public id_empresas : string
     ) {}
 }

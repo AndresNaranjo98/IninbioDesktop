@@ -11,10 +11,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "ChartsService": () => (/* binding */ ChartsService)
 /* harmony export */ });
-/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! tslib */ 8806);
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/core */ 4001);
-/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/common/http */ 3981);
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! tslib */ 8806);
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/core */ 4001);
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common/http */ 3981);
 /* harmony import */ var src_environments_environment__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! src/environments/environment */ 8260);
+/* harmony import */ var crypto_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! crypto-js */ 3706);
+/* harmony import */ var crypto_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(crypto_js__WEBPACK_IMPORTED_MODULE_1__);
+
 
 
 
@@ -26,35 +29,101 @@ let ChartsService = class ChartsService {
         this.baseUrl2 = src_environments_environment__WEBPACK_IMPORTED_MODULE_0__.environment.apiAlertas;
     }
     getSensores() {
-        let num_tina = localStorage.getItem('idTina');
-        let tequilera = localStorage.getItem('tequilera');
-        return this.http.get(`${this.baseUrl}/datosGrafica.php?idTina=` + num_tina + `&tequilera=` + tequilera);
+        let token = localStorage.getItem('token');
+        let idTina = localStorage.getItem('idTina');
+        let empresa = localStorage.getItem('empresa');
+        let categoria = localStorage.getItem('categoria');
+        const bytes = crypto_js__WEBPACK_IMPORTED_MODULE_1__.AES.decrypt(empresa, src_environments_environment__WEBPACK_IMPORTED_MODULE_0__.environment.SECRET_KEY);
+        const datoDesencriptado = bytes.toString(crypto_js__WEBPACK_IMPORTED_MODULE_1__.enc.Utf8);
+        const headers = new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__.HttpHeaders({
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${token}`
+        });
+        const requestOptions = { headers: headers };
+        var parseo = { 'idTina': idTina, 'empresa': datoDesencriptado, 'categoria': categoria };
+        return this.http.post(`${this.baseUrl}`, JSON.stringify(parseo), requestOptions);
     }
     getUltimoSensor() {
-        let num_tina = localStorage.getItem('idTina');
-        let tequilera = localStorage.getItem('tequilera');
-        return this.http.get(`${this.baseUrl}/datosGrafica.php?tinaIndividual=` + num_tina
-            + `&tequilera=` + tequilera + `&Consultar=1`);
+        let token = localStorage.getItem('token');
+        let idTina = localStorage.getItem('idTina');
+        let empresa = localStorage.getItem('empresa');
+        let categoria = localStorage.getItem('categoria');
+        const bytes = crypto_js__WEBPACK_IMPORTED_MODULE_1__.AES.decrypt(empresa, src_environments_environment__WEBPACK_IMPORTED_MODULE_0__.environment.SECRET_KEY);
+        const datoDesencriptado = bytes.toString(crypto_js__WEBPACK_IMPORTED_MODULE_1__.enc.Utf8);
+        const headers = new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__.HttpHeaders({
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${token}`
+        });
+        const requestOptions = { headers: headers };
+        var parseo = { 'tinaIndividual': idTina, 'empresa': datoDesencriptado, 'Consultar': 1, "categoria": categoria };
+        return this.http.post(`${this.baseUrl}`, JSON.stringify(parseo), requestOptions);
     }
     alertaTemperatura() {
-        return this.http.get(`${this.baseUrl2}?tipoAlerta=1`);
+        let token = localStorage.getItem('token');
+        let empresa = localStorage.getItem('empresa');
+        let categoria = localStorage.getItem('categoria');
+        const bytes = crypto_js__WEBPACK_IMPORTED_MODULE_1__.AES.decrypt(empresa, src_environments_environment__WEBPACK_IMPORTED_MODULE_0__.environment.SECRET_KEY);
+        const datoDesencriptado = bytes.toString(crypto_js__WEBPACK_IMPORTED_MODULE_1__.enc.Utf8);
+        const headers = new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__.HttpHeaders({
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${token}`
+        });
+        const requestOptions = { headers: headers };
+        var parseo = { 'tipoAlerta': 1, 'empresa': datoDesencriptado, 'categoria': categoria };
+        return this.http.post(`${this.baseUrl2}`, JSON.stringify(parseo), requestOptions);
+        // return this.http.get(`${this.baseUrl2}?tipoAlerta=1`);
     }
     alertaPH() {
-        return this.http.get(`${this.baseUrl2}?tipoAlerta=2`);
+        let token = localStorage.getItem('token');
+        let empresa = localStorage.getItem('empresa');
+        let categoria = localStorage.getItem('categoria');
+        const bytes = crypto_js__WEBPACK_IMPORTED_MODULE_1__.AES.decrypt(empresa, src_environments_environment__WEBPACK_IMPORTED_MODULE_0__.environment.SECRET_KEY);
+        const datoDesencriptado = bytes.toString(crypto_js__WEBPACK_IMPORTED_MODULE_1__.enc.Utf8);
+        const headers = new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__.HttpHeaders({
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${token}`
+        });
+        const requestOptions = { headers: headers };
+        var parseo = { 'tipoAlerta': 2, 'empresa': datoDesencriptado, 'categoria': categoria };
+        return this.http.post(`${this.baseUrl2}`, JSON.stringify(parseo), requestOptions);
+        // return this.http.get(`${this.baseUrl2}?tipoAlerta=2`);
     }
     alertaBrix() {
-        return this.http.get(`${this.baseUrl2}?tipoAlerta=3`);
+        let token = localStorage.getItem('token');
+        let empresa = localStorage.getItem('empresa');
+        let categoria = localStorage.getItem('categoria');
+        const bytes = crypto_js__WEBPACK_IMPORTED_MODULE_1__.AES.decrypt(empresa, src_environments_environment__WEBPACK_IMPORTED_MODULE_0__.environment.SECRET_KEY);
+        const datoDesencriptado = bytes.toString(crypto_js__WEBPACK_IMPORTED_MODULE_1__.enc.Utf8);
+        const headers = new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__.HttpHeaders({
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${token}`
+        });
+        const requestOptions = { headers: headers };
+        var parseo = { 'tipoAlerta': 3, 'empresa': datoDesencriptado, 'categoria': categoria };
+        return this.http.post(`${this.baseUrl2}`, JSON.stringify(parseo), requestOptions);
+        // return this.http.get(`${this.baseUrl2}?tipoAlerta=3`);
     }
     getLimites() {
-        let num_tina = localStorage.getItem('idTina');
-        return this.http.get(`${this.baseUrl}/datosGrafica.php?tine=` + num_tina);
+        let tine = localStorage.getItem('idTina');
+        let token = localStorage.getItem('token');
+        let empresa = localStorage.getItem('empresa');
+        let categoria = localStorage.getItem('categoria');
+        const bytes = crypto_js__WEBPACK_IMPORTED_MODULE_1__.AES.decrypt(empresa, src_environments_environment__WEBPACK_IMPORTED_MODULE_0__.environment.SECRET_KEY);
+        const datoDesencriptado = bytes.toString(crypto_js__WEBPACK_IMPORTED_MODULE_1__.enc.Utf8);
+        const headers = new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__.HttpHeaders({
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${token}`
+        });
+        const requestOptions = { headers: headers };
+        var parseo = { 'tine': tine, 'empresa': datoDesencriptado, 'categoria': categoria };
+        return this.http.post(`${this.baseUrl}`, JSON.stringify(parseo), requestOptions);
     }
 };
 ChartsService.ctorParameters = () => [
-    { type: _angular_common_http__WEBPACK_IMPORTED_MODULE_1__.HttpClient }
+    { type: _angular_common_http__WEBPACK_IMPORTED_MODULE_2__.HttpClient }
 ];
-ChartsService = (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__decorate)([
-    (0,_angular_core__WEBPACK_IMPORTED_MODULE_3__.Injectable)({
+ChartsService = (0,tslib__WEBPACK_IMPORTED_MODULE_3__.__decorate)([
+    (0,_angular_core__WEBPACK_IMPORTED_MODULE_4__.Injectable)({
         providedIn: 'root'
     })
 ], ChartsService);
@@ -73,17 +142,20 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "DescargaExcelService": () => (/* binding */ DescargaExcelService)
 /* harmony export */ });
-/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! tslib */ 8806);
-/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/common/http */ 3981);
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/core */ 4001);
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! tslib */ 8806);
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/common/http */ 3981);
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/core */ 4001);
 /* harmony import */ var src_environments_environment__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! src/environments/environment */ 8260);
-/* harmony import */ var xlsx__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! xlsx */ 2551);
+/* harmony import */ var xlsx__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! xlsx */ 2551);
+/* harmony import */ var crypto_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! crypto-js */ 3706);
+/* harmony import */ var crypto_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(crypto_js__WEBPACK_IMPORTED_MODULE_1__);
 
 
 
 
 
 // import { ChartsPage } from '../charts/charts.page';
+
 let DescargaExcelService = class DescargaExcelService {
     constructor(http) {
         this.http = http;
@@ -91,31 +163,39 @@ let DescargaExcelService = class DescargaExcelService {
         this.baseUrl1 = src_environments_environment__WEBPACK_IMPORTED_MODULE_0__.environment.apiMezcalPDF;
     }
     exportToExcel(data, filename) {
-        return (0,tslib__WEBPACK_IMPORTED_MODULE_1__.__awaiter)(this, void 0, void 0, function* () {
+        return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__awaiter)(this, void 0, void 0, function* () {
             {
-                const ws = xlsx__WEBPACK_IMPORTED_MODULE_2__.utils.json_to_sheet(data);
-                const wb = xlsx__WEBPACK_IMPORTED_MODULE_2__.utils.book_new();
-                xlsx__WEBPACK_IMPORTED_MODULE_2__.utils.book_append_sheet(wb, ws, filename);
-                xlsx__WEBPACK_IMPORTED_MODULE_2__.writeFile(wb, filename + '.xlsx');
+                const ws = xlsx__WEBPACK_IMPORTED_MODULE_3__.utils.json_to_sheet(data);
+                const wb = xlsx__WEBPACK_IMPORTED_MODULE_3__.utils.book_new();
+                xlsx__WEBPACK_IMPORTED_MODULE_3__.utils.book_append_sheet(wb, ws, filename);
+                xlsx__WEBPACK_IMPORTED_MODULE_3__.writeFile(wb, filename + '.xlsx');
             }
         });
     }
     generarExcel(primerFecha, segundaFecha) {
         let num_tina = localStorage.getItem('idTina');
         let idioma = localStorage.getItem('idioma');
-        let tequilera = localStorage.getItem('tequilera');
-        return this.http.get(`${this.baseUrl}/generarExcel.php?idTina=` + num_tina + `&tequilera=` + tequilera + `&idioma=` + idioma
-            + `&primer=` + primerFecha + `&segunda=` + segundaFecha, { observe: 'response', responseType: 'blob' });
+        let empresa = localStorage.getItem('empresa');
+        let categoria = localStorage.getItem('categoria');
+        let token = localStorage.getItem('token');
+        const bytes = crypto_js__WEBPACK_IMPORTED_MODULE_1__.AES.decrypt(empresa, src_environments_environment__WEBPACK_IMPORTED_MODULE_0__.environment.SECRET_KEY);
+        const datoDesencriptado = bytes.toString(crypto_js__WEBPACK_IMPORTED_MODULE_1__.enc.Utf8);
+        const headers = new _angular_common_http__WEBPACK_IMPORTED_MODULE_4__.HttpHeaders({
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${token}`
+        });
+        return this.http.get(`${this.baseUrl}/generarExcel.php?idTina=` + num_tina + `&empresa=` + datoDesencriptado + `&idioma=` + idioma
+            + `&primer=` + primerFecha + `&segunda=` + segundaFecha + `&categoria=` + categoria, { headers: headers, observe: 'response', responseType: 'blob' });
     }
     mezcalPDF() {
         return this.http.get(`${this.baseUrl1}/Catalogo_Mezcal.php`, { observe: 'response', responseType: 'blob' });
     }
 };
 DescargaExcelService.ctorParameters = () => [
-    { type: _angular_common_http__WEBPACK_IMPORTED_MODULE_3__.HttpClient }
+    { type: _angular_common_http__WEBPACK_IMPORTED_MODULE_4__.HttpClient }
 ];
-DescargaExcelService = (0,tslib__WEBPACK_IMPORTED_MODULE_1__.__decorate)([
-    (0,_angular_core__WEBPACK_IMPORTED_MODULE_4__.Injectable)({
+DescargaExcelService = (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__decorate)([
+    (0,_angular_core__WEBPACK_IMPORTED_MODULE_5__.Injectable)({
         providedIn: 'root'
     })
 ], DescargaExcelService);

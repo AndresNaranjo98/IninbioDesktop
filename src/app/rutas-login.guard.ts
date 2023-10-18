@@ -13,7 +13,7 @@ export class RutasLoginGuard implements CanActivate {
   canActivate(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-    if(localStorage.getItem('tequilera')){
+    if(localStorage.getItem('empresa')){
       return true;
     } else {
       this.navControl.navigateRoot('login'); 

@@ -218,13 +218,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "LoginService": () => (/* binding */ LoginService)
 /* harmony export */ });
-/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! tslib */ 8806);
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/core */ 4001);
-/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/common/http */ 3981);
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! tslib */ 8806);
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/core */ 4001);
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common/http */ 3981);
 /* harmony import */ var src_environments_environment__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! src/environments/environment */ 8260);
 /* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! rxjs */ 1119);
-/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! rxjs/operators */ 8377);
-
 
 
 
@@ -237,19 +235,17 @@ let LoginService = class LoginService {
         this.authSubject = new rxjs__WEBPACK_IMPORTED_MODULE_1__.BehaviorSubject(false);
     }
     login(credentials) {
-        return this.http.post(`${this.baseUrl}/obtenerUsuarios.php`, credentials)
-            .pipe((0,rxjs_operators__WEBPACK_IMPORTED_MODULE_2__.map)(response => response.tequilera));
+        return this.http.post(`${this.baseUrl}/obtenerUsuarios.php`, credentials);
     }
     obtenerUsuarios(credentials) {
-        return this.http.post(`${this.baseUrl}/obtenerUsuarios.php`, credentials)
-            .pipe((0,rxjs_operators__WEBPACK_IMPORTED_MODULE_2__.map)(response => response.usuario));
+        return this.http.post(`${this.baseUrl}/obtenerUsuarios.php`, credentials);
     }
 };
 LoginService.ctorParameters = () => [
-    { type: _angular_common_http__WEBPACK_IMPORTED_MODULE_3__.HttpClient }
+    { type: _angular_common_http__WEBPACK_IMPORTED_MODULE_2__.HttpClient }
 ];
-LoginService = (0,tslib__WEBPACK_IMPORTED_MODULE_4__.__decorate)([
-    (0,_angular_core__WEBPACK_IMPORTED_MODULE_5__.Injectable)({
+LoginService = (0,tslib__WEBPACK_IMPORTED_MODULE_3__.__decorate)([
+    (0,_angular_core__WEBPACK_IMPORTED_MODULE_4__.Injectable)({
         providedIn: 'root'
     })
 ], LoginService);

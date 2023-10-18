@@ -136,9 +136,9 @@ let RegistroPage = class RegistroPage {
             correo: null,
             contrasena: null,
             nombre_usuario: null,
-            id_tequilera: null
+            id_empresas: null
         };
-        this.tequileras = ['Ininbio System', 'La Joya', 'Alma de Mexico'];
+        this.empresas = ['Ininbio System', 'La Joya', 'Alma de Mexico', 'Trujillo', 'Penfolds'];
         this.submit = 'password';
         this.passwordIcon = 'eye-off';
         this.translate.use(localStorage.getItem('idioma'));
@@ -150,7 +150,7 @@ let RegistroPage = class RegistroPage {
             contrasena: ['', [_angular_forms__WEBPACK_IMPORTED_MODULE_3__.Validators.required, _angular_forms__WEBPACK_IMPORTED_MODULE_3__.Validators.minLength(2)]],
             correo: ['', [_angular_forms__WEBPACK_IMPORTED_MODULE_3__.Validators.required, _angular_forms__WEBPACK_IMPORTED_MODULE_3__.Validators.pattern('[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$')]],
             nombre_usuario: ['', [_angular_forms__WEBPACK_IMPORTED_MODULE_3__.Validators.required, _angular_forms__WEBPACK_IMPORTED_MODULE_3__.Validators.minLength(2)]],
-            id_tequilera: ['', [_angular_forms__WEBPACK_IMPORTED_MODULE_3__.Validators.required, _angular_forms__WEBPACK_IMPORTED_MODULE_3__.Validators.minLength(2)]]
+            empresa: ['', [_angular_forms__WEBPACK_IMPORTED_MODULE_3__.Validators.required, _angular_forms__WEBPACK_IMPORTED_MODULE_3__.Validators.minLength(2)]]
         });
     }
     hideShowPassword() {
@@ -162,19 +162,19 @@ let RegistroPage = class RegistroPage {
     }
     onSubmit() {
         return (0,tslib__WEBPACK_IMPORTED_MODULE_4__.__awaiter)(this, void 0, void 0, function* () {
-            var nombreTequileraSP = this.ionicForm.value['id_tequilera'];
+            var nombreEmpresaSP = this.ionicForm.value['empresa'];
             const removeAccents = (str) => {
                 return str.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
             };
-            var nombreTequileraP = removeAccents(nombreTequileraSP);
-            if (nombreTequileraP.toLowerCase() == this.tequileras[3].toLowerCase()) {
+            var nombreEmpresaP = removeAccents(nombreEmpresaSP);
+            if (nombreEmpresaP.toLowerCase() == this.empresas[0].toLowerCase()) {
                 this.registros = {
                     nombre: this.ionicForm.value['nombre'],
                     apellidos: this.ionicForm.value['apellidos'],
                     correo: this.ionicForm.value['correo'],
                     contrasena: this.ionicForm.value['contrasena'],
                     nombre_usuario: this.ionicForm.value['nombre_usuario'],
-                    id_tequilera: '1'
+                    id_empresas: '1'
                 };
                 this.isSubmitted = true;
                 this.usuarioService.addUsuario(this.registros).subscribe((datos) => (0,tslib__WEBPACK_IMPORTED_MODULE_4__.__awaiter)(this, void 0, void 0, function* () {
@@ -206,14 +206,14 @@ let RegistroPage = class RegistroPage {
                     alert.present();
                 }));
             }
-            else if (nombreTequileraP.toLowerCase() == this.tequileras[1].toLowerCase()) {
+            else if (nombreEmpresaP.toLowerCase() == this.empresas[1].toLowerCase()) {
                 this.registros = {
                     nombre: this.ionicForm.value['nombre'],
                     apellidos: this.ionicForm.value['apellidos'],
                     correo: this.ionicForm.value['correo'],
                     contrasena: this.ionicForm.value['contrasena'],
                     nombre_usuario: this.ionicForm.value['nombre_usuario'],
-                    id_tequilera: '2'
+                    id_empresas: '2'
                 };
                 this.isSubmitted = true;
                 this.usuarioService.addUsuario(this.registros).subscribe((datos) => (0,tslib__WEBPACK_IMPORTED_MODULE_4__.__awaiter)(this, void 0, void 0, function* () {
@@ -231,6 +231,124 @@ let RegistroPage = class RegistroPage {
                     alert.present();
                     this.router.navigate(['/login']);
                 }), () => (0,tslib__WEBPACK_IMPORTED_MODULE_4__.__awaiter)(this, void 0, void 0, function* () {
+                    let alert = yield this.alertController.create({
+                        cssClass: 'alerta',
+                        header: this.translate.instant('ALERTAREGISTRO.HEADER1'),
+                        message: this.translate.instant('ALERTAREGISTRO.MESSAGE1'),
+                        buttons: [
+                            {
+                                cssClass: 'confirmacion',
+                                text: 'Ok',
+                            }
+                        ],
+                    });
+                    alert.present();
+                }));
+            }
+            else if (nombreEmpresaP.toLowerCase() == this.empresas[2].toLowerCase()) {
+                this.registros = {
+                    nombre: this.ionicForm.value['nombre'],
+                    apellidos: this.ionicForm.value['apellidos'],
+                    correo: this.ionicForm.value['correo'],
+                    contrasena: this.ionicForm.value['contrasena'],
+                    nombre_usuario: this.ionicForm.value['nombre_usuario'],
+                    id_empresas: '3'
+                };
+                this.isSubmitted = true;
+                this.usuarioService.addUsuario(this.registros).subscribe((datos) => (0,tslib__WEBPACK_IMPORTED_MODULE_4__.__awaiter)(this, void 0, void 0, function* () {
+                    let alert = yield this.alertController.create({
+                        cssClass: 'alerta',
+                        header: this.translate.instant('ALERTAREGISTRO.HEADER'),
+                        message: this.translate.instant('ALERTAREGISTRO.MESSAGE'),
+                        buttons: [
+                            {
+                                cssClass: 'confirmacion',
+                                text: 'Ok',
+                            }
+                        ],
+                    });
+                    alert.present();
+                    this.router.navigate(['/login']);
+                }), () => (0,tslib__WEBPACK_IMPORTED_MODULE_4__.__awaiter)(this, void 0, void 0, function* () {
+                    let alert = yield this.alertController.create({
+                        cssClass: 'alerta',
+                        header: this.translate.instant('ALERTAREGISTRO.HEADER1'),
+                        message: this.translate.instant('ALERTAREGISTRO.MESSAGE1'),
+                        buttons: [
+                            {
+                                cssClass: 'confirmacion',
+                                text: 'Ok',
+                            }
+                        ],
+                    });
+                    alert.present();
+                }));
+            }
+            else if (nombreEmpresaP.toLowerCase() == this.empresas[3].toLowerCase()) {
+                this.registros = {
+                    nombre: this.ionicForm.value['nombre'],
+                    apellidos: this.ionicForm.value['apellidos'],
+                    correo: this.ionicForm.value['correo'],
+                    contrasena: this.ionicForm.value['contrasena'],
+                    nombre_usuario: this.ionicForm.value['nombre_usuario'],
+                    id_empresas: '4'
+                };
+                this.isSubmitted = true;
+                this.usuarioService.addUsuario(this.registros).subscribe((datos) => (0,tslib__WEBPACK_IMPORTED_MODULE_4__.__awaiter)(this, void 0, void 0, function* () {
+                    let alert = yield this.alertController.create({
+                        cssClass: 'alerta',
+                        header: this.translate.instant('ALERTAREGISTRO.HEADER'),
+                        message: this.translate.instant('ALERTAREGISTRO.MESSAGE'),
+                        buttons: [
+                            {
+                                cssClass: 'confirmacion',
+                                text: 'Ok',
+                            }
+                        ],
+                    });
+                    alert.present();
+                    this.router.navigate(['/login']);
+                }), () => (0,tslib__WEBPACK_IMPORTED_MODULE_4__.__awaiter)(this, void 0, void 0, function* () {
+                    let alert = yield this.alertController.create({
+                        cssClass: 'alerta',
+                        header: this.translate.instant('ALERTAREGISTRO.HEADER1'),
+                        message: this.translate.instant('ALERTAREGISTRO.MESSAGE1'),
+                        buttons: [
+                            {
+                                cssClass: 'confirmacion',
+                                text: 'Ok',
+                            }
+                        ],
+                    });
+                    alert.present();
+                }));
+            }
+            else if (nombreEmpresaP.toLowerCase() == this.empresas[4].toLowerCase()) {
+                this.registros = {
+                    nombre: this.ionicForm.value['nombre'],
+                    apellidos: this.ionicForm.value['apellidos'],
+                    correo: this.ionicForm.value['correo'],
+                    contrasena: this.ionicForm.value['contrasena'],
+                    nombre_usuario: this.ionicForm.value['nombre_usuario'],
+                    id_empresas: '5'
+                };
+                this.isSubmitted = true;
+                this.usuarioService.addUsuario(this.registros).subscribe((datos) => (0,tslib__WEBPACK_IMPORTED_MODULE_4__.__awaiter)(this, void 0, void 0, function* () {
+                    let alert = yield this.alertController.create({
+                        cssClass: 'alerta',
+                        header: this.translate.instant('ALERTAREGISTRO.HEADER'),
+                        message: this.translate.instant('ALERTAREGISTRO.MESSAGE'),
+                        buttons: [
+                            {
+                                cssClass: 'confirmacion',
+                                text: 'Ok',
+                            }
+                        ],
+                    });
+                    alert.present();
+                    this.router.navigate(['/login']);
+                }), (error) => (0,tslib__WEBPACK_IMPORTED_MODULE_4__.__awaiter)(this, void 0, void 0, function* () {
+                    // console.log(error);
                     let alert = yield this.alertController.create({
                         cssClass: 'alerta',
                         header: this.translate.instant('ALERTAREGISTRO.HEADER1'),
@@ -335,7 +453,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("<ion-header>\r\n  <ion-toolbar>\r\n    <ion-buttons slot = \"start\">\r\n      <ion-back-button defaultHref=\"/login\"></ion-back-button>\r\n    </ion-buttons>    \r\n    <ion-title>{{\"FORMULARIOREGISTRO.FORMULARIO\" | translate}}</ion-title>\r\n  </ion-toolbar>\r\n</ion-header>\r\n<ion-content>\r\n  <br>\r\n  <ion-icon name=\"person-circle-outline\" id=\"icono\"></ion-icon>\r\n  <ion-card>\r\n    <ion-card-header>\r\n      <ion-card-title> {{\"FORMULARIOREGISTRO.INGRESEDATOS\" | translate}} </ion-card-title>\r\n    </ion-card-header>\r\n    <ion-card-content>\r\n  <form [formGroup]=\"ionicForm\" (ngSubmit) = \"onSubmit()\" novalidate>\r\n    <ion-item lines=\"full\">\r\n      <ion-input class=\"letras\" placeholder = \"{{'FORMULARIOREGISTRO.NOMBRE' | translate}}\" type=\"text\" name = \"nombre\" formControlName=\"nombre\" required></ion-input>\r\n    </ion-item>\r\n    <ion-label color=\"danger\" *ngIf=\"ionicForm.controls.nombre.errors?.minlength && (ionicForm.touched || ionicForm.dirty)\">{{\"VALIDACIONCAMPOSREGISTRO.TEXTOS\" | translate}}</ion-label>\r\n    \r\n    <ion-item lines=\"full\">\r\n      <ion-input class=\"letras\" placeholder = \"{{'FORMULARIOREGISTRO.APELLIDOS' | translate}}\" type=\"text\" name = \"apellidos\" formControlName=\"apellidos\" required></ion-input>\r\n    </ion-item> \r\n    <ion-label color=\"danger\" *ngIf=\"ionicForm.controls.apellidos.errors?.minlength && (ionicForm.touched || ionicForm.dirty)\">{{\"VALIDACIONCAMPOSREGISTRO.TEXTOS\" | translate}}</ion-label>\r\n\r\n    <ion-item lines=\"full\">\r\n      <ion-input class=\"letras\" placeholder = \"{{'FORMULARIOREGISTRO.CORREO' | translate}}\" type=\"email\" name = \"correo\" formControlName=\"correo\" required></ion-input>\r\n    </ion-item>\r\n    <ion-label color=\"danger\" *ngIf=\"ionicForm.controls.correo.errors?.pattern && (ionicForm.touched || ionicForm.dirty)\">{{\"VALIDACIONCAMPOSREGISTRO.CORREO\" | translate}}</ion-label>\r\n\r\n    <ion-item lines=\"full\"> \r\n      <ion-input class=\"letras\" placeholder = \"{{'FORMULARIOREGISTRO.CONTRASEÑA' | translate}}\" [type]=\"submit\" name = \"contrasena\" formControlName=\"contrasena\" required></ion-input>\r\n      <ion-icon [name]=\"passwordIcon\" (click)='hideShowPassword()'></ion-icon>\r\n    </ion-item>\r\n    <ion-label color=\"danger\" *ngIf=\"ionicForm.controls.contrasena.errors?.minlength && (ionicForm.touched || ionicForm.dirty)\">{{\"VALIDACIONCAMPOSREGISTRO.CONTRASEÑA\" | translate}}</ion-label>\r\n\r\n    <ion-item lines=\"full\">\r\n      <ion-input class=\"letras\" placeholder = \"{{'FORMULARIOREGISTRO.USUARIO' | translate}}\" type=\"text\" name = \"nombre_usuario\" formControlName=\"nombre_usuario\" required></ion-input>\r\n    </ion-item> \r\n    <ion-label color=\"danger\" *ngIf=\"ionicForm.controls.nombre_usuario.errors?.minlength && (ionicForm.touched || ionicForm.dirty)\">{{\"VALIDACIONCAMPOSREGISTRO.TEXTOS\" | translate}}</ion-label>\r\n    \r\n    <ion-item lines=\"full\">\r\n      <ion-input class=\"letras\" placeholder = \"{{'FORMULARIOREGISTRO.TEQUILERA' | translate}}\" type=\"text\" name = \"id_tequilera\" formControlName=\"id_tequilera\" required></ion-input>\r\n    </ion-item> \r\n    <ion-label color=\"danger\" *ngIf=\"ionicForm.controls.id_tequilera.errors?.minlength && (ionicForm.touched || ionicForm.dirty)\">{{\"VALIDACIONCAMPOSREGISTRO.TEXTOS\" | translate}}</ion-label> \r\n\r\n    <br>\r\n    <ion-row>\r\n      <ion-col>\r\n        <ion-button type=\"submit\" class = \"registro\" expand=\"block\" [disabled]=\"!ionicForm.valid\">{{\"FORMULARIOREGISTRO.REGISTRARSE\" | translate}}</ion-button>\r\n      </ion-col>\r\n    </ion-row> \r\n  </form>\r\n</ion-card-content>\r\n</ion-card> \r\n</ion-content>");
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("<ion-header>\r\n  <ion-toolbar>\r\n    <ion-buttons slot = \"start\">\r\n      <ion-back-button defaultHref=\"/login\"></ion-back-button>\r\n    </ion-buttons>    \r\n    <ion-title>{{\"FORMULARIOREGISTRO.FORMULARIO\" | translate}}</ion-title>\r\n  </ion-toolbar>\r\n</ion-header>\r\n<ion-content>\r\n  <br>\r\n  <ion-icon name=\"person-circle-outline\" id=\"icono\"></ion-icon>\r\n  <ion-card>\r\n    <ion-card-header>\r\n      <ion-card-title> {{\"FORMULARIOREGISTRO.INGRESEDATOS\" | translate}} </ion-card-title>\r\n    </ion-card-header>\r\n    <ion-card-content>\r\n  <form [formGroup]=\"ionicForm\" (ngSubmit) = \"onSubmit()\" novalidate>\r\n    <ion-item lines=\"full\">\r\n      <ion-input class=\"letras\" placeholder = \"{{'FORMULARIOREGISTRO.NOMBRE' | translate}}\" type=\"text\" name = \"nombre\" formControlName=\"nombre\" required></ion-input>\r\n    </ion-item>\r\n    <ion-label color=\"danger\" *ngIf=\"ionicForm.controls.nombre.errors?.minlength && (ionicForm.touched || ionicForm.dirty)\">{{\"VALIDACIONCAMPOSREGISTRO.TEXTOS\" | translate}}</ion-label>\r\n    \r\n    <ion-item lines=\"full\">\r\n      <ion-input class=\"letras\" placeholder = \"{{'FORMULARIOREGISTRO.APELLIDOS' | translate}}\" type=\"text\" name = \"apellidos\" formControlName=\"apellidos\" required></ion-input>\r\n    </ion-item> \r\n    <ion-label color=\"danger\" *ngIf=\"ionicForm.controls.apellidos.errors?.minlength && (ionicForm.touched || ionicForm.dirty)\">{{\"VALIDACIONCAMPOSREGISTRO.TEXTOS\" | translate}}</ion-label>\r\n\r\n    <ion-item lines=\"full\">\r\n      <ion-input class=\"letras\" placeholder = \"{{'FORMULARIOREGISTRO.CORREO' | translate}}\" type=\"email\" name = \"correo\" formControlName=\"correo\" required></ion-input>\r\n    </ion-item>\r\n    <ion-label color=\"danger\" *ngIf=\"ionicForm.controls.correo.errors?.pattern && (ionicForm.touched || ionicForm.dirty)\">{{\"VALIDACIONCAMPOSREGISTRO.CORREO\" | translate}}</ion-label>\r\n\r\n    <ion-item lines=\"full\"> \r\n      <ion-input class=\"letras\" placeholder = \"{{'FORMULARIOREGISTRO.CONTRASEÑA' | translate}}\" [type]=\"submit\" name = \"contrasena\" formControlName=\"contrasena\" required></ion-input>\r\n      <ion-icon [name]=\"passwordIcon\" (click)='hideShowPassword()'></ion-icon>\r\n    </ion-item>\r\n    <ion-label color=\"danger\" *ngIf=\"ionicForm.controls.contrasena.errors?.minlength && (ionicForm.touched || ionicForm.dirty)\">{{\"VALIDACIONCAMPOSREGISTRO.CONTRASEÑA\" | translate}}</ion-label>\r\n\r\n    <ion-item lines=\"full\">\r\n      <ion-input class=\"letras\" placeholder = \"{{'FORMULARIOREGISTRO.USUARIO' | translate}}\" type=\"text\" name = \"nombre_usuario\" formControlName=\"nombre_usuario\" required></ion-input>\r\n    </ion-item> \r\n    <ion-label color=\"danger\" *ngIf=\"ionicForm.controls.nombre_usuario.errors?.minlength && (ionicForm.touched || ionicForm.dirty)\">{{\"VALIDACIONCAMPOSREGISTRO.TEXTOS\" | translate}}</ion-label>\r\n    \r\n    <ion-item lines=\"full\">\r\n      <ion-input class=\"letras\" placeholder = \"{{'FORMULARIOREGISTRO.TEQUILERA' | translate}}\" type=\"text\" name = \"empresa\" formControlName=\"empresa\" required></ion-input>\r\n    </ion-item> \r\n    <ion-label color=\"danger\" *ngIf=\"ionicForm.controls.empresa.errors?.minlength && (ionicForm.touched || ionicForm.dirty)\">{{\"VALIDACIONCAMPOSREGISTRO.TEXTOS\" | translate}}</ion-label> \r\n\r\n    <br>\r\n    <ion-row>\r\n      <ion-col>\r\n        <ion-button type=\"submit\" class = \"registro\" expand=\"block\" [disabled]=\"!ionicForm.valid\">{{\"FORMULARIOREGISTRO.REGISTRARSE\" | translate}}</ion-button>\r\n      </ion-col>\r\n    </ion-row> \r\n  </form>\r\n</ion-card-content>\r\n</ion-card> \r\n</ion-content>");
 
 /***/ }),
 

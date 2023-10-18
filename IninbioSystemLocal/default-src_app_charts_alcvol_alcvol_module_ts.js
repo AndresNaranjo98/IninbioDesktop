@@ -130,7 +130,8 @@ let AlcvolPage = class AlcvolPage {
         var chart;
         let idTina = localStorage.getItem('idTina');
         let tinaIndividual = localStorage.getItem('idTina');
-        let tequilera = localStorage.getItem('tequilera');
+        let empresa = localStorage.getItem('empresa');
+        let categoria = localStorage.getItem('categoria');
         let idiomas = localStorage.getItem('idioma');
         let Consultar = 1;
         let token = localStorage.getItem('token');
@@ -172,12 +173,12 @@ let AlcvolPage = class AlcvolPage {
                 });
             }
         }, 1000);
-        const bytes = crypto_js__WEBPACK_IMPORTED_MODULE_4__.AES.decrypt(tequilera, src_environments_environment__WEBPACK_IMPORTED_MODULE_5__.environment.SECRET_KEY);
+        const bytes = crypto_js__WEBPACK_IMPORTED_MODULE_4__.AES.decrypt(empresa, src_environments_environment__WEBPACK_IMPORTED_MODULE_5__.environment.SECRET_KEY);
         const datoDesencriptado = bytes.toString(crypto_js__WEBPACK_IMPORTED_MODULE_4__.enc.Utf8);
-        var parseo = { 'idTina': idTina, 'tequilera': datoDesencriptado };
-        var parseo2 = { 'tinaIndividual': tinaIndividual, 'tequilera': datoDesencriptado, 'Consultar': Consultar };
+        var parseo = { 'idTina': idTina, 'empresa': datoDesencriptado, 'categoria': categoria };
+        var parseo2 = { 'tinaIndividual': tinaIndividual, 'empresa': datoDesencriptado, 'Consultar': Consultar, 'categoria': categoria };
         jquery__WEBPACK_IMPORTED_MODULE_3__.ajax({
-            url: 'https://www.ininbio.com/pruebasLocalesFull/datos_Grafica.php',
+            url: 'https://www.ininbio.com//pruebasLocalesFull/datos_Grafica.php',
             headers: { "Authorization": "Bearer " + token, "Content-Type": "application/json" },
             type: "POST",
             dataType: "json",
@@ -186,6 +187,9 @@ let AlcvolPage = class AlcvolPage {
                 document.getElementById('cargador').style.display = 'none';
                 let alcvol = [];
                 jquery__WEBPACK_IMPORTED_MODULE_3__.each(datosGrafica, function (key, value) {
+                    var sixHoursInMilliseconds = 6 * 60 * 60 * 1000;
+                    var newTimestamp = datosGrafica[key].x - sixHoursInMilliseconds;
+                    datosGrafica[key].x = newTimestamp;
                     if (value.x) {
                         datosGrafica[key].x = parseInt(value.x);
                     }
@@ -297,7 +301,7 @@ let AlcvolPage = class AlcvolPage {
         });
         setInterval(function () {
             jquery__WEBPACK_IMPORTED_MODULE_3__.post({
-                url: 'https://www.ininbio.com/pruebasLocalesFull/datos_Grafica.php',
+                url: 'https://www.ininbio.com//pruebasLocalesFull/datos_Grafica.php',
                 headers: { "Authorization": "Bearer " + token, "Content-Type": "application/json" },
                 type: 'POST',
                 data: JSON.stringify(parseo2),

@@ -93,16 +93,21 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "TemperaturaPage": () => (/* binding */ TemperaturaPage)
 /* harmony export */ });
-/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! tslib */ 8806);
-/* harmony import */ var _C_Users_tics_Desktop_IninbioApp_Ininbio_App_node_modules_ngtools_webpack_src_loaders_direct_resource_js_temperatura_page_html__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! !./node_modules/@ngtools/webpack/src/loaders/direct-resource.js!./temperatura.page.html */ 4560);
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! tslib */ 8806);
+/* harmony import */ var _C_Users_tics_Documents_BACKUP_APP_ESCRITORIO_FULL_IninbioSystemExpo_node_modules_ngtools_webpack_src_loaders_direct_resource_js_temperatura_page_html__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! !./node_modules/@ngtools/webpack/src/loaders/direct-resource.js!./temperatura.page.html */ 4560);
 /* harmony import */ var _temperatura_page_scss__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./temperatura.page.scss */ 3830);
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @angular/core */ 4001);
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @angular/core */ 4001);
 /* harmony import */ var highcharts__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! highcharts */ 3109);
 /* harmony import */ var highcharts__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(highcharts__WEBPACK_IMPORTED_MODULE_2__);
 /* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! jquery */ 4940);
 /* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/router */ 3252);
-/* harmony import */ var _ngx_translate_core__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @ngx-translate/core */ 466);
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @angular/router */ 3252);
+/* harmony import */ var _ngx_translate_core__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @ngx-translate/core */ 466);
+/* harmony import */ var crypto_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! crypto-js */ 3706);
+/* harmony import */ var crypto_js__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(crypto_js__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var src_environments_environment__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/environments/environment */ 8260);
+
+
 
 
 
@@ -112,9 +117,11 @@ __webpack_require__.r(__webpack_exports__);
 
 
 let TemperaturaPage = class TemperaturaPage {
-    constructor(navegacion, translate) {
+    constructor(navegacion, translate, elementRef) {
         this.navegacion = navegacion;
         this.translate = translate;
+        this.elementRef = elementRef;
+        this.showSpinner = true;
         this.translate.use(localStorage.getItem('idioma'));
     }
     ngOnInit() {
@@ -122,17 +129,19 @@ let TemperaturaPage = class TemperaturaPage {
     ionViewWillEnter() {
         this.graficaTemperatura();
     }
-    ionViewDidLeave() {
-    }
     onClick() {
         this.navegacion.navigate(['/charts']);
     }
     graficaTemperatura() {
-        var ultimox, ultimoy;
+        var ultimox, ultimoy, ultimoTempMayor, ultimoTempMenor;
         var chart;
-        let num_tina = localStorage.getItem('idTina');
-        let tequilera = localStorage.getItem('tequilera');
+        let idTina = localStorage.getItem('idTina');
+        let tinaIndividual = localStorage.getItem('idTina');
+        let empresa = localStorage.getItem('empresa');
+        let categoria = localStorage.getItem('categoria');
         let idiomas = localStorage.getItem('idioma');
+        let Consultar = 1;
+        let token = localStorage.getItem('token');
         setTimeout(function () {
             if (idiomas === 'en') {
                 highcharts__WEBPACK_IMPORTED_MODULE_2__.charts.forEach(function (ch) {
@@ -173,20 +182,40 @@ let TemperaturaPage = class TemperaturaPage {
                 });
             }
         }, 1000);
+        const bytes = crypto_js__WEBPACK_IMPORTED_MODULE_4__.AES.decrypt(empresa, src_environments_environment__WEBPACK_IMPORTED_MODULE_5__.environment.SECRET_KEY);
+        const datoDesencriptado = bytes.toString(crypto_js__WEBPACK_IMPORTED_MODULE_4__.enc.Utf8);
+        var parseo = { 'idTina': idTina, 'empresa': datoDesencriptado, 'categoria': categoria };
+        var parseo2 = { 'tinaIndividual': tinaIndividual, 'empresa': datoDesencriptado, 'Consultar': Consultar, 'categoria': categoria };
         jquery__WEBPACK_IMPORTED_MODULE_3__.ajax({
-            url: 'https://www.ininbio.com/pruebasLocalesFull/datos_Grafica.php?idTina=' + num_tina + '&tequilera=' + tequilera,
-            type: "GET",
+            url: 'https://www.ininbio.com//pruebasLocalesFull/datos_Grafica.php',
+            headers: { "Authorization": "Bearer " + token, "Content-Type": "application/json" },
+            type: "POST",
             dataType: "json",
+            data: JSON.stringify(parseo),
             success: function (datosGrafica) {
+                document.getElementById('cargador').style.display = 'none';
                 let temp = [];
+                let tempMayor = [];
+                let tempMenor = [];
                 jquery__WEBPACK_IMPORTED_MODULE_3__.each(datosGrafica, function (key, value) {
+                    var sixHoursInMilliseconds = 6 * 60 * 60 * 1000;
+                    var newTimestamp = datosGrafica[key].x - sixHoursInMilliseconds;
+                    datosGrafica[key].x = newTimestamp;
                     if (value.x) {
                         datosGrafica[key].x = parseInt(value.x);
                     }
                     if (value.y) {
                         datosGrafica[key].y = parseFloat(value.y);
                     }
+                    if (value.tempMayor) {
+                        datosGrafica[key].tempMayor = parseFloat(value.tempMayor);
+                    }
+                    if (value.tempMenor) {
+                        datosGrafica[key].tempMenor = parseFloat(value.tempMenor);
+                    }
                     temp.push([value.x, value.y]);
+                    tempMayor.push([value.x, value.tempMayor]);
+                    tempMenor.push([value.x, value.tempMenor]);
                 });
                 chart = highcharts__WEBPACK_IMPORTED_MODULE_2__.chart('temperatura', {
                     chart: {
@@ -255,7 +284,10 @@ let TemperaturaPage = class TemperaturaPage {
                         }
                     },
                     legend: {
-                        enabled: false
+                        verticalAlign: 'bottom',
+                        layout: 'horizontal',
+                        alignColumns: false,
+                        align: 'center',
                     },
                     exporting: {
                         enabled: false,
@@ -276,34 +308,62 @@ let TemperaturaPage = class TemperaturaPage {
                             yAxis: 0,
                             data: temp,
                             color: '#0833a2'
+                        },
+                        {
+                            name: 'MaxTemp',
+                            type: 'spline',
+                            data: tempMayor,
+                            color: '#5B2C6F'
+                        },
+                        {
+                            name: 'MinTemp',
+                            type: 'spline',
+                            data: tempMenor,
+                            color: '#FF0087'
                         }]
                 });
             }
         });
         setInterval(function () {
-            jquery__WEBPACK_IMPORTED_MODULE_3__.get("https://www.ininbio.com/pruebasLocalesFull/datos_Grafica.php?tinaIndividual=" + num_tina + "&tequilera=" + tequilera + "&Consultar=1", function (UltimosDatos) {
-                var varlocalx = parseInt(UltimosDatos[0].x);
-                var varlocaly = parseFloat(UltimosDatos[0].y);
-                if ((getx() != varlocalx) && (gety() != varlocaly)) {
-                    chart.series[0].addPoint([varlocalx, varlocaly]);
+            jquery__WEBPACK_IMPORTED_MODULE_3__.post({
+                url: 'https://www.ininbio.com//pruebasLocalesFull/datos_Grafica.php',
+                headers: { "Authorization": "Bearer " + token, "Content-Type": "application/json" },
+                type: 'POST',
+                data: JSON.stringify(parseo2),
+                dataType: 'json',
+                success: function (UltimosDatos) {
+                    if (UltimosDatos.length != 0) {
+                        var varlocalx = parseInt(UltimosDatos[0].x);
+                        var varlocaly = parseFloat(UltimosDatos[0].y);
+                        var varlocaltempMayor = parseFloat(UltimosDatos[0].tempMayor);
+                        var varlocaltempMenor = parseFloat(UltimosDatos[0].tempMenor);
+                        if ((getx() != varlocalx) && (gety() != varlocaly) && getTempMayor() != varlocaltempMayor && getTempMenor() != varlocaltempMenor) {
+                            chart.series[0].addPoint([varlocalx, varlocaly]);
+                            chart.series[1].addPoint([varlocalx, varlocaltempMayor]);
+                            chart.series[2].addPoint([varlocalx, varlocaltempMenor]);
+                        }
+                    }
                 }
             });
-        }, 1000);
+        }, 60000);
         function getx() { return ultimox; }
         function gety() { return ultimoy; }
+        function getTempMayor() { return ultimoTempMayor; }
+        function getTempMenor() { return ultimoTempMenor; }
     }
     refrescar() {
         window.location.assign('/charts');
     }
 };
 TemperaturaPage.ctorParameters = () => [
-    { type: _angular_router__WEBPACK_IMPORTED_MODULE_4__.Router },
-    { type: _ngx_translate_core__WEBPACK_IMPORTED_MODULE_5__.TranslateService }
+    { type: _angular_router__WEBPACK_IMPORTED_MODULE_6__.Router },
+    { type: _ngx_translate_core__WEBPACK_IMPORTED_MODULE_7__.TranslateService },
+    { type: _angular_core__WEBPACK_IMPORTED_MODULE_8__.ElementRef }
 ];
-TemperaturaPage = (0,tslib__WEBPACK_IMPORTED_MODULE_6__.__decorate)([
-    (0,_angular_core__WEBPACK_IMPORTED_MODULE_7__.Component)({
+TemperaturaPage = (0,tslib__WEBPACK_IMPORTED_MODULE_9__.__decorate)([
+    (0,_angular_core__WEBPACK_IMPORTED_MODULE_8__.Component)({
         selector: 'app-temperatura',
-        template: _C_Users_tics_Desktop_IninbioApp_Ininbio_App_node_modules_ngtools_webpack_src_loaders_direct_resource_js_temperatura_page_html__WEBPACK_IMPORTED_MODULE_0__["default"],
+        template: _C_Users_tics_Documents_BACKUP_APP_ESCRITORIO_FULL_IninbioSystemExpo_node_modules_ngtools_webpack_src_loaders_direct_resource_js_temperatura_page_html__WEBPACK_IMPORTED_MODULE_0__["default"],
         styles: [_temperatura_page_scss__WEBPACK_IMPORTED_MODULE_1__]
     })
 ], TemperaturaPage);
@@ -322,7 +382,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("<ion-header>\n  <ion-toolbar>\n    <ion-buttons slot = \"start\">\n      <ion-back-button defaultHref=\"/charts\"></ion-back-button>\n    </ion-buttons>\n    <ion-title>{{\"PANTGRAF.GRAFICATEMP\" | translate}}</ion-title>\n  </ion-toolbar>\n</ion-header>\n<ion-content class=\"fondo\"> \n    <ion-card class=\"graficas\">\n      <ion-card-header>\n      </ion-card-header> \n      <div id=\"temperatura\" style=\"display: block;\"></div>\n    </ion-card>\n</ion-content>");
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("<ion-header>\n  <ion-toolbar>\n    <ion-buttons slot = \"start\">\n      <ion-back-button defaultHref=\"/charts\"></ion-back-button>\n    </ion-buttons>\n    <ion-title>{{\"PANTGRAF.GRAFICATEMP\" | translate}}</ion-title>\n  </ion-toolbar>\n</ion-header>\n<ion-content class=\"fondo\"> \n    <ion-card class=\"graficas\">\n      <ion-spinner *ngIf=\"showSpinner\" id=\"cargador\" name=\"circles\"></ion-spinner>\n      <div id=\"temperatura\" style=\"display: block;\"></div>\n    </ion-card>\n</ion-content>");
 
 /***/ }),
 
@@ -332,7 +392,7 @@ __webpack_require__.r(__webpack_exports__);
   \**********************************************************/
 /***/ ((module) => {
 
-module.exports = "ion-toolbar {\n  --text-align: center;\n  --background: #94b8d7;\n}\n\nion-back-button {\n  --color: #fff;\n}\n\n#temperatura {\n  width: auto !important;\n  height: 300px !important;\n}\n\n.fondo {\n  --background: #ffffff;\n  --color: #ffffff;\n}\n\n.graficas {\n  --background: #ffffff;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInRlbXBlcmF0dXJhLnBhZ2Uuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUNJLG9CQUFBO0VBQ0EscUJBQUE7QUFDSjs7QUFFRTtFQUNFLGFBQUE7QUFDSjs7QUFDRTtFQUNFLHNCQUFBO0VBQ0Esd0JBQUE7QUFFSjs7QUFDRTtFQUNFLHFCQUFBO0VBQ0EsZ0JBQUE7QUFFSjs7QUFDRTtFQUNFLHFCQUFBO0FBRUoiLCJmaWxlIjoidGVtcGVyYXR1cmEucGFnZS5zY3NzIiwic291cmNlc0NvbnRlbnQiOlsiaW9uLXRvb2xiYXJ7XHJcbiAgICAtLXRleHQtYWxpZ246IGNlbnRlcjtcclxuICAgIC0tYmFja2dyb3VuZDogIzk0YjhkNztcclxuICB9XHJcblxyXG4gIGlvbi1iYWNrLWJ1dHRvbiB7XHJcbiAgICAtLWNvbG9yOiAjZmZmO1xyXG4gIH1cclxuICAjdGVtcGVyYXR1cmEge1xyXG4gICAgd2lkdGggOiBhdXRvICFpbXBvcnRhbnQ7XHJcbiAgICBoZWlnaHQgOiAzMDBweCAhaW1wb3J0YW50O1xyXG4gIH1cclxuXHJcbiAgLmZvbmRvIHtcclxuICAgIC0tYmFja2dyb3VuZDogI2ZmZmZmZjtcclxuICAgIC0tY29sb3IgOiAjZmZmZmZmO1xyXG4gIH1cclxuXHJcbiAgLmdyYWZpY2FzIHtcclxuICAgIC0tYmFja2dyb3VuZCA6ICNmZmZmZmY7XHJcbiAgfSJdfQ== */";
+module.exports = "ion-toolbar {\n  --text-align: center;\n  --background: #94b8d7;\n}\n\nion-back-button {\n  --color: #fff;\n}\n\n#temperatura {\n  width: auto !important;\n  height: 300px !important;\n}\n\n.fondo {\n  --background: #ffffff;\n  --color: #ffffff;\n}\n\n.graficas {\n  --background: #ffffff;\n}\n\n#cargador {\n  color: #0833a2;\n  top: 25vh;\n  left: 50%;\n  transform: scale(1.5);\n}\n\n@media screen and (max-width: 480px) {\n  #cargador {\n    top: 17vh;\n  }\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInRlbXBlcmF0dXJhLnBhZ2Uuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUNJLG9CQUFBO0VBQ0EscUJBQUE7QUFDSjs7QUFFRTtFQUNFLGFBQUE7QUFDSjs7QUFDRTtFQUNFLHNCQUFBO0VBQ0Esd0JBQUE7QUFFSjs7QUFDRTtFQUNFLHFCQUFBO0VBQ0EsZ0JBQUE7QUFFSjs7QUFDRTtFQUNFLHFCQUFBO0FBRUo7O0FBQ0U7RUFDRSxjQUFBO0VBQ0EsU0FBQTtFQUNBLFNBQUE7RUFDQSxxQkFBQTtBQUVKOztBQUNFO0VBQ0U7SUFDRSxTQUFBO0VBRUo7QUFDRiIsImZpbGUiOiJ0ZW1wZXJhdHVyYS5wYWdlLnNjc3MiLCJzb3VyY2VzQ29udGVudCI6WyJpb24tdG9vbGJhcntcclxuICAgIC0tdGV4dC1hbGlnbjogY2VudGVyO1xyXG4gICAgLS1iYWNrZ3JvdW5kOiAjOTRiOGQ3O1xyXG4gIH1cclxuXHJcbiAgaW9uLWJhY2stYnV0dG9uIHtcclxuICAgIC0tY29sb3I6ICNmZmY7XHJcbiAgfVxyXG4gICN0ZW1wZXJhdHVyYSB7XHJcbiAgICB3aWR0aCA6IGF1dG8gIWltcG9ydGFudDtcclxuICAgIGhlaWdodCA6IDMwMHB4ICFpbXBvcnRhbnQ7XHJcbiAgfVxyXG5cclxuICAuZm9uZG8ge1xyXG4gICAgLS1iYWNrZ3JvdW5kOiAjZmZmZmZmO1xyXG4gICAgLS1jb2xvciA6ICNmZmZmZmY7XHJcbiAgfVxyXG5cclxuICAuZ3JhZmljYXMge1xyXG4gICAgLS1iYWNrZ3JvdW5kIDogI2ZmZmZmZjtcclxuICB9XHJcblxyXG4gICNjYXJnYWRvciB7XHJcbiAgICBjb2xvcjogIzA4MzNhMjtcclxuICAgIHRvcDogMjV2aDtcclxuICAgIGxlZnQ6IDUwJTtcclxuICAgIHRyYW5zZm9ybTogc2NhbGUoMS41KTtcclxuICB9XHJcblxyXG4gIEBtZWRpYSBzY3JlZW4gYW5kIChtYXgtd2lkdGg6IDQ4MHB4KSB7XHJcbiAgICAjY2FyZ2Fkb3Ige1xyXG4gICAgICB0b3A6IDE3dmg7XHJcbiAgICB9XHJcbiAgfSJdfQ== */";
 
 /***/ })
 

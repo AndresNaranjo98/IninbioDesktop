@@ -93,15 +93,20 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "AlcvolPage": () => (/* binding */ AlcvolPage)
 /* harmony export */ });
-/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! tslib */ 8806);
-/* harmony import */ var _C_Users_tics_Desktop_IninbioApp_Ininbio_App_node_modules_ngtools_webpack_src_loaders_direct_resource_js_alcvol_page_html__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! !./node_modules/@ngtools/webpack/src/loaders/direct-resource.js!./alcvol.page.html */ 1330);
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! tslib */ 8806);
+/* harmony import */ var _C_Users_tics_Documents_BACKUP_APP_ESCRITORIO_FULL_IninbioSystemExpo_node_modules_ngtools_webpack_src_loaders_direct_resource_js_alcvol_page_html__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! !./node_modules/@ngtools/webpack/src/loaders/direct-resource.js!./alcvol.page.html */ 1330);
 /* harmony import */ var _alcvol_page_scss__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./alcvol.page.scss */ 436);
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @angular/core */ 4001);
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @angular/core */ 4001);
 /* harmony import */ var highcharts__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! highcharts */ 3109);
 /* harmony import */ var highcharts__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(highcharts__WEBPACK_IMPORTED_MODULE_2__);
 /* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! jquery */ 4940);
 /* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var _ngx_translate_core__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @ngx-translate/core */ 466);
+/* harmony import */ var _ngx_translate_core__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @ngx-translate/core */ 466);
+/* harmony import */ var crypto_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! crypto-js */ 3706);
+/* harmony import */ var crypto_js__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(crypto_js__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var src_environments_environment__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/environments/environment */ 8260);
+
+
 
 
 
@@ -112,6 +117,7 @@ __webpack_require__.r(__webpack_exports__);
 let AlcvolPage = class AlcvolPage {
     constructor(translate) {
         this.translate = translate;
+        this.showSpinner = true;
         this.translate.use(localStorage.getItem('idioma'));
     }
     ngOnInit() { }
@@ -122,9 +128,13 @@ let AlcvolPage = class AlcvolPage {
     graficaAlcVol() {
         var ultimox, ultimov;
         var chart;
-        let num_tina = localStorage.getItem('idTina');
-        let tequilera = localStorage.getItem('tequilera');
+        let idTina = localStorage.getItem('idTina');
+        let tinaIndividual = localStorage.getItem('idTina');
+        let empresa = localStorage.getItem('empresa');
+        let categoria = localStorage.getItem('categoria');
         let idiomas = localStorage.getItem('idioma');
+        let Consultar = 1;
+        let token = localStorage.getItem('token');
         setTimeout(function () {
             if (idiomas === 'en') {
                 highcharts__WEBPACK_IMPORTED_MODULE_2__.charts.forEach(function (ch) {
@@ -163,13 +173,23 @@ let AlcvolPage = class AlcvolPage {
                 });
             }
         }, 1000);
+        const bytes = crypto_js__WEBPACK_IMPORTED_MODULE_4__.AES.decrypt(empresa, src_environments_environment__WEBPACK_IMPORTED_MODULE_5__.environment.SECRET_KEY);
+        const datoDesencriptado = bytes.toString(crypto_js__WEBPACK_IMPORTED_MODULE_4__.enc.Utf8);
+        var parseo = { 'idTina': idTina, 'empresa': datoDesencriptado, 'categoria': categoria };
+        var parseo2 = { 'tinaIndividual': tinaIndividual, 'empresa': datoDesencriptado, 'Consultar': Consultar, 'categoria': categoria };
         jquery__WEBPACK_IMPORTED_MODULE_3__.ajax({
-            url: 'https://www.ininbio.com/pruebasLocalesFull/datos_Grafica.php?idTina=' + num_tina + '&tequilera=' + tequilera,
-            type: 'GET',
-            dataType: 'json',
+            url: 'https://www.ininbio.com//pruebasLocalesFull/datos_Grafica.php',
+            headers: { "Authorization": "Bearer " + token, "Content-Type": "application/json" },
+            type: "POST",
+            dataType: "json",
+            data: JSON.stringify(parseo),
             success: function (datosGrafica) {
+                document.getElementById('cargador').style.display = 'none';
                 let alcvol = [];
                 jquery__WEBPACK_IMPORTED_MODULE_3__.each(datosGrafica, function (key, value) {
+                    var sixHoursInMilliseconds = 6 * 60 * 60 * 1000;
+                    var newTimestamp = datosGrafica[key].x - sixHoursInMilliseconds;
+                    datosGrafica[key].x = newTimestamp;
                     if (value.x) {
                         datosGrafica[key].x = parseInt(value.x);
                     }
@@ -280,21 +300,23 @@ let AlcvolPage = class AlcvolPage {
             },
         });
         setInterval(function () {
-            jquery__WEBPACK_IMPORTED_MODULE_3__.get('https://www.ininbio.com/pruebasLocalesFull/datos_Grafica.php?tinaIndividual=' +
-                num_tina +
-                '&tequilera=' +
-                tequilera +
-                '&Consultar=1', function (UltimosDatos) {
-                var varlocalx = parseInt(UltimosDatos[0].x);
-                var varlocalv = parseFloat(UltimosDatos[0].v);
-                if ((getx() != varlocalx) && (getv() != varlocalv)) {
-                    chart.series[0].addPoint([varlocalx, varlocalv]);
-                    // chart.series[0].addPoint([varlocalx, varlocalv]);
-                    // chart.series[0].addPoint([varlocalx, varlocalv]);
-                    // this.chart.series[0].addPoint([varlocalx, varlocalv]);
+            jquery__WEBPACK_IMPORTED_MODULE_3__.post({
+                url: 'https://www.ininbio.com//pruebasLocalesFull/datos_Grafica.php',
+                headers: { "Authorization": "Bearer " + token, "Content-Type": "application/json" },
+                type: 'POST',
+                data: JSON.stringify(parseo2),
+                dataType: 'json',
+                success: function (UltimosDatos) {
+                    if (UltimosDatos.length != 0) {
+                        var varlocalx = parseInt(UltimosDatos[0].x);
+                        var varlocalv = parseFloat(UltimosDatos[0].v);
+                        if ((getx() != varlocalx) && (getv() != varlocalv)) {
+                            chart.series[0].addPoint([varlocalx, varlocalv]);
+                        }
+                    }
                 }
             });
-        }, 1000);
+        }, 60000);
         function getx() {
             return ultimox;
         }
@@ -307,12 +329,12 @@ let AlcvolPage = class AlcvolPage {
     }
 };
 AlcvolPage.ctorParameters = () => [
-    { type: _ngx_translate_core__WEBPACK_IMPORTED_MODULE_4__.TranslateService }
+    { type: _ngx_translate_core__WEBPACK_IMPORTED_MODULE_6__.TranslateService }
 ];
-AlcvolPage = (0,tslib__WEBPACK_IMPORTED_MODULE_5__.__decorate)([
-    (0,_angular_core__WEBPACK_IMPORTED_MODULE_6__.Component)({
+AlcvolPage = (0,tslib__WEBPACK_IMPORTED_MODULE_7__.__decorate)([
+    (0,_angular_core__WEBPACK_IMPORTED_MODULE_8__.Component)({
         selector: 'app-alcvol',
-        template: _C_Users_tics_Desktop_IninbioApp_Ininbio_App_node_modules_ngtools_webpack_src_loaders_direct_resource_js_alcvol_page_html__WEBPACK_IMPORTED_MODULE_0__["default"],
+        template: _C_Users_tics_Documents_BACKUP_APP_ESCRITORIO_FULL_IninbioSystemExpo_node_modules_ngtools_webpack_src_loaders_direct_resource_js_alcvol_page_html__WEBPACK_IMPORTED_MODULE_0__["default"],
         styles: [_alcvol_page_scss__WEBPACK_IMPORTED_MODULE_1__]
     })
 ], AlcvolPage);
@@ -331,7 +353,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("<ion-header>\n  <ion-toolbar>\n    <ion-buttons slot = \"start\">\n      <ion-back-button defaultHref=\"/charts\"></ion-back-button>\n    </ion-buttons>\n    <ion-title>{{\"PANTGRAF.GRAFICALCVOL\" | translate}}</ion-title>\n  </ion-toolbar>\n</ion-header>\n<ion-content class=\"fondo\"> \n    <ion-card class=\"graficas\">\n      <ion-card-header>\n      </ion-card-header> \n      <div id=\"alcvol\" style=\"display: block;\"></div>\n    </ion-card>\n</ion-content>\n");
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("<ion-header>\n  <ion-toolbar>\n    <ion-buttons slot = \"start\">\n      <ion-back-button defaultHref=\"/charts\"></ion-back-button>\n    </ion-buttons>\n    <ion-title>{{\"PANTGRAF.GRAFICALCVOL\" | translate}}</ion-title>\n  </ion-toolbar>\n</ion-header>\n<ion-content class=\"fondo\"> \n    <ion-card class=\"graficas\">\n      <ion-card-header>\n      </ion-card-header>\n      <ion-spinner *ngIf=\"showSpinner\" id=\"cargador\" name=\"circles\"></ion-spinner>\n      <div id=\"alcvol\" style=\"display: block;\"></div>\n    </ion-card>\n</ion-content>\n");
 
 /***/ }),
 
@@ -341,7 +363,7 @@ __webpack_require__.r(__webpack_exports__);
   \************************************************/
 /***/ ((module) => {
 
-module.exports = "ion-toolbar {\n  --text-align: center;\n  --background: #94b8d7;\n}\n\nion-back-button {\n  --color: #fff;\n}\n\n#alcvol {\n  width: auto !important;\n  height: 300px !important;\n}\n\n.fondo {\n  --background: #ffffff;\n  --color: #ffffff;\n}\n\n.graficas {\n  --background: #ffffff;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbImFsY3ZvbC5wYWdlLnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDSSxvQkFBQTtFQUNBLHFCQUFBO0FBQ0o7O0FBRUU7RUFDRSxhQUFBO0FBQ0o7O0FBRUU7RUFDRSxzQkFBQTtFQUNBLHdCQUFBO0FBQ0o7O0FBRUU7RUFDRSxxQkFBQTtFQUNBLGdCQUFBO0FBQ0o7O0FBRUU7RUFDRSxxQkFBQTtBQUNKIiwiZmlsZSI6ImFsY3ZvbC5wYWdlLnNjc3MiLCJzb3VyY2VzQ29udGVudCI6WyJpb24tdG9vbGJhcntcclxuICAgIC0tdGV4dC1hbGlnbjogY2VudGVyO1xyXG4gICAgLS1iYWNrZ3JvdW5kOiAjOTRiOGQ3O1xyXG4gIH1cclxuXHJcbiAgaW9uLWJhY2stYnV0dG9uIHtcclxuICAgIC0tY29sb3I6ICNmZmY7XHJcbiAgfVxyXG5cclxuICAjYWxjdm9sIHtcclxuICAgIHdpZHRoIDogYXV0byAhaW1wb3J0YW50O1xyXG4gICAgaGVpZ2h0IDogMzAwcHggIWltcG9ydGFudDtcclxuICB9XHJcblxyXG4gIC5mb25kbyB7XHJcbiAgICAtLWJhY2tncm91bmQ6ICNmZmZmZmY7XHJcbiAgICAtLWNvbG9yOiAjZmZmZmZmO1xyXG4gIH1cclxuICBcclxuICAuZ3JhZmljYXMge1xyXG4gICAgLS1iYWNrZ3JvdW5kOiAjZmZmZmZmO1xyXG4gIH0iXX0= */";
+module.exports = "ion-toolbar {\n  --text-align: center;\n  --background: #94b8d7;\n}\n\nion-back-button {\n  --color: #fff;\n}\n\n#alcvol {\n  width: auto !important;\n  height: 300px !important;\n}\n\n.fondo {\n  --background: #ffffff;\n  --color: #ffffff;\n}\n\n.graficas {\n  --background: #ffffff;\n}\n\n#cargador {\n  color: #0833a2;\n  top: 25vh;\n  left: 50%;\n  transform: scale(1.5);\n}\n\n@media screen and (max-width: 480px) {\n  #cargador {\n    top: 17vh;\n  }\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbImFsY3ZvbC5wYWdlLnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDSSxvQkFBQTtFQUNBLHFCQUFBO0FBQ0o7O0FBRUU7RUFDRSxhQUFBO0FBQ0o7O0FBRUU7RUFDRSxzQkFBQTtFQUNBLHdCQUFBO0FBQ0o7O0FBRUU7RUFDRSxxQkFBQTtFQUNBLGdCQUFBO0FBQ0o7O0FBRUU7RUFDRSxxQkFBQTtBQUNKOztBQUVFO0VBQ0UsY0FBQTtFQUNBLFNBQUE7RUFDQSxTQUFBO0VBQ0EscUJBQUE7QUFDSjs7QUFFRTtFQUNFO0lBQ0UsU0FBQTtFQUNKO0FBQ0YiLCJmaWxlIjoiYWxjdm9sLnBhZ2Uuc2NzcyIsInNvdXJjZXNDb250ZW50IjpbImlvbi10b29sYmFye1xyXG4gICAgLS10ZXh0LWFsaWduOiBjZW50ZXI7XHJcbiAgICAtLWJhY2tncm91bmQ6ICM5NGI4ZDc7XHJcbiAgfVxyXG5cclxuICBpb24tYmFjay1idXR0b24ge1xyXG4gICAgLS1jb2xvcjogI2ZmZjtcclxuICB9XHJcblxyXG4gICNhbGN2b2wge1xyXG4gICAgd2lkdGggOiBhdXRvICFpbXBvcnRhbnQ7XHJcbiAgICBoZWlnaHQgOiAzMDBweCAhaW1wb3J0YW50O1xyXG4gIH1cclxuXHJcbiAgLmZvbmRvIHtcclxuICAgIC0tYmFja2dyb3VuZDogI2ZmZmZmZjtcclxuICAgIC0tY29sb3I6ICNmZmZmZmY7XHJcbiAgfVxyXG4gIFxyXG4gIC5ncmFmaWNhcyB7XHJcbiAgICAtLWJhY2tncm91bmQ6ICNmZmZmZmY7XHJcbiAgfVxyXG5cclxuICAjY2FyZ2Fkb3Ige1xyXG4gICAgY29sb3I6ICMwODMzYTI7XHJcbiAgICB0b3A6IDI1dmg7XHJcbiAgICBsZWZ0OiA1MCU7XHJcbiAgICB0cmFuc2Zvcm06IHNjYWxlKDEuNSk7XHJcbiAgfVxyXG5cclxuICBAbWVkaWEgc2NyZWVuIGFuZCAobWF4LXdpZHRoOiA0ODBweCkge1xyXG4gICAgI2NhcmdhZG9yIHtcclxuICAgICAgdG9wOiAxN3ZoO1xyXG4gICAgfVxyXG4gIH0iXX0= */";
 
 /***/ })
 

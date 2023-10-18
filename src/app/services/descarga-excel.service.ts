@@ -28,16 +28,17 @@ export class DescargaExcelService {
   generarExcel(primerFecha, segundaFecha){
     let num_tina = localStorage.getItem('idTina');
     let idioma = localStorage.getItem('idioma');
-    let tequilera = localStorage.getItem('tequilera');
+    let empresa = localStorage.getItem('empresa');
+    let categoria = localStorage.getItem('categoria');
     let token = localStorage.getItem('token');
-    const bytes = CryptoJS.AES.decrypt(tequilera, environment.SECRET_KEY);
+    const bytes = CryptoJS.AES.decrypt(empresa, environment.SECRET_KEY);
     const datoDesencriptado = bytes.toString(CryptoJS.enc.Utf8);
     const headers = new HttpHeaders({
       'Content-Type': 'application/json',
       'Authorization': `Bearer ${token}`
     });
-    return this.http.get(`${this.baseUrl}/generarExcel.php?idTina=`+num_tina+`&tequilera=`+datoDesencriptado+`&idioma=`+idioma
-    +`&primer=`+primerFecha+`&segunda=`+segundaFecha,
+    return this.http.get(`${this.baseUrl}/generarExcel.php?idTina=`+num_tina+`&empresa=`+datoDesencriptado+`&idioma=`+idioma
+    +`&primer=`+primerFecha+`&segunda=`+segundaFecha+`&categoria=`+categoria,
     {headers : headers, observe : 'response', responseType: 'blob'});
   }
 

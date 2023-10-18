@@ -161,7 +161,8 @@ export class ChartsPage implements OnInit {
       chart: Highcharts.Chart;
     let idTina = localStorage.getItem('idTina');
     let tinaIndividual = localStorage.getItem('idTina');
-    let tequilera = localStorage.getItem('tequilera');
+    let empresa = localStorage.getItem('empresa');
+    let categoria = localStorage.getItem('categoria');
     let idiomas = localStorage.getItem('idioma');
     let Consultar : number = 1;
     let token = localStorage.getItem('token');
@@ -211,14 +212,14 @@ export class ChartsPage implements OnInit {
       }
     },1000);
 
-    const bytes = CryptoJS.AES.decrypt(tequilera, environment.SECRET_KEY);
+    const bytes = CryptoJS.AES.decrypt(empresa, environment.SECRET_KEY);
     const datoDesencriptado = bytes.toString(CryptoJS.enc.Utf8);
 
-    var parseo = {'idTina' : idTina, 'tequilera' : datoDesencriptado};
-    var parseo2 = {'tinaIndividual' : tinaIndividual, 'tequilera' : datoDesencriptado, 'Consultar' : Consultar};
+    var parseo = {'idTina' : idTina, 'empresa' : datoDesencriptado, 'categoria' : categoria};
+    var parseo2 = {'tinaIndividual' : tinaIndividual, 'empresa' : datoDesencriptado, 'Consultar' : Consultar, 'categoria' : categoria};
 
     $.ajax({
-      url: 'https://www.ininbio.com/pruebasLocalesFull/datos_Grafica.php',
+      url: 'https://www.ininbio.com//pruebasLocalesFull/datos_Grafica.php',
       headers: {"Authorization": "Bearer "+token, "Content-Type" : "application/json"},
       type: 'POST',
       dataType : 'json',
@@ -235,8 +236,12 @@ export class ChartsPage implements OnInit {
         let phMayor = [];
         let phMenor = [];
         $.each(datosGrafica, function (key, value) {
+          var sixHoursInMilliseconds = 6 * 60 * 60 * 1000;
+          var newTimestamp = datosGrafica[key].x - sixHoursInMilliseconds;
+          datosGrafica[key].x = newTimestamp;
           if (value.x) {
             datosGrafica[key].x = parseInt(value.x);
+            // datosGrafica[key].x -= 6*3600;
           }
           if (value.y) {
             datosGrafica[key].y = parseFloat(value.y);
@@ -477,7 +482,7 @@ export class ChartsPage implements OnInit {
     });
     this.intervalFunction = setInterval(function () {
       $.post({
-        url: 'https://www.ininbio.com/pruebasLocalesFull/datos_Grafica.php',
+        url: 'https://www.ininbio.com//pruebasLocalesFull/datos_Grafica.php',
         headers: {"Authorization": "Bearer "+token, "Content-Type" : "application/json"},
         type : 'POST',
         data : JSON.stringify(parseo2),
@@ -575,6 +580,7 @@ export class ChartsPage implements OnInit {
         this.naranja2 = Number(this.tempMenor) + Number(1);
         this.naranja3 = this.phMayor - 1;
         this.naranja4 = Number(this.phMenor) + Number(1);
+        console.log(this.naranja3);
         }
       },
       (err) => {
@@ -589,6 +595,7 @@ export class ChartsPage implements OnInit {
         let json = JSON.stringify(data);
         let response = JSON.parse(json);
         this.datoSensores = response;
+        // console.log(this.datoSensores[0]['z']);
       },
       (err) => {
         console.log(err);

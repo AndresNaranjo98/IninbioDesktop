@@ -36,7 +36,8 @@
     },
     "OPCIONESMENU" : {
       "OPCIONES" : "Options",
-      "FERJUAGAVE" : "Agave Juice Fermentation",
+      "FERJUAGAVE" : "Tequila Fermentation",
+      "FERUVA": "Wine Fermentation",
       "CERRARSESION" : "Logout",
       "CATALOGO" : "Ininbio Catalog"
     },
@@ -118,6 +119,23 @@
       "GENERAR" : "Generate Report",
       "PERIODO" : "Time period",
       "INGRESARFECHAS" : "Enter dates to get your report"
+    },
+    "TABLAEXCEL" : {
+      "TITULO" : "Real-Time Records",
+      "FECHA" : "Date/Time",
+      "TEMPERATURA" : "Temperature",
+      "PH" : "pH",
+      "BRIX" : "°Brix",
+      "ALCVOL" : "%Alc.Vol",
+      "EFICIENCIA" : "Efficiency (%)"
+    },
+    "TABLAEXCELVINO" : {
+      "TITULO" : "Real-Time Records",
+      "FECHA" : "Date/Time",
+      "DENSIDAD" : "Density",
+      "ACIDEZ" : "Acidity",
+      "TEMPERATURA" : "Temperature",
+      "VOLUMEN" : "Volume"
     }
   }
   

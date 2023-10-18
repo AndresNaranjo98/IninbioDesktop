@@ -13,12 +13,12 @@ export class RutasNoLoginGuard implements CanActivate {
   canActivate(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-      if(localStorage.getItem('tequilera')){
-        this.navControl.navigateRoot('inicio');
-        return false;
-      } else {
-        return true;
-      }
-  }
+      localStorage.removeItem('idTina');
+      localStorage.removeItem('empresa');
+      localStorage.removeItem('token');
+      localStorage.removeItem('categoria');
+      localStorage.removeItem('routLast');
+    return true;
+    }
   
 }

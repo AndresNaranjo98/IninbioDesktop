@@ -31,85 +31,91 @@ let ChartsService = class ChartsService {
     getSensores() {
         let token = localStorage.getItem('token');
         let idTina = localStorage.getItem('idTina');
-        let tequilera = localStorage.getItem('tequilera');
-        const bytes = crypto_js__WEBPACK_IMPORTED_MODULE_1__.AES.decrypt(tequilera, src_environments_environment__WEBPACK_IMPORTED_MODULE_0__.environment.SECRET_KEY);
+        let empresa = localStorage.getItem('empresa');
+        let categoria = localStorage.getItem('categoria');
+        const bytes = crypto_js__WEBPACK_IMPORTED_MODULE_1__.AES.decrypt(empresa, src_environments_environment__WEBPACK_IMPORTED_MODULE_0__.environment.SECRET_KEY);
         const datoDesencriptado = bytes.toString(crypto_js__WEBPACK_IMPORTED_MODULE_1__.enc.Utf8);
         const headers = new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__.HttpHeaders({
             'Content-Type': 'application/json',
             'Authorization': `Bearer ${token}`
         });
         const requestOptions = { headers: headers };
-        var parseo = { 'idTina': idTina, 'tequilera': datoDesencriptado };
+        var parseo = { 'idTina': idTina, 'empresa': datoDesencriptado, 'categoria': categoria };
         return this.http.post(`${this.baseUrl}`, JSON.stringify(parseo), requestOptions);
     }
     getUltimoSensor() {
         let token = localStorage.getItem('token');
         let idTina = localStorage.getItem('idTina');
-        let tequilera = localStorage.getItem('tequilera');
-        const bytes = crypto_js__WEBPACK_IMPORTED_MODULE_1__.AES.decrypt(tequilera, src_environments_environment__WEBPACK_IMPORTED_MODULE_0__.environment.SECRET_KEY);
+        let empresa = localStorage.getItem('empresa');
+        let categoria = localStorage.getItem('categoria');
+        const bytes = crypto_js__WEBPACK_IMPORTED_MODULE_1__.AES.decrypt(empresa, src_environments_environment__WEBPACK_IMPORTED_MODULE_0__.environment.SECRET_KEY);
         const datoDesencriptado = bytes.toString(crypto_js__WEBPACK_IMPORTED_MODULE_1__.enc.Utf8);
         const headers = new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__.HttpHeaders({
             'Content-Type': 'application/json',
             'Authorization': `Bearer ${token}`
         });
         const requestOptions = { headers: headers };
-        var parseo = { 'tinaIndividual': idTina, 'tequilera': datoDesencriptado, 'Consultar': 1 };
+        var parseo = { 'tinaIndividual': idTina, 'empresa': datoDesencriptado, 'Consultar': 1, "categoria": categoria };
         return this.http.post(`${this.baseUrl}`, JSON.stringify(parseo), requestOptions);
     }
     alertaTemperatura() {
         let token = localStorage.getItem('token');
-        let tequilera = localStorage.getItem('tequilera');
-        const bytes = crypto_js__WEBPACK_IMPORTED_MODULE_1__.AES.decrypt(tequilera, src_environments_environment__WEBPACK_IMPORTED_MODULE_0__.environment.SECRET_KEY);
+        let empresa = localStorage.getItem('empresa');
+        let categoria = localStorage.getItem('categoria');
+        const bytes = crypto_js__WEBPACK_IMPORTED_MODULE_1__.AES.decrypt(empresa, src_environments_environment__WEBPACK_IMPORTED_MODULE_0__.environment.SECRET_KEY);
         const datoDesencriptado = bytes.toString(crypto_js__WEBPACK_IMPORTED_MODULE_1__.enc.Utf8);
         const headers = new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__.HttpHeaders({
             'Content-Type': 'application/json',
             'Authorization': `Bearer ${token}`
         });
         const requestOptions = { headers: headers };
-        var parseo = { 'tipoAlerta': 1, 'tequilera': datoDesencriptado };
+        var parseo = { 'tipoAlerta': 1, 'empresa': datoDesencriptado, 'categoria': categoria };
         return this.http.post(`${this.baseUrl2}`, JSON.stringify(parseo), requestOptions);
         // return this.http.get(`${this.baseUrl2}?tipoAlerta=1`);
     }
     alertaPH() {
         let token = localStorage.getItem('token');
-        let tequilera = localStorage.getItem('tequilera');
-        const bytes = crypto_js__WEBPACK_IMPORTED_MODULE_1__.AES.decrypt(tequilera, src_environments_environment__WEBPACK_IMPORTED_MODULE_0__.environment.SECRET_KEY);
+        let empresa = localStorage.getItem('empresa');
+        let categoria = localStorage.getItem('categoria');
+        const bytes = crypto_js__WEBPACK_IMPORTED_MODULE_1__.AES.decrypt(empresa, src_environments_environment__WEBPACK_IMPORTED_MODULE_0__.environment.SECRET_KEY);
         const datoDesencriptado = bytes.toString(crypto_js__WEBPACK_IMPORTED_MODULE_1__.enc.Utf8);
         const headers = new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__.HttpHeaders({
             'Content-Type': 'application/json',
             'Authorization': `Bearer ${token}`
         });
         const requestOptions = { headers: headers };
-        var parseo = { 'tipoAlerta': 2, 'tequilera': datoDesencriptado };
+        var parseo = { 'tipoAlerta': 2, 'empresa': datoDesencriptado, 'categoria': categoria };
         return this.http.post(`${this.baseUrl2}`, JSON.stringify(parseo), requestOptions);
         // return this.http.get(`${this.baseUrl2}?tipoAlerta=2`);
     }
     alertaBrix() {
         let token = localStorage.getItem('token');
-        let tequilera = localStorage.getItem('tequilera');
-        const bytes = crypto_js__WEBPACK_IMPORTED_MODULE_1__.AES.decrypt(tequilera, src_environments_environment__WEBPACK_IMPORTED_MODULE_0__.environment.SECRET_KEY);
+        let empresa = localStorage.getItem('empresa');
+        let categoria = localStorage.getItem('categoria');
+        const bytes = crypto_js__WEBPACK_IMPORTED_MODULE_1__.AES.decrypt(empresa, src_environments_environment__WEBPACK_IMPORTED_MODULE_0__.environment.SECRET_KEY);
         const datoDesencriptado = bytes.toString(crypto_js__WEBPACK_IMPORTED_MODULE_1__.enc.Utf8);
         const headers = new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__.HttpHeaders({
             'Content-Type': 'application/json',
             'Authorization': `Bearer ${token}`
         });
         const requestOptions = { headers: headers };
-        var parseo = { 'tipoAlerta': 3, 'tequilera': datoDesencriptado };
+        var parseo = { 'tipoAlerta': 3, 'empresa': datoDesencriptado, 'categoria': categoria };
         return this.http.post(`${this.baseUrl2}`, JSON.stringify(parseo), requestOptions);
         // return this.http.get(`${this.baseUrl2}?tipoAlerta=3`);
     }
     getLimites() {
         let tine = localStorage.getItem('idTina');
         let token = localStorage.getItem('token');
-        let tequilera = localStorage.getItem('tequilera');
-        const bytes = crypto_js__WEBPACK_IMPORTED_MODULE_1__.AES.decrypt(tequilera, src_environments_environment__WEBPACK_IMPORTED_MODULE_0__.environment.SECRET_KEY);
+        let empresa = localStorage.getItem('empresa');
+        let categoria = localStorage.getItem('categoria');
+        const bytes = crypto_js__WEBPACK_IMPORTED_MODULE_1__.AES.decrypt(empresa, src_environments_environment__WEBPACK_IMPORTED_MODULE_0__.environment.SECRET_KEY);
         const datoDesencriptado = bytes.toString(crypto_js__WEBPACK_IMPORTED_MODULE_1__.enc.Utf8);
         const headers = new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__.HttpHeaders({
             'Content-Type': 'application/json',
             'Authorization': `Bearer ${token}`
         });
         const requestOptions = { headers: headers };
-        var parseo = { 'tine': tine, 'tequilera': datoDesencriptado };
+        var parseo = { 'tine': tine, 'empresa': datoDesencriptado, 'categoria': categoria };
         return this.http.post(`${this.baseUrl}`, JSON.stringify(parseo), requestOptions);
     }
 };
@@ -169,16 +175,17 @@ let DescargaExcelService = class DescargaExcelService {
     generarExcel(primerFecha, segundaFecha) {
         let num_tina = localStorage.getItem('idTina');
         let idioma = localStorage.getItem('idioma');
-        let tequilera = localStorage.getItem('tequilera');
+        let empresa = localStorage.getItem('empresa');
+        let categoria = localStorage.getItem('categoria');
         let token = localStorage.getItem('token');
-        const bytes = crypto_js__WEBPACK_IMPORTED_MODULE_1__.AES.decrypt(tequilera, src_environments_environment__WEBPACK_IMPORTED_MODULE_0__.environment.SECRET_KEY);
+        const bytes = crypto_js__WEBPACK_IMPORTED_MODULE_1__.AES.decrypt(empresa, src_environments_environment__WEBPACK_IMPORTED_MODULE_0__.environment.SECRET_KEY);
         const datoDesencriptado = bytes.toString(crypto_js__WEBPACK_IMPORTED_MODULE_1__.enc.Utf8);
         const headers = new _angular_common_http__WEBPACK_IMPORTED_MODULE_4__.HttpHeaders({
             'Content-Type': 'application/json',
             'Authorization': `Bearer ${token}`
         });
-        return this.http.get(`${this.baseUrl}/generarExcel.php?idTina=` + num_tina + `&tequilera=` + datoDesencriptado + `&idioma=` + idioma
-            + `&primer=` + primerFecha + `&segunda=` + segundaFecha, { headers: headers, observe: 'response', responseType: 'blob' });
+        return this.http.get(`${this.baseUrl}/generarExcel.php?idTina=` + num_tina + `&empresa=` + datoDesencriptado + `&idioma=` + idioma
+            + `&primer=` + primerFecha + `&segunda=` + segundaFecha + `&categoria=` + categoria, { headers: headers, observe: 'response', responseType: 'blob' });
     }
     mezcalPDF() {
         return this.http.get(`${this.baseUrl1}/Catalogo_Mezcal.php`, { observe: 'response', responseType: 'blob' });

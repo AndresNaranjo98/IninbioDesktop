@@ -1407,5 +1407,16 @@ ion-loading.custom-loading {
 ion-button {
   text-transform: none;
 }
+.no-scroll {
+  --offset-bottom: auto !important;
+  --overflow: hidden;
+  overflow: auto;
+}
+.no-scroll::-webkit-scrollbar {
+  display: none;
+}
+.action-sheet-selected.sc-ion-action-sheet-md {
+  color: #94b8d7;
+}
 
 /*# sourceMappingURL=styles.css.map*/
