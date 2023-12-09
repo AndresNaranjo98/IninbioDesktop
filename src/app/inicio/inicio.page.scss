@@ -21,6 +21,15 @@ ion-card{
     font-weight: bold;
   }
 
+  ion-label {
+    color: #000000 !important;
+    font-size: small !important;
+    white-space: normal !important;
+    overflow: visible !important;
+    text-overflow: clip !important;
+    max-width: 100% !important;
+  }
+
 .logoIninbio{
     position: absolute;
     width:15%;
@@ -87,8 +96,36 @@ ion-card{
     width: 30%;
   }
 
+  .columnas {
+    color: black; 
+    text-align: center; 
+    margin-bottom: 2%;
+  }
+
+  .espacioItems {
+    margin-top: -8%;
+    text-align: center;
+    --ion-item-background:#CECECE;
+  }
+
+  .letraBlanca {
+    color: white !important;
+  }
+
+  // .fondoGris {
+  //   --ion-list-background: #CECECE;
+  // }
+
    @media screen and (max-width: 480px) {
     .tina {
       width: 100%;
+    }
+    
+    .columnas {
+      margin-bottom: 10%;
+    }
+
+    .columnaTop {
+      margin-top: 10%;
     }
    }

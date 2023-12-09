@@ -27,6 +27,7 @@ let ChartsService = class ChartsService {
         this.http = http;
         this.baseUrl = src_environments_environment__WEBPACK_IMPORTED_MODULE_0__.environment.apiSensores;
         this.baseUrl2 = src_environments_environment__WEBPACK_IMPORTED_MODULE_0__.environment.apiAlertas;
+        this.baseUrl3 = src_environments_environment__WEBPACK_IMPORTED_MODULE_0__.environment.apiDatosGenerales;
     }
     getSensores() {
         let token = localStorage.getItem('token');
@@ -117,6 +118,21 @@ let ChartsService = class ChartsService {
         const requestOptions = { headers: headers };
         var parseo = { 'tine': tine, 'empresa': datoDesencriptado, 'categoria': categoria };
         return this.http.post(`${this.baseUrl}`, JSON.stringify(parseo), requestOptions);
+    }
+    datosGenerales() {
+        // let token = localStorage.getItem('token');
+        let empresa = localStorage.getItem('empresa');
+        // let categoria = localStorage.getItem('categoria');
+        const bytes = crypto_js__WEBPACK_IMPORTED_MODULE_1__.AES.decrypt(empresa, src_environments_environment__WEBPACK_IMPORTED_MODULE_0__.environment.SECRET_KEY);
+        const datoDesencriptado = bytes.toString(crypto_js__WEBPACK_IMPORTED_MODULE_1__.enc.Utf8);
+        // const headers = new HttpHeaders({
+        //   'Content-Type': 'application/json',
+        //   'Authorization': `Bearer ${token}`
+        // });
+        // const requestOptions = { headers: headers };
+        var parseo = { 'empresa': datoDesencriptado };
+        return this.http.post(`${this.baseUrl3}`, JSON.stringify(parseo));
+        // return this.http.get(`${this.baseUrl2}?tipoAlerta=3`);
     }
 };
 ChartsService.ctorParameters = () => [

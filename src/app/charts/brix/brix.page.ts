@@ -204,15 +204,20 @@ export class BrixPage implements OnInit {
           dataType : 'json',
           success : 
           function (UltimosDatos) {
-          if (UltimosDatos.length != 0) {
-            var varlocalx = parseInt(UltimosDatos[0].x);
-            var varlocalw = parseFloat(UltimosDatos[0].w);
-  
-            if ((getx() != varlocalx) && (getw() != varlocalw)) {
-  
-              chart.series[0].addPoint([varlocalx, varlocalw]);
+            if (UltimosDatos.length != 0) {
+              $.each(UltimosDatos, function (key, value) {
+                var sixHoursInMilliseconds = 6 * 60 * 60 * 1000;
+                var newTimestamp = UltimosDatos[key].x - sixHoursInMilliseconds;
+                UltimosDatos[key].x = newTimestamp;
+                var varlocalx = parseInt(UltimosDatos[0].x);
+                var varlocalw = parseFloat(UltimosDatos[0].w);
+
+                if ((getx() != varlocalx) && (getw() != varlocalw)) {
+
+                  chart.series[0].addPoint([varlocalx, varlocalw]);
+                }
+              })
             }
-          }
       }});
       }, 60000);
       function getx(){return ultimox;}

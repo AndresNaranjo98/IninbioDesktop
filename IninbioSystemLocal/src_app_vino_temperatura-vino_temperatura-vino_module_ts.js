@@ -310,11 +310,16 @@ let TemperaturaVinoPage = class TemperaturaVinoPage {
                 dataType: 'json',
                 success: function (UltimosDatos) {
                     if (UltimosDatos.length != 0) {
-                        var updateFecha = parseInt(UltimosDatos[0].fecha);
-                        var updateTemperatura = parseFloat(UltimosDatos[0].temperatura);
-                        if ((getx() != updateFecha) && (gety() != updateTemperatura)) {
-                            chart.series[0].addPoint([updateFecha, updateTemperatura]);
-                        }
+                        jquery__WEBPACK_IMPORTED_MODULE_3__.each(UltimosDatos, function (key, value) {
+                            var sixHoursInMilliseconds = 6 * 60 * 60 * 1000;
+                            var newTimestamp = UltimosDatos[key].fecha - sixHoursInMilliseconds;
+                            UltimosDatos[key].fecha = newTimestamp;
+                            var updateFecha = parseInt(UltimosDatos[0].fecha);
+                            var updateTemperatura = parseFloat(UltimosDatos[0].temperatura);
+                            if ((getx() != updateFecha) && (gety() != updateTemperatura)) {
+                                chart.series[0].addPoint([updateFecha, updateTemperatura]);
+                            }
+                        });
                     }
                 }
             });

@@ -21,7 +21,7 @@
   </ion-content>  
   <ion-item class="color">
     <ion-icon src="assets/imagenes/catalogo.svg" slot="start"></ion-icon>
-    <ion-label>{{"OPCIONESMENU.CATALOGO" | translate}}</ion-label> 
+    <ion-label class="letraBlanca">{{"OPCIONESMENU.CATALOGO" | translate}}</ion-label> 
       <ion-select interface="action-sheet" [(ngModel)]="opcion" (ionChange)="opcionCatalogo(opcion)">
         <ion-select-option value="mezcal">{{"PDFCATALOGO.MEZCAL" | translate}}</ion-select-option>
         <ion-select-option value="tequila">{{"PDFCATALOGO.TEQUILA" | translate}}</ion-select-option>
@@ -30,15 +30,224 @@
   </ion-item>
 </ion-menu>
 <ion-router-outlet id="main1"></ion-router-outlet>
-<ion-grid>
-  <ion-row style="display: flex; justify-content: center;">
-    <ion-col size="4" size-md="2" size-lg="2" class="padding" style="color: black; text-align: center;" *ngFor="let card of [].constructor(numberOfCards); let i = index;">
-      {{i+1}}
-      <ion-card [routerLink]="['/charts']" (click)="idTina(i+1)">
-        <img src="assets\imagenes\p4.png" alt="ion" class="tina">
-      </ion-card>
-    </ion-col>
-  </ion-row>
-</ion-grid>
+<ng-container *ngIf="alma != 3; else templateAlma">
+  <ion-grid>
+    <ion-row style="display: flex; justify-content: center;">
+      <ion-col [size]="isMobile ? '6' : ''" class="padding" style="color: black; text-align: center;"
+        *ngFor="let card of [].constructor(numberOfCards); let i = index;">
+        {{i+1}}
+        <ion-card [routerLink]="['/charts']" (click)="idTina(i+1)">
+          <img src="assets\imagenes\p3.png" alt="ion" class="tina">
+          <ion-list lines="none" style="background-color: #CECECE;">
+            <ion-row>
+              <ion-col size="12">
+                <ion-item class="espacioItems">
+                  <ion-label>{{fecha[i]}}</ion-label>
+                </ion-item>
+              </ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col size="6">
+                <ion-item class="espacioItems">
+                  <ion-label>{{volumen[i]}} L</ion-label>
+                </ion-item>
+              </ion-col>
+              <ion-col size="6">
+                <ion-item class="espacioItems">
+                  <ion-label>{{temperatura[i]}}°C</ion-label>
+                </ion-item>
+              </ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col size="6">
+                <ion-item class="espacioItems">
+                  <ion-label>{{ph[i]}} pH</ion-label>
+                </ion-item>
+              </ion-col>
+              <ion-col size="6">
+                <ion-item class="espacioItems">
+                  <ion-label>{{brix[i]}} °Brix</ion-label>
+                </ion-item>
+              </ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col size="6">
+                <ion-item class="espacioItems">
+                  <ion-label>{{alcvol[i]}}% Alc.Vol</ion-label>
+                </ion-item>
+              </ion-col>
+              <ion-col size="6">
+                <ion-item class="espacioItems">
+                  <ion-label>{{eficiencia[i]}}% Efic</ion-label>
+                </ion-item>
+              </ion-col>
+            </ion-row>
+          </ion-list>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ng-container>
+<ng-template #templateAlma>
+  <ion-grid>
+    <ion-row style="display: flex; justify-content: center;">
+      <ion-col class="padding columnas columnaTop" [size]="isMobile ? '6' : ''" *ngFor="let card of [].constructor(numberOfCards).slice(0, 7); let j = index;">{{j+1}}
+        <ion-card [routerLink]="['/charts']" (click)="idTina(j+1)">
+          <img src="assets\imagenes\p3.png" alt="ion" class="tina">
+          <ion-list lines="none" style="background-color: #CECECE;">
+            <ion-row>
+              <ion-col size="12">
+                <ion-item class="espacioItems">
+                  <ion-label>{{fecha[j]}}</ion-label>
+                </ion-item>
+              </ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col size="6">
+                <ion-item class="espacioItems">
+                  <ion-label>{{volumen[j]}} L</ion-label>
+                </ion-item>
+              </ion-col>
+              <ion-col size="6">
+                <ion-item class="espacioItems">
+                  <ion-label>{{temperatura[j]}}°C</ion-label>
+                </ion-item>
+              </ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col size="6">
+                <ion-item class="espacioItems">
+                  <ion-label>{{ph[j]}} pH</ion-label>
+                </ion-item>
+              </ion-col>
+              <ion-col size="6">
+                <ion-item class="espacioItems">
+                  <ion-label>{{brix[j]}} °Brix</ion-label>
+                </ion-item>
+              </ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col size="6">
+                <ion-item class="espacioItems">
+                  <ion-label>{{alcvol[j]}}% Alc.Vol</ion-label>
+                </ion-item>
+              </ion-col>
+              <ion-col size="6">
+                <ion-item class="espacioItems">
+                  <ion-label>{{eficiencia[j]}}% Efic</ion-label>
+                </ion-item>
+              </ion-col>
+            </ion-row>
+          </ion-list>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+
+    <ion-row style="display: flex; justify-content: center;">
+      <ion-col class="padding columnas" [size]="isMobile ? '6' : ''" *ngFor="let card of [].constructor(numberOfCards).slice(7, 14); let j = index;">{{j+1 + 7}}
+        <ion-card [routerLink]="['/charts']" (click)="idTina(j+1 + 7)">
+          <img src="assets\imagenes\p3.png" alt="ion" class="tina">
+          <ion-list lines="none">
+            <ion-row>
+              <ion-col size="12">
+                <ion-item class="espacioItems">
+                  <ion-label>{{fecha[j+7]}}</ion-label>
+                </ion-item>
+              </ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col size="6">
+                <ion-item class="espacioItems">
+                  <ion-label>{{volumen[j+7]}} L</ion-label>
+                </ion-item>
+              </ion-col>
+              <ion-col size="6">
+                <ion-item class="espacioItems">
+                  <ion-label>{{temperatura[j+7]}}°C</ion-label>
+                </ion-item>
+              </ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col size="6">
+                <ion-item class="espacioItems">
+                  <ion-label>{{ph[j+7]}} pH</ion-label>
+                </ion-item>
+              </ion-col>
+              <ion-col size="6">
+                <ion-item class="espacioItems">
+                  <ion-label>{{brix[j+7]}} °Brix</ion-label>
+                </ion-item>
+              </ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col size="6">
+                <ion-item class="espacioItems">
+                  <ion-label>{{alcvol[j+7]}}% Alc.Vol</ion-label>
+                </ion-item>
+              </ion-col>
+              <ion-col size="6">
+                <ion-item class="espacioItems">
+                  <ion-label>{{eficiencia[j+7]}}% Efic</ion-label>
+                </ion-item>
+              </ion-col>
+            </ion-row>
+          </ion-list>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+    <ion-row style="display: flex; justify-content: center;">
+      <ion-col class="padding columnas" [size]="isMobile ? '6' : ''" *ngFor="let card of [].constructor(numberOfCards).slice(14, 21); let j = index;">{{j+1 + 14}}
+        <ion-card [routerLink]="['/charts']" (click)="idTina(j+1 + 14)">
+          <img src="assets\imagenes\p3.png" alt="ion" class="tina">
+          <ion-list lines="none">
+            <ion-row>
+              <ion-col size="12">
+                <ion-item class="espacioItems">
+                  <ion-label>{{fecha[j+14]}}</ion-label>
+                </ion-item>
+              </ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col size="6">
+                <ion-item class="espacioItems">
+                  <ion-label>{{volumen[j+14]}} L</ion-label>
+                </ion-item>
+              </ion-col>
+              <ion-col size="6">
+                <ion-item class="espacioItems">
+                  <ion-label>{{temperatura[j+14]}}°C</ion-label>
+                </ion-item>
+              </ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col size="6">
+                <ion-item class="espacioItems">
+                  <ion-label>{{ph[j+14]}} pH</ion-label>
+                </ion-item>
+              </ion-col>
+              <ion-col size="6">
+                <ion-item class="espacioItems">
+                  <ion-label>{{brix[j+14]}} °Brix</ion-label>
+                </ion-item>
+              </ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col size="6">
+                <ion-item class="espacioItems">
+                  <ion-label>{{alcvol[j+14]}}% Alc.Vol</ion-label>
+                </ion-item>
+              </ion-col>
+              <ion-col size="6">
+                <ion-item class="espacioItems">
+                  <ion-label>{{eficiencia[j+14]}}% Efic</ion-label>
+                </ion-item>
+              </ion-col>
+            </ion-row>
+          </ion-list>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ng-template>
 <!-- <img src="assets\imagenes\logo_sistema.png" alt="ion" class="logoIninbio"> -->
 </ion-content>

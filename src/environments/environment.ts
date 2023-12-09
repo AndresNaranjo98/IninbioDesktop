@@ -12,7 +12,8 @@ export const environment = {
   apiExcel : 'https://www.ininbio.com//pruebasLocalesFull/generar_Excel.php',
   apiRestContrasena : 'https://www.ininbio.com//pruebasLocalesFull/new_Contra.php',
   apiMezcalPDF : 'http://3.138.161.216:80/Catalogos/Catalogo_Vino.pdf',
-  apiAlertas : 'https://www.ininbio.com//pruebasLocalesFull/alertas_App.php', 
+  apiAlertas : 'https://www.ininbio.com//pruebasLocalesFull/alertas_App.php',
+  apiDatosGenerales : 'https://www.ininbio.com/pruebasLocalesFull/datosXTina.php',
   SECRET_KEY : 'Ininbio.TI2022?'
 };
 

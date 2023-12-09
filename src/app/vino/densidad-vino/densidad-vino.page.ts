@@ -211,13 +211,18 @@ export class DensidadVinoPage implements OnInit {
         dataType : 'json',
         success : 
         function (UltimosDatos) {
-        if (UltimosDatos.length != 0) {
-          var updateFecha = parseInt(UltimosDatos[0].fecha);
-          var updateDensidad = parseFloat(UltimosDatos[0].densidad);
-          if ((getx() != updateFecha) && (gety() != updateDensidad)) {
-            chart.series[0].addPoint([updateFecha,updateDensidad]);
+          if (UltimosDatos.length != 0) {
+            $.each(UltimosDatos, function (key, value) {
+              var sixHoursInMilliseconds = 6 * 60 * 60 * 1000;
+              var newTimestamp = UltimosDatos[key].fecha - sixHoursInMilliseconds;
+              UltimosDatos[key].fecha = newTimestamp;
+              var updateFecha = parseInt(UltimosDatos[0].fecha);
+              var updateDensidad = parseFloat(UltimosDatos[0].densidad);
+              if ((getx() != updateFecha) && (gety() != updateDensidad)) {
+                chart.series[0].addPoint([updateFecha, updateDensidad]);
+              }
+            })
           }
-        }
     }});
     }, 60000);
     function getx(){return ultimox;}

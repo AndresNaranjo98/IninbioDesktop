@@ -211,13 +211,18 @@ export class AcidezVinoPage implements OnInit {
         dataType : 'json',
         success : 
         function (UltimosDatos) {
-        if (UltimosDatos.length != 0) {
-          var updateFecha = parseInt(UltimosDatos[0].fecha);
-          var updateAcidez = parseFloat(UltimosDatos[0].acidez);
-          if ((getx() != updateFecha) && (gety() != updateAcidez)) {
-            chart.series[0].addPoint([updateFecha,updateAcidez]);
+          if (UltimosDatos.length != 0) {
+            $.each(UltimosDatos, function (key, value) {
+              var sixHoursInMilliseconds = 6 * 60 * 60 * 1000;
+              var newTimestamp = UltimosDatos[key].fecha - sixHoursInMilliseconds;
+              UltimosDatos[key].fecha = newTimestamp;
+              var updateFecha = parseInt(UltimosDatos[0].fecha);
+              var updateAcidez = parseFloat(UltimosDatos[0].acidez);
+              if ((getx() != updateFecha) && (gety() != updateAcidez)) {
+                chart.series[0].addPoint([updateFecha, updateAcidez]);
+              }
+            })
           }
-        }
     }});
     }, 60000);
     function getx(){return ultimox;}

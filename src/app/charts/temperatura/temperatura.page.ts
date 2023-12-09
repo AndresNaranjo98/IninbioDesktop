@@ -228,19 +228,24 @@ export class TemperaturaPage implements OnInit {
         dataType : 'json',
         success : 
         function (UltimosDatos) {
-        if (UltimosDatos.length != 0) {
-          var varlocalx = parseInt(UltimosDatos[0].x);
-          var varlocaly = parseFloat(UltimosDatos[0].y);
-          var varlocaltempMayor = parseFloat(UltimosDatos[0].tempMayor);
-          var varlocaltempMenor = parseFloat(UltimosDatos[0].tempMenor);
+          if (UltimosDatos.length != 0) {
+            $.each(UltimosDatos, function (key, value) {
+              var sixHoursInMilliseconds = 6 * 60 * 60 * 1000;
+              var newTimestamp = UltimosDatos[key].x - sixHoursInMilliseconds;
+              UltimosDatos[key].x = newTimestamp;
+              var varlocalx = parseInt(UltimosDatos[0].x);
+              var varlocaly = parseFloat(UltimosDatos[0].y);
+              var varlocaltempMayor = parseFloat(UltimosDatos[0].tempMayor);
+              var varlocaltempMenor = parseFloat(UltimosDatos[0].tempMenor);
 
-          if ((getx() != varlocalx) && (gety() != varlocaly) && getTempMayor() != varlocaltempMayor && getTempMenor() != varlocaltempMenor) {
+              if ((getx() != varlocalx) && (gety() != varlocaly) && getTempMayor() != varlocaltempMayor && getTempMenor() != varlocaltempMenor) {
 
-            chart.series[0].addPoint([varlocalx, varlocaly]);
-            chart.series[1].addPoint([varlocalx, varlocaltempMayor]);
-            chart.series[2].addPoint([varlocalx, varlocaltempMenor]);
+                chart.series[0].addPoint([varlocalx, varlocaly]);
+                chart.series[1].addPoint([varlocalx, varlocaltempMayor]);
+                chart.series[2].addPoint([varlocalx, varlocaltempMenor]);
+              }
+            })
           }
-        }
     }});
     }, 60000);
     function getx(){return ultimox;}

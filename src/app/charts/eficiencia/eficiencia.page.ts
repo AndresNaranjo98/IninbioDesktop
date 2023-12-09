@@ -206,15 +206,20 @@ export class EficienciaPage implements OnInit {
           dataType : 'json',
           success : 
           function (UltimosDatos) {
-          if (UltimosDatos.length != 0) {
-            var varlocalx = parseInt(UltimosDatos[0].x);
-            var varlocalu = parseFloat(UltimosDatos[0].u);
-  
-            if ((getx() != varlocalx) && (getu() != varlocalu)) {
-  
-              chart.series[0].addPoint([varlocalx, varlocalu]);
+            if (UltimosDatos.length != 0) {
+              $.each(UltimosDatos, function (key, value) {
+                var sixHoursInMilliseconds = 6 * 60 * 60 * 1000;
+                var newTimestamp = UltimosDatos[key].x - sixHoursInMilliseconds;
+                UltimosDatos[key].x = newTimestamp;
+                var varlocalx = parseInt(UltimosDatos[0].x);
+                var varlocalu = parseFloat(UltimosDatos[0].u);
+
+                if ((getx() != varlocalx) && (getu() != varlocalu)) {
+
+                  chart.series[0].addPoint([varlocalx, varlocalu]);
+                }
+              })
             }
-          }
       }});
       }, 60000);
       function getx(){return ultimox;}

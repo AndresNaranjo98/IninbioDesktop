@@ -308,11 +308,16 @@ let AlcvolPage = class AlcvolPage {
                 dataType: 'json',
                 success: function (UltimosDatos) {
                     if (UltimosDatos.length != 0) {
-                        var varlocalx = parseInt(UltimosDatos[0].x);
-                        var varlocalv = parseFloat(UltimosDatos[0].v);
-                        if ((getx() != varlocalx) && (getv() != varlocalv)) {
-                            chart.series[0].addPoint([varlocalx, varlocalv]);
-                        }
+                        jquery__WEBPACK_IMPORTED_MODULE_3__.each(UltimosDatos, function (key, value) {
+                            var sixHoursInMilliseconds = 6 * 60 * 60 * 1000;
+                            var newTimestamp = UltimosDatos[key].x - sixHoursInMilliseconds;
+                            UltimosDatos[key].x = newTimestamp;
+                            var varlocalx = parseInt(UltimosDatos[0].x);
+                            var varlocalv = parseFloat(UltimosDatos[0].v);
+                            if ((getx() != varlocalx) && (getv() != varlocalv)) {
+                                chart.series[0].addPoint([varlocalx, varlocalv]);
+                            }
+                        });
                     }
                 }
             });

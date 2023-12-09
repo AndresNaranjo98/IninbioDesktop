@@ -12,6 +12,9 @@ import * as $ from 'jquery';
 import { TranslateService } from '@ngx-translate/core';
 import { environment } from 'src/environments/environment';
 import * as CryptoJS from 'crypto-js';
+import { Datos } from '../models/datosTina';
+import { Sensores } from '../models/sensores';
+import { Platform } from '@ionic/angular';
 
 @Component({
   selector: 'app-inicio',
@@ -21,19 +24,41 @@ import * as CryptoJS from 'crypto-js';
 export class InicioPage implements OnInit {
 
   datosUsuario :  Login[];
+  datoSensores: Sensores[];
   usuario : string;
   numberOfCards: number;
+  alma : number;
   user: string;
   slideOpts = {
     initialSlide: 0,
     autoplay: 300,
     slidesPerView: 5
   };
+  primerArreglo = [1, 2, 3, 4, 5, 6, 7];
+  segundoArreglo = [8, 9, 10, 11, 12, 13, 14];
+  tercerArreglo = [15, 16, 17, 18, 19, 20, 21];
+  intervalFunction;
+  items = [
+    { id: 1, name: 'Item 1' },
+    { id: 2, name: 'Item 2' },
+    { id: 3, name: 'Item 3' },
+    { id: 4, name: 'Item 4' },
+    { id: 5, name: 'Item 5' }
+  ];
+  jsonData : any;
+  fecha : number[] = [];
+  brix : number[] = [];
+  alcvol : number[] = [];
+  eficiencia : number[] = [];
+  ph : number[] = [];
+  temperatura : number[] = [];
+  volumen : number[] = [];
+  isMobile: boolean;
 
   constructor( private menu : MenuController, private servicio : LoginService, public navCtrl: NavController,
     public alertController: AlertController,private storage: Storage, private router : Router,
     private service : ChartsService, private transfer: FileTransfer, private file: File,
-    private serv : DescargaExcelService, private translate : TranslateService) 
+    private serv : DescargaExcelService, private translate : TranslateService, private platform: Platform) 
   {
     this.translate.use(localStorage.getItem('idioma'));
     this.user = localStorage.getItem('empresa');
@@ -45,10 +70,13 @@ export class InicioPage implements OnInit {
       this.numberOfCards = 3;
     } else if (datoDesencriptado === '3') {
       this.numberOfCards = 21;
+      this.alma = 3;
     }
     else if (datoDesencriptado === '4') {
       this.numberOfCards = 60;
     }
+    console.log(this.platform);
+    this.isMobile = this.platform.is('mobile');
   }
 
     fileTransfer: FileTransferObject = this.transfer.create();
@@ -115,6 +143,7 @@ export class InicioPage implements OnInit {
 
   async ngOnInit() {
     this.usuario = localStorage.getItem('empresa');
+    this.datosXTina();
   }
 
   async showConfirm() {
@@ -293,8 +322,29 @@ alertaBrix() {
     });
 }
 
-idTina(i: string) {
-  localStorage.setItem('idTina', i);
-}
+  idTina(i: string) {
+    localStorage.setItem('idTina', i);
+  }
+
+  datosXTina() {
+    this.service.datosGenerales().subscribe(
+      async data => {
+        let json = JSON.stringify(data);
+        let response = JSON.parse(json);
+        // var sixHoursInMilliseconds = 6 * 60 * 60 * 1000;
+        response.forEach((iterador) => {
+          this.fecha.push(iterador[0].fecha);
+          this.brix.push(iterador[0].brix);
+          this.alcvol.push(iterador[0].alcvol);
+          this.eficiencia.push(iterador[0].eficiencia);
+          this.temperatura.push(iterador[0].temperatura);
+          this.ph.push(iterador[0].pH);
+          this.volumen.push(iterador[0].volumen);
+          // console.log(iterador[0]["fecha"]);
+        });
+        console.log(this.fecha);
+        // console.log(response);
+      });
+  }
 
 }

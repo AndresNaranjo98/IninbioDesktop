@@ -489,47 +489,52 @@ export class ChartsPage implements OnInit {
         dataType : 'json',
         success : 
           function (UltimosDatos) {
-          if(UltimosDatos.length != 0){
-          var varlocalx = parseInt(UltimosDatos[0].x);
-          var varlocaly = parseFloat(UltimosDatos[0].y);
-          var varlocalz = parseFloat(UltimosDatos[0].z);
-          var varlocalw = parseFloat(UltimosDatos[0].w);
-          var varlocalv = parseFloat(UltimosDatos[0].v);
-          var varlocalu = parseFloat(UltimosDatos[0].u);
-          var varlocaltempMayor = parseFloat(UltimosDatos[0].tempMayor);
-          var varlocaltempMenor = parseFloat(UltimosDatos[0].tempMenor);
-          var varlocalphMayor = parseFloat(UltimosDatos[0].phMayor);
-          var varlocalphMenor = parseFloat(UltimosDatos[0].phMenor);
+            if (UltimosDatos.length != 0) {
+              $.each(UltimosDatos, function (key, value) {
+                var sixHoursInMilliseconds = 6 * 60 * 60 * 1000;
+                var newTimestamp = UltimosDatos[key].x - sixHoursInMilliseconds;
+                UltimosDatos[key].x = newTimestamp;
+                var varlocalx = parseInt(UltimosDatos[0].x);
+                var varlocaly = parseFloat(UltimosDatos[0].y);
+                var varlocalz = parseFloat(UltimosDatos[0].z);
+                var varlocalw = parseFloat(UltimosDatos[0].w);
+                var varlocalv = parseFloat(UltimosDatos[0].v);
+                var varlocalu = parseFloat(UltimosDatos[0].u);
+                var varlocaltempMayor = parseFloat(UltimosDatos[0].tempMayor);
+                var varlocaltempMenor = parseFloat(UltimosDatos[0].tempMenor);
+                var varlocalphMayor = parseFloat(UltimosDatos[0].phMayor);
+                var varlocalphMenor = parseFloat(UltimosDatos[0].phMenor);
 
-          if (
-            getx() != varlocalx &&
-            gety() != varlocaly &&
-            getz() != varlocalz &&
-            getw() != varlocalw &&
-            getv() != varlocalv &&
-            getu() != varlocalu &&
-            getTempMayor() != varlocaltempMayor &&
-            getTempMenor() != varlocaltempMenor &&
-            getphMayor() != varlocalphMayor &&
-            getphMenor() != varlocalphMenor
-          ) {
-            chart.series[0].addPoint([varlocalx, varlocaly]);
-            chart.series[1].addPoint([varlocalx, varlocalz]);
-            chart.series[2].addPoint([varlocalx, varlocalw]);
-            chart.series[3].addPoint([varlocalx, varlocalv]);
-            chart.series[4].addPoint([varlocalx, varlocalu]);
-            chart.series[5].addPoint([varlocalx, varlocaltempMayor]);
-            chart.series[6].addPoint([varlocalx, varlocaltempMenor]);
-            chart.series[7].addPoint([varlocalx, varlocalphMayor]);
-            chart.series[8].addPoint([varlocalx, varlocalphMenor]);
-            //chart.series[0].addPoint([varlocalx, varlocaly - 1], false, true);
-            //chart.series[1].addPoint([varlocalx,varlocalz - 1], false, true);
-            //chart.series[2].addPoint([varlocalx,varlocalw - 1], false, true);
-            //chart.series[3].addPoint([varlocalx,varlocalv - 1], false, true);
-            //chart.series[4].addPoint([varlocalx,varlocalu - 1], false, true);
-            chart.redraw();
-          }
-        }
+                if (
+                  getx() != varlocalx &&
+                  gety() != varlocaly &&
+                  getz() != varlocalz &&
+                  getw() != varlocalw &&
+                  getv() != varlocalv &&
+                  getu() != varlocalu &&
+                  getTempMayor() != varlocaltempMayor &&
+                  getTempMenor() != varlocaltempMenor &&
+                  getphMayor() != varlocalphMayor &&
+                  getphMenor() != varlocalphMenor
+                ) {
+                  chart.series[0].addPoint([varlocalx, varlocaly]);
+                  chart.series[1].addPoint([varlocalx, varlocalz]);
+                  chart.series[2].addPoint([varlocalx, varlocalw]);
+                  chart.series[3].addPoint([varlocalx, varlocalv]);
+                  chart.series[4].addPoint([varlocalx, varlocalu]);
+                  chart.series[5].addPoint([varlocalx, varlocaltempMayor]);
+                  chart.series[6].addPoint([varlocalx, varlocaltempMenor]);
+                  chart.series[7].addPoint([varlocalx, varlocalphMayor]);
+                  chart.series[8].addPoint([varlocalx, varlocalphMenor]);
+                  //chart.series[0].addPoint([varlocalx, varlocaly - 1], false, true);
+                  //chart.series[1].addPoint([varlocalx,varlocalz - 1], false, true);
+                  //chart.series[2].addPoint([varlocalx,varlocalw - 1], false, true);
+                  //chart.series[3].addPoint([varlocalx,varlocalv - 1], false, true);
+                  //chart.series[4].addPoint([varlocalx,varlocalu - 1], false, true);
+                  chart.redraw();
+                }
+              })
+            }
       }
     });
     }, 60000);

@@ -217,15 +217,20 @@ export class AlcvolPage implements OnInit {
         dataType : 'json',
         success : 
         function (UltimosDatos) {
-        if (UltimosDatos.length != 0) {
-          var varlocalx = parseInt(UltimosDatos[0].x);
-          var varlocalv = parseFloat(UltimosDatos[0].v);
+          if (UltimosDatos.length != 0) {
+            $.each(UltimosDatos, function (key, value) {
+              var sixHoursInMilliseconds = 6 * 60 * 60 * 1000;
+              var newTimestamp = UltimosDatos[key].x - sixHoursInMilliseconds;
+              UltimosDatos[key].x = newTimestamp;
+              var varlocalx = parseInt(UltimosDatos[0].x);
+              var varlocalv = parseFloat(UltimosDatos[0].v);
 
-          if ((getx() != varlocalx) && (getv() != varlocalv)) {
+              if ((getx() != varlocalx) && (getv() != varlocalv)) {
 
-            chart.series[0].addPoint([varlocalx, varlocalv]);
+                chart.series[0].addPoint([varlocalx, varlocalv]);
+              }
+            })
           }
-        }
     }});
     }, 60000);
     function getx() {

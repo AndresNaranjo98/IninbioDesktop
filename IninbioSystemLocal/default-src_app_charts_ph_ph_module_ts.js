@@ -326,15 +326,20 @@ let PhPage = class PhPage {
                 dataType: 'json',
                 success: function (UltimosDatos) {
                     if (UltimosDatos.length != 0) {
-                        var varlocalx = parseInt(UltimosDatos[0].x);
-                        var varlocalz = parseFloat(UltimosDatos[0].z);
-                        var varlocalphMayor = parseFloat(UltimosDatos[0].phMayor);
-                        var varlocalphMenor = parseFloat(UltimosDatos[0].phMenor);
-                        if ((getx() != varlocalx) && (getz() != varlocalz) && (getphMayor() != varlocalphMayor) && (getphMenor() != varlocalphMenor)) {
-                            chart.series[0].addPoint([varlocalx, varlocalz]);
-                            chart.series[1].addPoint([varlocalx, varlocalphMayor]);
-                            chart.series[2].addPoint([varlocalx, varlocalphMenor]);
-                        }
+                        jquery__WEBPACK_IMPORTED_MODULE_3__.each(UltimosDatos, function (key, value) {
+                            var sixHoursInMilliseconds = 6 * 60 * 60 * 1000;
+                            var newTimestamp = UltimosDatos[key].x - sixHoursInMilliseconds;
+                            UltimosDatos[key].x = newTimestamp;
+                            var varlocalx = parseInt(UltimosDatos[0].x);
+                            var varlocalz = parseFloat(UltimosDatos[0].z);
+                            var varlocalphMayor = parseFloat(UltimosDatos[0].phMayor);
+                            var varlocalphMenor = parseFloat(UltimosDatos[0].phMenor);
+                            if ((getx() != varlocalx) && (getz() != varlocalz) && (getphMayor() != varlocalphMayor) && (getphMenor() != varlocalphMenor)) {
+                                chart.series[0].addPoint([varlocalx, varlocalz]);
+                                chart.series[1].addPoint([varlocalx, varlocalphMayor]);
+                                chart.series[2].addPoint([varlocalx, varlocalphMenor]);
+                            }
+                        });
                     }
                 }
             });

@@ -313,31 +313,36 @@ cargarDatosFull() {
         dataType : 'json',
         success : 
           function (UltimosDatos) {
-          if(UltimosDatos.length != 0){
-            var updateFecha = parseInt(UltimosDatos[0].fecha);
-            var updateDensidad = parseFloat(UltimosDatos[0].densidad);
-            var updateAcidez = parseFloat(UltimosDatos[0].acidez);
-            var updateTemperatura = parseFloat(UltimosDatos[0].temperatura);
-            var updateVolumen = parseFloat(UltimosDatos[0].volumen);
-            
-            if (
-              getx() != updateFecha &&
-              gety() != updateDensidad &&
-              getz() != updateAcidez &&
-              getw() != updateTemperatura &&
-              getv() != updateVolumen) {
-                chart.series[0].addPoint([updateFecha, updateDensidad]);
-                chart.series[1].addPoint([updateFecha, updateAcidez]);
-                chart.series[2].addPoint([updateFecha, updateTemperatura]);
-                chart.series[3].addPoint([updateFecha, updateVolumen]);
-            //chart.series[0].addPoint([varlocalx, varlocaly - 1], false, true);
-            //chart.series[1].addPoint([varlocalx,varlocalz - 1], false, true);
-            //chart.series[2].addPoint([varlocalx,varlocalw - 1], false, true);
-            //chart.series[3].addPoint([varlocalx,varlocalv - 1], false, true);
-            //chart.series[4].addPoint([varlocalx,varlocalu - 1], false, true);
-            chart.redraw();
-          }
-        }
+            if (UltimosDatos.length != 0) {
+              $.each(UltimosDatos, function (key, value) {
+                var sixHoursInMilliseconds = 6 * 60 * 60 * 1000;
+                var newTimestamp = UltimosDatos[key].fecha - sixHoursInMilliseconds;
+                UltimosDatos[key].fecha = newTimestamp;
+                var updateFecha = parseInt(UltimosDatos[0].fecha);
+                var updateDensidad = parseFloat(UltimosDatos[0].densidad);
+                var updateAcidez = parseFloat(UltimosDatos[0].acidez);
+                var updateTemperatura = parseFloat(UltimosDatos[0].temperatura);
+                var updateVolumen = parseFloat(UltimosDatos[0].volumen);
+
+                if (
+                  getx() != updateFecha &&
+                  gety() != updateDensidad &&
+                  getz() != updateAcidez &&
+                  getw() != updateTemperatura &&
+                  getv() != updateVolumen) {
+                  chart.series[0].addPoint([updateFecha, updateDensidad]);
+                  chart.series[1].addPoint([updateFecha, updateAcidez]);
+                  chart.series[2].addPoint([updateFecha, updateTemperatura]);
+                  chart.series[3].addPoint([updateFecha, updateVolumen]);
+                  //chart.series[0].addPoint([varlocalx, varlocaly - 1], false, true);
+                  //chart.series[1].addPoint([varlocalx,varlocalz - 1], false, true);
+                  //chart.series[2].addPoint([varlocalx,varlocalw - 1], false, true);
+                  //chart.series[3].addPoint([varlocalx,varlocalv - 1], false, true);
+                  //chart.series[4].addPoint([varlocalx,varlocalu - 1], false, true);
+                  chart.redraw();
+                }
+              })
+            }
       }
     });
     }, 60000);
