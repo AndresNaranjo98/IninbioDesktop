@@ -38,6 +38,13 @@ ion-card{
     left: 42%; 
   }
 
+  .logo-alma{
+    height: 60px; 
+    align-items:center; 
+    display: flex; 
+    justify-content: center; 
+  }
+
   ion-content{
     background-color: #CECECE; 
   }
@@ -61,7 +68,7 @@ ion-card{
   }
 
   ion-button.fondo {
-    --background: #CECECE;
+    --background: #bdb7b0;
     --border-color: none; 
     --border-width: 0px !important;
     --color : #000000;
